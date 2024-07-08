@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,6 +11,7 @@ namespace AdministraciónEstudiantil
 {
     public class GestionListas
     {
+        #region Departamento
         public Departamento inicio;
         public Departamento final;
 
@@ -57,7 +59,6 @@ namespace AdministraciónEstudiantil
                         departamento.Nombre = datos.Nombre;
                         departamento.Codigo = datos.Codigo;
                         departamento.Descripcion = datos.Descripcion;
-                        MessageBox.Show($"Departamento {nombreDepartamento} Modificado Correctamente.", "Satisfactorio!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         return;                        
                     }
                     departamento = departamento.Next;
@@ -93,7 +94,6 @@ namespace AdministraciónEstudiantil
                     {
                         departamentoAnterior.Next = departamentoActual.Next;
                     }
-                    MessageBox.Show($"Departamento {nombreDepartamento} Eliminado Correctamente.", "Satisfactorio!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 departamentoAnterior = departamentoActual;
                 departamentoActual = departamentoActual.Next;
@@ -119,17 +119,13 @@ namespace AdministraciónEstudiantil
         public void AgregarDepartamentosADataGridView(DataGridView dataGridView)
         {
             dataGridView.Rows.Clear();
-            dataGridView.ColumnCount = 3;
-            dataGridView.Columns[0].Name = "CODIGO";
-            dataGridView.Columns[1].Name = "NOMBRE";
-            dataGridView.Columns[2].Name = "DESCRIPCION";
-            dataGridView.Columns["CODIGO"].Width = 100;
-            dataGridView.Columns["NOMBRE"].Width = 100;
-            dataGridView.Columns["DESCRIPCION"].Width = 300;
-            
-            //dataGridView.Rows.Add("230","Informatica", "Departamento de EICA");
-            //dataGridView.Rows.Add("008", "Cursos Basicos", "Materias Básicas ");
-            //dataGridView.Rows.Add("220", "Estadística", "Ciencias Estadísticas");
+            //dataGridView.ColumnCount = 3;
+            //dataGridView.Columns[0].Name = "CODIGO";
+            //dataGridView.Columns[1].Name = "NOMBRE";
+            //dataGridView.Columns[2].Name = "DESCRIPCION";
+            //dataGridView.Columns["CODIGO"].Width = 100;
+            //dataGridView.Columns["NOMBRE"].Width = 100;
+            //dataGridView.Columns["DESCRIPCION"].Width = 300;
 
             Departamento Departamento = inicio;
             while (Departamento != null)
@@ -138,6 +134,8 @@ namespace AdministraciónEstudiantil
                 Departamento = Departamento.Next;
             }
         }
+        #endregion
+
     }
 
     public class Departamento
@@ -161,8 +159,16 @@ namespace AdministraciónEstudiantil
     {
         public string Codigo { get; set; }
         public string Nombre { get; set; }
+        public string Descripcion { get; set; }
         public EstudianteNode Estudiantes { get; set; }
         public MateriaNode Next { get; set; }
+        
+        public MateriaNode(MateriaNode Datos)
+        {
+            Codigo = Datos.Codigo;
+            Nombre = Datos.Nombre;
+            Descripcion = Datos.Nombre;
+        }
     }
     public class EstudianteNode
     {

@@ -123,17 +123,17 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="label1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI Symbol, 20.25pt</value>
+    <value>Segoe UI Symbol, 15pt</value>
   </data>
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>148, 25</value>
+    <value>6, 36</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="label1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>5, 0, 5, 0</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>207, 37</value>
+    <value>151, 28</value>
   </data>
   <data name="label1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -148,25 +148,28 @@
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label1.Parent" xml:space="preserve">
-    <value>$this</value>
+    <value>panelUsuario</value>
   </data>
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>0</value>
+  </data>
+  <data name="btnMaterias.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
   </data>
   <data name="btnMaterias.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
   <data name="btnMaterias.Location" type="System.Drawing.Point, System.Drawing">
-    <value>177, 86</value>
+    <value>0, 108</value>
   </data>
   <data name="btnMaterias.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>5, 1, 5, 1</value>
   </data>
   <data name="btnMaterias.Size" type="System.Drawing.Size, System.Drawing">
-    <value>135, 69</value>
+    <value>161, 35</value>
   </data>
   <data name="btnMaterias.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="btnMaterias.Text" xml:space="preserve">
     <value>MATERIAS</value>
@@ -178,10 +181,13 @@
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnMaterias.Parent" xml:space="preserve">
-    <value>$this</value>
+    <value>panelLateral</value>
   </data>
   <data name="&gt;&gt;btnMaterias.ZOrder" xml:space="preserve">
     <value>2</value>
+  </data>
+  <data name="btnDepartamentos.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
   </data>
   <data name="btnDepartamentos.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -190,16 +196,16 @@
     <value>NoControl</value>
   </data>
   <data name="btnDepartamentos.Location" type="System.Drawing.Point, System.Drawing">
-    <value>32, 86</value>
+    <value>0, 143</value>
   </data>
   <data name="btnDepartamentos.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>5, 1, 5, 1</value>
   </data>
   <data name="btnDepartamentos.Size" type="System.Drawing.Size, System.Drawing">
-    <value>135, 69</value>
+    <value>161, 35</value>
   </data>
   <data name="btnDepartamentos.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+    <value>1</value>
   </data>
   <data name="btnDepartamentos.Text" xml:space="preserve">
     <value>DEPARTAMENTOS</value>
@@ -211,10 +217,13 @@
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnDepartamentos.Parent" xml:space="preserve">
-    <value>$this</value>
+    <value>panelLateral</value>
   </data>
   <data name="&gt;&gt;btnDepartamentos.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="btnEstudiantes.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
   </data>
   <data name="btnEstudiantes.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -223,13 +232,13 @@
     <value>NoControl</value>
   </data>
   <data name="btnEstudiantes.Location" type="System.Drawing.Point, System.Drawing">
-    <value>322, 86</value>
+    <value>0, 178</value>
   </data>
   <data name="btnEstudiantes.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>5, 1, 5, 1</value>
   </data>
   <data name="btnEstudiantes.Size" type="System.Drawing.Size, System.Drawing">
-    <value>135, 69</value>
+    <value>161, 35</value>
   </data>
   <data name="btnEstudiantes.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -244,9 +253,81 @@
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnEstudiantes.Parent" xml:space="preserve">
-    <value>$this</value>
+    <value>panelLateral</value>
   </data>
   <data name="&gt;&gt;btnEstudiantes.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="panelUsuario.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="panelUsuario.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="panelUsuario.Size" type="System.Drawing.Size, System.Drawing">
+    <value>161, 108</value>
+  </data>
+  <data name="panelUsuario.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;panelUsuario.Name" xml:space="preserve">
+    <value>panelUsuario</value>
+  </data>
+  <data name="&gt;&gt;panelUsuario.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panelUsuario.Parent" xml:space="preserve">
+    <value>panelLateral</value>
+  </data>
+  <data name="&gt;&gt;panelUsuario.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="panelLateral.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="panelLateral.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="panelLateral.Size" type="System.Drawing.Size, System.Drawing">
+    <value>163, 501</value>
+  </data>
+  <data name="panelLateral.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;panelLateral.Name" xml:space="preserve">
+    <value>panelLateral</value>
+  </data>
+  <data name="&gt;&gt;panelLateral.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panelLateral.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;panelLateral.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="panelPrincipal.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="panelPrincipal.Location" type="System.Drawing.Point, System.Drawing">
+    <value>163, 0</value>
+  </data>
+  <data name="panelPrincipal.Size" type="System.Drawing.Size, System.Drawing">
+    <value>619, 501</value>
+  </data>
+  <data name="panelPrincipal.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;panelPrincipal.Name" xml:space="preserve">
+    <value>panelPrincipal</value>
+  </data>
+  <data name="&gt;&gt;panelPrincipal.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panelPrincipal.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;panelPrincipal.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -256,13 +337,10 @@
     <value>7, 17</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>490, 201</value>
+    <value>782, 501</value>
   </data>
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI Symbol, 10pt</value>
-  </data>
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
   <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>5, 1, 5, 1</value>

@@ -23,7 +23,7 @@ namespace AdministraciónEstudiantil
             listaDepartamentos.AgregarDepartamento(Precargas2());
             listaDepartamentos.AgregarDepartamento(Precargas3());
             listaDepartamentos.AgregarDepartamentosADataGridView(dgvDepartamentos);
-        }        
+        }
         private void btnGestion_Click(object sender, EventArgs e)
         {
             this.Visible = false;
@@ -78,8 +78,7 @@ namespace AdministraciónEstudiantil
             return datos;
         }
         private void Agregar(object sender, EventArgs e)
-        {
-            
+        {            
             listaDepartamentos.AgregarDepartamento(ObtenerDatos());
             listaDepartamentos.AgregarDepartamentosADataGridView(dgvDepartamentos);
             //listaDepartamentos.MostrarDepartamentosEnComboBox(cbxDepartamentos);

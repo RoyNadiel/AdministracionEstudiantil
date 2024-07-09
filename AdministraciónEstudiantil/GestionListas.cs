@@ -33,7 +33,6 @@ namespace AdministraciónEstudiantil
                 final = nuevoDepartamento;
             }
         }
-
         public Departamento ObtenerDepartamento(string nombre)
         {
             Departamento temp = inicio;
@@ -61,8 +60,7 @@ namespace AdministraciónEstudiantil
                         departamento.Descripcion = datos.Descripcion;
                         return;                        
                     }
-                    departamento = departamento.Next;
-                    
+                    departamento = departamento.Next;                    
                 }
             }
         }
@@ -135,7 +133,47 @@ namespace AdministraciónEstudiantil
             }
         }
         #endregion
+        /////////////////////////////    METODOS PARA LAS MATERIAS    /////////////////////////////////////
+        public void AgregarMateria(string nombreDepartamento, MateriaNode Datos)
+        {
+            Departamento departamento = ObtenerDepartamento(nombreDepartamento);
+            if (departamento != null)
+            {
+                MateriaNode nuevaMateria = Datos;
+                if (departamento.Materias == null)
+                {
+                    departamento.Materias = nuevaMateria;
+                }
+                else
+                {
+                    MateriaNode temp = departamento.Materias;
+                    while (temp.Next != null)
+                    {
+                        temp = temp.Next;
+                    }
+                    temp.Next = nuevaMateria;
+                }
+            }
+            else
+            {
+                MessageBox.Show("No se encontro el departamento");
+            }            
+        }
+        public void AgregarMateriasADataGridView(string nombreDepartamento, DataGridView dataGridView)
+        {
+            Departamento departamento = ObtenerDepartamento(nombreDepartamento);
 
+            if (departamento != null)
+            {
+                MateriaNode Materia = departamento.Materias;
+                while (Materia != null)
+                {
+                    dataGridView.Rows.Add(Materia.Codigo, Materia.Nombre, Materia.Descripcion);
+                    Materia = Materia.Next;
+                }
+                return;
+            }
+        }
     }
 
     public class Departamento
@@ -163,6 +201,7 @@ namespace AdministraciónEstudiantil
         public EstudianteNode Estudiantes { get; set; }
         public MateriaNode Next { get; set; }
         
+        public MateriaNode() { }
         public MateriaNode(MateriaNode Datos)
         {
             Codigo = Datos.Codigo;

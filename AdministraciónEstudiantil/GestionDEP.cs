@@ -13,7 +13,7 @@ namespace AdministraciónEstudiantil
     public partial class GestionDEP : Form
     {
         GestionGeneral ventana;
-        GestionListas listaDepartamentos = new GestionListas();
+        static GestionListas listaDepartamentos = new GestionListas();
         string[] selectedRow = new string[1];
         public GestionDEP()
         {
@@ -81,7 +81,6 @@ namespace AdministraciónEstudiantil
         {            
             listaDepartamentos.AgregarDepartamento(ObtenerDatos());
             listaDepartamentos.AgregarDepartamentosADataGridView(dgvDepartamentos);
-            //listaDepartamentos.MostrarDepartamentosEnComboBox(cbxDepartamentos);
             Limpiar();
         }
         private void Modificar(object sender, EventArgs e)
@@ -90,7 +89,6 @@ namespace AdministraciónEstudiantil
             {
                 listaDepartamentos.ModificarDepartamentos(selectedRow[0], DatosAModificar());
                 listaDepartamentos.AgregarDepartamentosADataGridView(dgvDepartamentos);
-                //listaDepartamentos.MostrarDepartamentosEnComboBox(cbxDepartamentos);
                 Limpiar();
             }
             else
@@ -109,7 +107,6 @@ namespace AdministraciónEstudiantil
                 MessageBox.Show("Seleccione el Departamento a ELIMINAR", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             listaDepartamentos.AgregarDepartamentosADataGridView(dgvDepartamentos);
-            //listaDepartamentos.MostrarDepartamentosEnComboBox(cbxDepartamentos);
             Limpiar();
         }
         private void Cancelar(object sender, EventArgs e)
@@ -142,5 +139,6 @@ namespace AdministraciónEstudiantil
         {
             btnEliminar.Enabled = true;
         }
+        public static GestionListas EnviarDepartamentos() => listaDepartamentos;
     }
 }

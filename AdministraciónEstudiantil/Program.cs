@@ -16,7 +16,7 @@ namespace AdministraciónEstudiantil
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new GestionGeneral());
+            Application.Run(new Administracion());
         }
     }
 }

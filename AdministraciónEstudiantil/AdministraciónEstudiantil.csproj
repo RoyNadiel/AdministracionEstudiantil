@@ -33,8 +33,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Bunifu_UI_v1.5.3">
+      <HintPath>..\..\..\Bunifu_UI_v1.5.3.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,44 +51,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GestionEST.cs">
+    <Compile Include="Administracion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GestionEST.Designer.cs">
-      <DependentUpon>GestionEST.cs</DependentUpon>
+    <Compile Include="Administracion.Designer.cs">
+      <DependentUpon>Administracion.cs</DependentUpon>
     </Compile>
-    <Compile Include="GestionMAT.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GestionMAT.Designer.cs">
-      <DependentUpon>GestionMAT.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GestionDEP.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GestionDEP.Designer.cs">
-      <DependentUpon>GestionDEP.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GestionGeneral.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GestionGeneral.Designer.cs">
-      <DependentUpon>GestionGeneral.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GestionListas.cs" />
+    <Compile Include="Listas.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="GestionEST.resx">
-      <DependentUpon>GestionEST.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GestionMAT.resx">
-      <DependentUpon>GestionMAT.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GestionDEP.resx">
-      <DependentUpon>GestionDEP.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GestionGeneral.resx">
-      <DependentUpon>GestionGeneral.cs</DependentUpon>
+    <EmbeddedResource Include="Administracion.resx">
+      <DependentUpon>Administracion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

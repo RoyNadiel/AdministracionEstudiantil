@@ -75,6 +75,18 @@ namespace AdministraciónEstudiantil
                 currentDepartamento = currentDepartamento.Next;
             }
         }
+        public void AsignarCodigo(ComboBox cbx, TextBox txt)
+        {
+            Departamento departamento = inicio;
+            while (departamento != null)
+            {
+                if (cbx.Text == departamento.Nombre)
+                {
+                    txt.Text = departamento.Codigo;
+                }
+                departamento = departamento.Next;
+            }
+        }
         public void EliminarDepartamento(string nombreDepartamento)
         {
             Departamento departamentoAnterior = null;
@@ -152,6 +164,47 @@ namespace AdministraciónEstudiantil
                 MessageBox.Show("No se encontro el departamento");
             }            
         }
+        public void MostrarCreditos()
+        {
+            Departamento departamento = inicio;
+            string[] materias = new string[10];
+            int[] creditos = new int[10];
+            int contador = 0;
+
+            while (departamento != null)
+            {
+                MateriaNode materia = departamento.Materias;
+                while (materia != null)
+                {
+                    creditos[contador] = materia.Creditos;
+                    materias[contador] = materia.Nombre;
+                    materia = materia.Next;
+                    contador++;
+                }
+                departamento = departamento.Next;
+            }
+            MessageBox.Show(
+                $"La materia {materias[0]} tiene {creditos[0]} creditos\n\n" +
+                $"La materia {materias[1]} tiene {creditos[1]} creditos\n\n" +
+                $"La materia {materias[2]} tiene {creditos[2]} creditos\n\n",
+                "Resultados", MessageBoxButtons.OK, MessageBoxIcon.Information
+                );
+        }
+        public void MostrarCreditosReal()
+        {
+            Departamento departamento = inicio;
+
+            while (departamento != null)
+            {
+                MateriaNode materia = departamento.Materias;
+                while (materia != null)
+                {
+                    MessageBox.Show($"La materia {materia.Nombre} cuenta con {materia.Creditos} Creditos", "Resultados", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    materia = materia.Next;
+                }
+                departamento = departamento.Next;
+            }
+        }
         public void AgregarMateriasADataGridView(DataGridView dataGridView)
         {
             dataGridView.Rows.Clear();
@@ -206,7 +259,6 @@ namespace AdministraciónEstudiantil
                     {
                         if (Materia.Nombre == nombreMateria)
                         {
-                            // Eliminar la materia de la lista enlazada
                             if (previousMateria == null)
                             {
                                 Departamento.Materias = Materia.Next;
@@ -264,7 +316,6 @@ namespace AdministraciónEstudiantil
         }
         public void AgregarEstudiantesADataGridView(DataGridView dataGridView)
         {
-            // Limpiar filas existentes en el DataGridView
             dataGridView.Rows.Clear();
 
             Departamento departamento = inicio;
@@ -323,7 +374,6 @@ namespace AdministraciónEstudiantil
                             {
                                 if (estudiante.Nombre == nombreEstudiante)
                                 {
-                                    // Modificar la nota del estudiante
                                     estudiante.Nota = nuevaNota;
                                     return;
                                 }
@@ -359,7 +409,6 @@ namespace AdministraciónEstudiantil
                                 {
                                     if (estudianteAnterior == null)
                                     {
-                                        // El estudiante a eliminar es el primer nodo de la lista de estudiantes de la materia
                                         materiaActual.Estudiantes = estudianteActual.Next;
                                     }
                                     else
@@ -406,6 +455,7 @@ namespace AdministraciónEstudiantil
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
         public string Departamento { get; set; }
+        public int Creditos { get; set; }
         public EstudianteNode Estudiantes { get; set; }
         public MateriaNode Next { get; set; }
         

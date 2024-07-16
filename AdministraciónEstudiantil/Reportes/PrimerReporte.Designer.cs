@@ -76,6 +76,13 @@ namespace AdministraciónEstudiantil
             this.dataGridViewTextBoxColumn26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn27 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvNuevo = new System.Windows.Forms.DataGridView();
+            this.cbxMaterias = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnFiltrar = new System.Windows.Forms.Button();
+            this.cbxPeriodos = new System.Windows.Forms.ComboBox();
+            this.btnMostrar = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNuevo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -359,49 +366,132 @@ namespace AdministraciónEstudiantil
             this.dgvNuevo.AllowUserToResizeRows = false;
             this.dgvNuevo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvNuevo.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgvNuevo.BackgroundColor = System.Drawing.SystemColors.InactiveBorder;
+            this.dgvNuevo.BackgroundColor = System.Drawing.Color.Azure;
             this.dgvNuevo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvNuevo.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.Azure;
             dataGridViewCellStyle13.Font = new System.Drawing.Font("Sitka Small", 9F);
             dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.InactiveBorder;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.Azure;
             dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvNuevo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.dgvNuevo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvNuevo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvNuevo.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvNuevo.EnableHeadersVisualStyles = false;
-            this.dgvNuevo.Location = new System.Drawing.Point(0, 0);
+            this.dgvNuevo.Location = new System.Drawing.Point(0, 102);
+            this.dgvNuevo.Margin = new System.Windows.Forms.Padding(0);
             this.dgvNuevo.Name = "dgvNuevo";
             this.dgvNuevo.ReadOnly = true;
+            this.dgvNuevo.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvNuevo.RowHeadersVisible = false;
-            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.Azure;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
             this.dgvNuevo.RowsDefaultCellStyle = dataGridViewCellStyle14;
             this.dgvNuevo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvNuevo.Size = new System.Drawing.Size(970, 249);
-            this.dgvNuevo.TabIndex = 2;
+            this.dgvNuevo.Size = new System.Drawing.Size(891, 236);
+            this.dgvNuevo.TabIndex = 0;
+            // 
+            // cbxMaterias
+            // 
+            this.cbxMaterias.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxMaterias.FormattingEnabled = true;
+            this.cbxMaterias.Location = new System.Drawing.Point(177, 69);
+            this.cbxMaterias.Name = "cbxMaterias";
+            this.cbxMaterias.Size = new System.Drawing.Size(153, 26);
+            this.cbxMaterias.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(18, 48);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(59, 18);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Periodo:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(174, 48);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(61, 18);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Materia:";
+            // 
+            // btnFiltrar
+            // 
+            this.btnFiltrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFiltrar.Location = new System.Drawing.Point(336, 69);
+            this.btnFiltrar.Name = "btnFiltrar";
+            this.btnFiltrar.Size = new System.Drawing.Size(75, 26);
+            this.btnFiltrar.TabIndex = 6;
+            this.btnFiltrar.Text = "Filtrar";
+            this.btnFiltrar.UseVisualStyleBackColor = true;
+            this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
+            // 
+            // cbxPeriodos
+            // 
+            this.cbxPeriodos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxPeriodos.FormattingEnabled = true;
+            this.cbxPeriodos.Location = new System.Drawing.Point(18, 69);
+            this.cbxPeriodos.Name = "cbxPeriodos";
+            this.cbxPeriodos.Size = new System.Drawing.Size(153, 26);
+            this.cbxPeriodos.TabIndex = 1;
+            // 
+            // btnMostrar
+            // 
+            this.btnMostrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMostrar.Location = new System.Drawing.Point(417, 69);
+            this.btnMostrar.Name = "btnMostrar";
+            this.btnMostrar.Size = new System.Drawing.Size(75, 26);
+            this.btnMostrar.TabIndex = 7;
+            this.btnMostrar.Text = "Mostrar";
+            this.btnMostrar.UseVisualStyleBackColor = true;
+            this.btnMostrar.Click += new System.EventHandler(this.btnMostrar_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Sitka Small", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(94, 9);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(706, 28);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "BUSCAR ESTUDIANTES EN UNA MATERIA EN UN PERIODO ESPECIFICO";
             // 
             // PrimerReporte
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(970, 249);
+            this.BackColor = System.Drawing.Color.Azure;
+            this.ClientSize = new System.Drawing.Size(891, 338);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.btnMostrar);
+            this.Controls.Add(this.btnFiltrar);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.cbxMaterias);
+            this.Controls.Add(this.cbxPeriodos);
             this.Controls.Add(this.dgvNuevo);
             this.Font = new System.Drawing.Font("Sitka Small", 9F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "PrimerReporte";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PrimerReporte";
             ((System.ComponentModel.ISupportInitialize)(this.dgvNuevo)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
+
         private System.Windows.Forms.DataGridViewTextBoxColumn CEDULA;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
@@ -435,5 +525,13 @@ namespace AdministraciónEstudiantil
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn26;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn27;
         private System.Windows.Forms.DataGridView dgvNuevo;
+        private System.Windows.Forms.ComboBox cbxMaterias;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnFiltrar;
+        private System.Windows.Forms.ComboBox cbxPeriodos;
+        private System.Windows.Forms.DataGridView dgvMaterias;
+        private System.Windows.Forms.Button btnMostrar;
+        private System.Windows.Forms.Label label3;
     }
 }

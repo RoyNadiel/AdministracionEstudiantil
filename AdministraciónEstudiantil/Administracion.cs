@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AdministraciónEstudiantil.Reportes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,16 +22,18 @@ namespace AdministraciónEstudiantil
             Lista.AgregarDepartamento(PrecargasDepartamentos1());
             Lista.AgregarDepartamento(PrecargasDepartamentos2());
             Lista.AgregarDepartamento(PrecargasDepartamentos3());
+            Lista.MostrarDepartamentosEnComboBox(cbxDepartamentosMAT);
             Lista.AgregarMateria("Informatica", PrecargasMaterias1());
             Lista.AgregarMateria("Cursos Basicos", PrecargasMaterias2());
+            Lista.AgregarMateria("Estadistica", PrecargasMaterias3());
             Lista.AgregarMateriasADataGridView(dgvMaterias);
-            Lista.AgregarEstudiante("Informatica", "ALG & Datos II", PrecargasEstudiantes1());
-            Lista.AgregarEstudiante("Informatica", "ALG & Datos II", PrecargasEstudiantes2());
+            Lista.AgregarEstudiante("Informatica", "Datos II", PrecargasEstudiantes1());
+            Lista.AgregarEstudiante("Informatica", "Datos II", PrecargasEstudiantes2());
+            Lista.AgregarEstudiante("Estadistica", "Computacion I", PrecargasEstudiantes3());
+            Lista.AgregarEstudiante("Estadistica", "Computacion I", PrecargasEstudiantes4());
             Lista.AgregarEstudiantesADataGridView(dgvEstudiantes);
-            Lista.AgregarDepartamentosADataGridView(dgvDepartamentos);
-            Lista.MostrarDepartamentosEnComboBox(cbxDepartamentosMAT);
+            Lista.AgregarDepartamentosADataGridView(dgvDepartamentos);            
             Lista.MostrarDepartamentosEnComboBox(cbxDepartamentosEST);
-            sidePanel1.Visible = false;
         }
         private void GestionDEP_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -108,16 +111,22 @@ namespace AdministraciónEstudiantil
             return true;
         }        
         string[] DepartamentoSeleccionado = new string[1];
+        DataGridViewRow rowDEP;
         private void dgvDepartamentos_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+            string[] rowSelected = new string[3];
             if (e.RowIndex >= 0)
             {
-                DataGridViewRow row = dgvDepartamentos.Rows[e.RowIndex];
-                DepartamentoSeleccionado[0] = row.Cells[1].Value.ToString();
+                rowDEP = dgvDepartamentos.Rows[e.RowIndex];
+                DepartamentoSeleccionado[0] = rowDEP.Cells[1].Value.ToString();
             }
-            //txtCodigoDEP.Text = row.Cells[0].Value.ToString();
-            //txtNombreDEP.Text = row.Cells[1].Value.ToString();
-            //txtDescripcionDEP.Text = row.Cells[2].Value.ToString();
+            for (int x = 0; x < rowDEP.Cells.Count; x++)
+            {
+                rowSelected[x] = rowDEP.Cells[x].Value.ToString();
+            }
+            txtCodigoDEP.Text = rowSelected[0];
+            txtNombreDEP.Text = rowSelected[1];
+            txtDescripcionDEP.Text = rowSelected[2];
             btnAgregarDEP.Enabled = false;
             btnModificarDEP.Enabled = true;
             btnEliminarDEP.Enabled = true;
@@ -130,6 +139,8 @@ namespace AdministraciónEstudiantil
                 Lista.AgregarDepartamentosADataGridView(dgvDepartamentos);
                 Lista.MostrarDepartamentosEnComboBox(cbxDepartamentosMAT);
                 Lista.MostrarDepartamentosEnComboBox(cbxDepartamentosEST);
+                Lista.AgregarMateriasADataGridView(dgvMaterias);
+                Lista.AgregarEstudiantesADataGridView(dgvEstudiantes);
                 LimpiarDepartamentos();
                 btnAgregarDEP.Enabled = true;
                 btnModificarDEP.Enabled = false;
@@ -148,6 +159,8 @@ namespace AdministraciónEstudiantil
                 Lista.AgregarDepartamentosADataGridView(dgvDepartamentos);
                 Lista.MostrarDepartamentosEnComboBox(cbxDepartamentosMAT);
                 Lista.MostrarDepartamentosEnComboBox(cbxDepartamentosEST);
+                Lista.AgregarMateriasADataGridView(dgvMaterias);
+                Lista.AgregarEstudiantesADataGridView(dgvEstudiantes);
                 LimpiarDepartamentos();
                 btnAgregarDEP.Enabled = true;
                 btnModificarDEP.Enabled = false;
@@ -163,6 +176,7 @@ namespace AdministraciónEstudiantil
             btnAgregarDEP.Enabled = true;
             btnModificarDEP.Enabled = false;
             btnEliminarDEP.Enabled = false;
+            LimpiarDepartamentos();
         }
         private void LimpiarDepartamentos()
         {
@@ -183,24 +197,37 @@ namespace AdministraciónEstudiantil
             datos.Nombre = txtNombreMAT.Text;
             datos.Descripcion = txtDescripcionMAT.Text;
             datos.Departamento = cbxDepartamentosMAT.Text;
+            datos.Creditos = int.Parse(txtCodigoMAT.Text.Last().ToString());
             return datos;
         }
         private MateriaNode PrecargasMaterias1()
         {
             MateriaNode datos = new MateriaNode();
             datos.Codigo = "2301324";
-            datos.Nombre = "ALG & Datos II";
+            datos.Nombre = "Datos II";
             datos.Descripcion = "Estructuras de datos";
             datos.Departamento = "Informatica";
+            datos.Creditos = 4;
             return datos;
         }
         private MateriaNode PrecargasMaterias2()
         {
             MateriaNode datos = new MateriaNode();
             datos.Codigo = "0081214";
-            datos.Nombre = "Matemáticas I";
-            datos.Descripcion = "Cálculo Cásico";
+            datos.Nombre = "Matematicas I";
+            datos.Descripcion = "Calculo Basico";
             datos.Departamento = "Cursos Basicos";
+            datos.Creditos = 4;
+            return datos;
+        }
+        private MateriaNode PrecargasMaterias3()
+        {
+            MateriaNode datos = new MateriaNode();
+            datos.Codigo = "2201213";
+            datos.Nombre = "Computacion I";
+            datos.Descripcion = "Principios de computación";
+            datos.Departamento = "Estadistica";
+            datos.Creditos = 3;
             return datos;
         }
         private void AgregarMateria(object sender, EventArgs e)
@@ -211,10 +238,10 @@ namespace AdministraciónEstudiantil
                 Lista.AgregarMateriasADataGridView(dgvMaterias);
                 LimpiarMaterias();                
             }
-            else
-            {
-                MessageBox.Show("El codigo de la materia ya existe.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+        }
+        private void cbxDepartamentosMAT_TextChanged(object sender, EventArgs e)
+        {
+            Lista.AsignarCodigo(cbxDepartamentosMAT, txtCodigoMAT);
         }
         private bool ValidarRepeticionMAT()
         {
@@ -224,25 +251,42 @@ namespace AdministraciónEstudiantil
             // Verificar si el nuevo dato ya existe en la columna deseada
             foreach (DataGridViewRow row in dgvMaterias.Rows)
             {
-                string codigoExistente = row.Cells[CODIGO.Index].Value?.ToString();
-                string nombreExistente = row.Cells[NOMBRE.Index].Value?.ToString();
+                string codigoExistente = row.Cells[CODIGOMAT.Index].Value?.ToString();
+                string nombreExistente = row.Cells[NOMBREMAT.Index].Value?.ToString();
 
+                if (nuevoCodigo == codigoExistente)
+                {
+                    if (nuevoNombre != nombreExistente)
+                    {
+                        MessageBox.Show("La materia que intenta ingresar ya existe", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return false;
+                    }                    
+                }
                 if (nuevoCodigo == codigoExistente && nuevoNombre == nombreExistente)
                 {
-                    return false;
-                }
+                    txtDescripcionMAT.Text = row.Cells[DESCRIPCIONMAT.Index].Value.ToString();
+                }                
             }
             return true;
         }
         string[] MateriaSeleccionada = new string[2];
+        DataGridViewRow rowMAT;
         private void SeleccionarFila(object sender, DataGridViewCellMouseEventArgs e)
         {
+            string[] selectedRow = new string[4];
             if (e.RowIndex >= 0)
             {
-                DataGridViewRow row = dgvMaterias.Rows[e.RowIndex];
-                MateriaSeleccionada[0] = row.Cells[1].Value.ToString();
-                MateriaSeleccionada[1] = row.Cells[3].Value.ToString();
+                rowMAT = dgvMaterias.Rows[e.RowIndex];
+                MateriaSeleccionada[0] = rowMAT.Cells[1].Value.ToString();
+                MateriaSeleccionada[1] = rowMAT.Cells[3].Value.ToString();
             }
+            for (int x = 0; x < rowMAT.Cells.Count; x++)
+            {
+                selectedRow[x] = rowMAT.Cells[x].Value.ToString();
+            }
+            txtCodigoMAT.Text = selectedRow[0];
+            txtNombreMAT.Text = selectedRow[1];
+            txtDescripcionMAT.Text = selectedRow[2];
             btnAgregarMAT.Enabled = false;
             btnModificarMAT.Enabled = true;
             btnEliminarMAT.Enabled = true;
@@ -268,6 +312,7 @@ namespace AdministraciónEstudiantil
             btnAgregarMAT.Enabled = true;
             btnModificarMAT.Enabled = false;
             btnEliminarMAT.Enabled = false;
+            LimpiarMaterias();
         }
         private void LimpiarMaterias()
         {
@@ -299,7 +344,7 @@ namespace AdministraciónEstudiantil
             datos.Apellido = "Rivas";
             datos.Seccion = "0620";
             datos.Periodo = "II-2023";
-            datos.Materia = "ALG & Datos II";
+            datos.Materia = "Datos II";
             datos.Departamento = "Informatica";
             datos.Nota = 0;
             return datos;
@@ -312,11 +357,38 @@ namespace AdministraciónEstudiantil
             datos.Apellido = "Rodriguez";
             datos.Seccion = "0620";
             datos.Periodo = "II-2023";
-            datos.Materia = "ALG & Datos II";
+            datos.Materia = "Datos II";
             datos.Departamento = "Informatica";
             datos.Nota = 0;
             return datos;
         }
+        private EstudianteNode PrecargasEstudiantes3()
+        {
+            EstudianteNode datos = new EstudianteNode();
+            datos.Cedula = "1616662";
+            datos.Nombre = "Cristhian";
+            datos.Apellido = "Gonzales";
+            datos.Seccion = "0820";
+            datos.Periodo = "II-2023";
+            datos.Materia = "Computacion I";
+            datos.Departamento = "Estadistica";
+            datos.Nota = 0;
+            return datos;
+        }
+        private EstudianteNode PrecargasEstudiantes4()
+        {
+            EstudianteNode datos = new EstudianteNode();
+            datos.Cedula = "14202614";
+            datos.Nombre = "Francisco";
+            datos.Apellido = "Gonzales";
+            datos.Seccion = "0820";
+            datos.Periodo = "II-2023";
+            datos.Materia = "Computacion I";
+            datos.Departamento = "Estadistica";
+            datos.Nota = 0;
+            return datos;
+        }
+
         private bool ValidarRepeticionEST()
         {
             string nuevoDato = txtCedulaEST.Text;
@@ -368,16 +440,27 @@ namespace AdministraciónEstudiantil
             Lista.MostrarMateriasAComboBox(cbxDepartamentosEST.Text, cbxMateriasEST, cbxDepartamentosEST);
         }
         string[] EstudianteSeleccionado = new string[4];
-        DataGridViewRow row;
+        DataGridViewRow rowEST;
         private void SeleccionarEstudiante(object sender, DataGridViewCellMouseEventArgs e)
         {
+            string[] rowSelected = new string[8];
             if (e.RowIndex >= 0)
             {
-                row = dgvEstudiantes.Rows[e.RowIndex];
-                EstudianteSeleccionado[0] = row.Cells[1].Value.ToString(); //NOMBRE
-                EstudianteSeleccionado[1] = row.Cells[5].Value.ToString(); //MATEIRA
-                EstudianteSeleccionado[2] = row.Cells[6].Value.ToString(); //DEPARTAMENTO               
+                rowEST = dgvEstudiantes.Rows[e.RowIndex];
+                EstudianteSeleccionado[0] = rowEST.Cells[1].Value.ToString(); //NOMBRE
+                EstudianteSeleccionado[1] = rowEST.Cells[5].Value.ToString(); //MATEIRA
+                EstudianteSeleccionado[2] = rowEST.Cells[6].Value.ToString(); //DEPARTAMENTO               
             }
+            for (int x = 0; x < rowEST.Cells.Count; x++)
+            {
+                rowSelected[x] = rowEST.Cells[x].Value.ToString();
+            }
+            txtCedulaEST.Text = rowSelected[0];
+            txtNombreEST.Text = rowSelected[1];
+            txtApellidoEST.Text = rowSelected[2];
+            txtSeccionEST.Text = rowSelected[3];
+            txtPeriodoEST.Text = rowSelected[4];
+            txtNotaEST.Text = rowSelected[7];
             btnAgregarEST.Enabled = false;
             btnModificarEST.Enabled = true;
             btnEliminarEST.Enabled = true;
@@ -404,6 +487,7 @@ namespace AdministraciónEstudiantil
             btnAgregarEST.Enabled = true;
             btnModificarEST.Enabled = false;
             btnEliminarEST.Enabled = false;
+            LimpiarEstudiantes();
         }
         private void LimpiarEstudiantes()
         {
@@ -457,15 +541,13 @@ namespace AdministraciónEstudiantil
                 e.Handled = true;
             }
         }
-        private void btnLateral1_Click_1(object sender, EventArgs e)
-        {            
-            PrimerReporte ventana = new PrimerReporte(CopiarDataGridView());
-            ventana.ShowDialog();
-        }
-        public DataGridView CopiarDataGridView()
+        #endregion      
+        private void button2_Click(object sender, EventArgs e)
         {
-            string periodo = txtPeriodoEST.Text.ToUpper();
-            string materia = cbxMateriasEST.Text;
+            Application.Exit();
+        }
+        public DataGridView CopiarDataGridViewEstudiantes()
+        {
             DataGridView dgvNuevo = new DataGridView();
 
             foreach (DataGridViewColumn col in dgvEstudiantes.Columns)
@@ -475,74 +557,50 @@ namespace AdministraciónEstudiantil
 
             foreach (DataGridViewRow row in dgvEstudiantes.Rows)
             {
-                if (row.Cells[5].Value.ToString() == materia)
+                DataGridViewRow newRow = (DataGridViewRow)row.Clone();
+                for (int i = 0; i < row.Cells.Count; i++)
                 {
-                    if (row.Cells[4].Value.ToString() == periodo)
-                    {
-                        DataGridViewRow newRow = (DataGridViewRow)row.Clone();
-                        for (int i = 0; i < row.Cells.Count; i++)
-                        {
-                            newRow.Cells[i].Value = row.Cells[i].Value;
-                        }
-                        dgvNuevo.Rows.Add(newRow);
-                    }
+                    newRow.Cells[i].Value = row.Cells[i].Value;
                 }
-            }            
+                dgvNuevo.Rows.Add(newRow);
+            }
             return dgvNuevo;
         }
-        public DataTable Estudiantes()
+        public DataGridView CopiarDataGridViewMaterias()
         {
-            DataGridView dataGridView = dgvEstudiantes;
+            DataGridView dgvNuevo = new DataGridView();
 
-            DataTable dataTable = new DataTable();
-
-            // Agregar columnas a la DataTable
-            foreach (DataGridViewColumn column in dataGridView.Columns)
+            foreach (DataGridViewColumn col in dgvMaterias.Columns)
             {
-                dataTable.Columns.Add(column.HeaderText);
+                dgvNuevo.Columns.Add(col.Clone() as DataGridViewColumn);
             }
 
-            // Agregar filas a la DataTable
-            foreach (DataGridViewRow row in dataGridView.Rows)
+            foreach (DataGridViewRow row in dgvMaterias.Rows)
             {
-                DataRow dataRow = dataTable.NewRow();
-                foreach (DataGridViewCell cell in row.Cells)
+                DataGridViewRow newRow = (DataGridViewRow)row.Clone();
+                for (int i = 0; i < row.Cells.Count; i++)
                 {
-                    dataRow[cell.ColumnIndex] = cell.Value != null ? cell.Value.ToString() : "";
+                    newRow.Cells[i].Value = row.Cells[i].Value;
                 }
-                dataTable.Rows.Add(dataRow);
+                dgvNuevo.Rows.Add(newRow);
             }
-            return dataTable;
+            return dgvNuevo;
         }
-        public DataGridView dgv()
+        private void btnLateral1_Click_1(object sender, EventArgs e)
+        {            
+            PrimerReporte ventana = new PrimerReporte(CopiarDataGridViewEstudiantes(), CopiarDataGridViewMaterias());
+            ventana.ShowDialog();
+        }               
+               
+        private void btnLateral2_Click(object sender, EventArgs e)
         {
-            DataGridView dgv = dgvEstudiantes;
-            return dgv;
-        }
+            SegundoReporte ventana = new SegundoReporte(CopiarDataGridViewEstudiantes(), CopiarDataGridViewMaterias());
+            ventana.ShowDialog();
+        }  
 
-        #endregion
-
-        private void tabDepartamentos_MouseMove(object sender, MouseEventArgs e)
+        private void btnLateral3_Click(object sender, EventArgs e)
         {
-            // Convertimos las coordenadas del cursor a coordenadas locales del SidePanel  
-            Point point = sidePanel1.PointToClient(MousePosition);
-
-            // Verificamos si el cursor se encuentra dentro del área del SidePanel  
-            if (sidePanel1.ClientRectangle.Contains(point))
-            {
-                sidePanel1.Visible = true; // Mostramos el SidePanel si el cursor está dentro de su área  
-            }
-            else
-            {
-                sidePanel1.Visible = false; // Ocultamos el SidePanel si el cursor está fuera de su área  
-            }            
-        } //SLIDE PANEL
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
+            Lista.MostrarCreditos();
         }
     }
-
-
 }

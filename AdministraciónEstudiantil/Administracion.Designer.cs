@@ -104,7 +104,6 @@ namespace AdministraciónEstudiantil
             this.btnCancelarMAT = new System.Windows.Forms.Button();
             this.tabPrincipal = new System.Windows.Forms.TabControl();
             this.tabDepartamentos = new System.Windows.Forms.TabPage();
-            this.btnCerrar = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.txtDescripcionDEP = new System.Windows.Forms.TextBox();
             this.txtCodigoDEP = new System.Windows.Forms.TextBox();
@@ -132,6 +131,7 @@ namespace AdministraciónEstudiantil
             this.btnLateral7 = new System.Windows.Forms.Button();
             this.btnLateral8 = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.tabEstudiantes.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtNotaEST)).BeginInit();
@@ -144,6 +144,7 @@ namespace AdministraciónEstudiantil
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDepartamentos)).BeginInit();
             this.panel4.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabEstudiantes
@@ -161,7 +162,7 @@ namespace AdministraciónEstudiantil
             this.tabEstudiantes.Location = new System.Drawing.Point(4, 27);
             this.tabEstudiantes.Name = "tabEstudiantes";
             this.tabEstudiantes.Padding = new System.Windows.Forms.Padding(3);
-            this.tabEstudiantes.Size = new System.Drawing.Size(907, 486);
+            this.tabEstudiantes.Size = new System.Drawing.Size(925, 484);
             this.tabEstudiantes.TabIndex = 2;
             this.tabEstudiantes.Text = "ESTUDIANTES";
             // 
@@ -237,7 +238,7 @@ namespace AdministraciónEstudiantil
             this.cbxMateriasEST.FormattingEnabled = true;
             this.cbxMateriasEST.Location = new System.Drawing.Point(280, 84);
             this.cbxMateriasEST.Name = "cbxMateriasEST";
-            this.cbxMateriasEST.Size = new System.Drawing.Size(113, 26);
+            this.cbxMateriasEST.Size = new System.Drawing.Size(131, 26);
             this.cbxMateriasEST.TabIndex = 37;
             // 
             // label17
@@ -285,7 +286,7 @@ namespace AdministraciónEstudiantil
             this.cbxDepartamentosEST.FormattingEnabled = true;
             this.cbxDepartamentosEST.Location = new System.Drawing.Point(279, 32);
             this.cbxDepartamentosEST.Name = "cbxDepartamentosEST";
-            this.cbxDepartamentosEST.Size = new System.Drawing.Size(113, 26);
+            this.cbxDepartamentosEST.Size = new System.Drawing.Size(131, 26);
             this.cbxDepartamentosEST.TabIndex = 31;
             this.cbxDepartamentosEST.SelectedIndexChanged += new System.EventHandler(this.cbxDepartamentosEST_SelectedIndexChanged);
             // 
@@ -349,11 +350,11 @@ namespace AdministraciónEstudiantil
             // 
             this.label14.AutoSize = true;
             this.label14.BackColor = System.Drawing.Color.Azure;
-            this.label14.Font = new System.Drawing.Font("Sitka Small", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Font = new System.Drawing.Font("Sitka Small", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label14.Location = new System.Drawing.Point(329, 223);
+            this.label14.Location = new System.Drawing.Point(378, 222);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(167, 23);
+            this.label14.Size = new System.Drawing.Size(156, 20);
             this.label14.TabIndex = 38;
             this.label14.Text = "LISTA ESTUDIANTES";
             // 
@@ -408,7 +409,7 @@ namespace AdministraciónEstudiantil
             this.dgvEstudiantes.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvEstudiantes.EnableHeadersVisualStyles = false;
             this.dgvEstudiantes.GridColor = System.Drawing.Color.LightSlateGray;
-            this.dgvEstudiantes.Location = new System.Drawing.Point(3, 247);
+            this.dgvEstudiantes.Location = new System.Drawing.Point(3, 245);
             this.dgvEstudiantes.Name = "dgvEstudiantes";
             this.dgvEstudiantes.ReadOnly = true;
             this.dgvEstudiantes.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -419,7 +420,7 @@ namespace AdministraciónEstudiantil
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
             this.dgvEstudiantes.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvEstudiantes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvEstudiantes.Size = new System.Drawing.Size(901, 236);
+            this.dgvEstudiantes.Size = new System.Drawing.Size(919, 236);
             this.dgvEstudiantes.TabIndex = 32;
             this.dgvEstudiantes.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.SeleccionarEstudiante);
             // 
@@ -564,7 +565,7 @@ namespace AdministraciónEstudiantil
             this.tabMaterias.Location = new System.Drawing.Point(4, 27);
             this.tabMaterias.Name = "tabMaterias";
             this.tabMaterias.Padding = new System.Windows.Forms.Padding(3);
-            this.tabMaterias.Size = new System.Drawing.Size(907, 486);
+            this.tabMaterias.Size = new System.Drawing.Size(925, 484);
             this.tabMaterias.TabIndex = 1;
             this.tabMaterias.Text = "MATERIAS";
             // 
@@ -663,11 +664,11 @@ namespace AdministraciónEstudiantil
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Sitka Small", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Font = new System.Drawing.Font("Sitka Small", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label9.Location = new System.Drawing.Point(342, 224);
+            this.label9.Location = new System.Drawing.Point(392, 220);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(138, 23);
+            this.label9.Size = new System.Drawing.Size(129, 20);
             this.label9.TabIndex = 30;
             this.label9.Text = "LISTA MATERIAS";
             // 
@@ -718,7 +719,7 @@ namespace AdministraciónEstudiantil
             this.dgvMaterias.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvMaterias.EnableHeadersVisualStyles = false;
             this.dgvMaterias.GridColor = System.Drawing.Color.LightSlateGray;
-            this.dgvMaterias.Location = new System.Drawing.Point(3, 247);
+            this.dgvMaterias.Location = new System.Drawing.Point(3, 245);
             this.dgvMaterias.Margin = new System.Windows.Forms.Padding(0);
             this.dgvMaterias.Name = "dgvMaterias";
             this.dgvMaterias.ReadOnly = true;
@@ -730,7 +731,7 @@ namespace AdministraciónEstudiantil
             dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
             this.dgvMaterias.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.dgvMaterias.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMaterias.Size = new System.Drawing.Size(901, 236);
+            this.dgvMaterias.Size = new System.Drawing.Size(919, 236);
             this.dgvMaterias.TabIndex = 24;
             this.dgvMaterias.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.SeleccionarFila);
             // 
@@ -839,17 +840,16 @@ namespace AdministraciónEstudiantil
             this.tabPrincipal.Controls.Add(this.tabEstudiantes);
             this.tabPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabPrincipal.Font = new System.Drawing.Font("Sitka Small", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabPrincipal.Location = new System.Drawing.Point(107, 0);
+            this.tabPrincipal.Location = new System.Drawing.Point(0, 0);
             this.tabPrincipal.Name = "tabPrincipal";
             this.tabPrincipal.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.tabPrincipal.SelectedIndex = 0;
-            this.tabPrincipal.Size = new System.Drawing.Size(915, 517);
+            this.tabPrincipal.Size = new System.Drawing.Size(933, 515);
             this.tabPrincipal.TabIndex = 23;
             // 
             // tabDepartamentos
             // 
             this.tabDepartamentos.BackColor = System.Drawing.Color.Azure;
-            this.tabDepartamentos.Controls.Add(this.btnCerrar);
             this.tabDepartamentos.Controls.Add(this.panel2);
             this.tabDepartamentos.Controls.Add(this.label4);
             this.tabDepartamentos.Controls.Add(this.label5);
@@ -861,23 +861,9 @@ namespace AdministraciónEstudiantil
             this.tabDepartamentos.Location = new System.Drawing.Point(4, 27);
             this.tabDepartamentos.Name = "tabDepartamentos";
             this.tabDepartamentos.Padding = new System.Windows.Forms.Padding(3);
-            this.tabDepartamentos.Size = new System.Drawing.Size(907, 486);
+            this.tabDepartamentos.Size = new System.Drawing.Size(925, 484);
             this.tabDepartamentos.TabIndex = 0;
             this.tabDepartamentos.Text = "DEPARTAMENTOS";
-            // 
-            // btnCerrar
-            // 
-            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrar.Font = new System.Drawing.Font("Sitka Small", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCerrar.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnCerrar.Location = new System.Drawing.Point(882, 0);
-            this.btnCerrar.Margin = new System.Windows.Forms.Padding(5, 2, 5, 2);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(25, 27);
-            this.btnCerrar.TabIndex = 48;
-            this.btnCerrar.Text = "X";
-            this.btnCerrar.UseVisualStyleBackColor = false;
-            this.btnCerrar.Click += new System.EventHandler(this.button2_Click);
             // 
             // panel2
             // 
@@ -952,11 +938,11 @@ namespace AdministraciónEstudiantil
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Sitka Small", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Sitka Small", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label4.Location = new System.Drawing.Point(320, 224);
+            this.label4.Location = new System.Drawing.Point(353, 221);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(194, 23);
+            this.label4.Size = new System.Drawing.Size(183, 20);
             this.label4.TabIndex = 22;
             this.label4.Text = "LISTA DEPARTAMENTOS";
             // 
@@ -1006,7 +992,7 @@ namespace AdministraciónEstudiantil
             this.dgvDepartamentos.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvDepartamentos.EnableHeadersVisualStyles = false;
             this.dgvDepartamentos.GridColor = System.Drawing.Color.LightSlateGray;
-            this.dgvDepartamentos.Location = new System.Drawing.Point(3, 247);
+            this.dgvDepartamentos.Location = new System.Drawing.Point(3, 245);
             this.dgvDepartamentos.Margin = new System.Windows.Forms.Padding(0);
             this.dgvDepartamentos.Name = "dgvDepartamentos";
             this.dgvDepartamentos.ReadOnly = true;
@@ -1018,7 +1004,7 @@ namespace AdministraciónEstudiantil
             dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
             this.dgvDepartamentos.RowsDefaultCellStyle = dataGridViewCellStyle18;
             this.dgvDepartamentos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDepartamentos.Size = new System.Drawing.Size(901, 236);
+            this.dgvDepartamentos.Size = new System.Drawing.Size(919, 236);
             this.dgvDepartamentos.TabIndex = 8;
             this.dgvDepartamentos.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvDepartamentos_CellMouseClick);
             // 
@@ -1118,16 +1104,18 @@ namespace AdministraciónEstudiantil
             // btnLateral4
             // 
             this.btnLateral4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnLateral4.FlatAppearance.BorderSize = 0;
             this.btnLateral4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLateral4.Font = new System.Drawing.Font("Sitka Small", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLateral4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btnLateral4.Location = new System.Drawing.Point(0, 117);
             this.btnLateral4.Margin = new System.Windows.Forms.Padding(5, 2, 5, 2);
             this.btnLateral4.Name = "btnLateral4";
-            this.btnLateral4.Size = new System.Drawing.Size(107, 39);
+            this.btnLateral4.Size = new System.Drawing.Size(105, 39);
             this.btnLateral4.TabIndex = 39;
             this.btnLateral4.Text = "Reporte 4";
             this.btnLateral4.UseVisualStyleBackColor = false;
+            this.btnLateral4.Click += new System.EventHandler(this.btnLateral4_Click);
             // 
             // toolTip1
             // 
@@ -1142,13 +1130,14 @@ namespace AdministraciónEstudiantil
             // btnLateral3
             // 
             this.btnLateral3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnLateral3.FlatAppearance.BorderSize = 0;
             this.btnLateral3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLateral3.Font = new System.Drawing.Font("Sitka Small", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLateral3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btnLateral3.Location = new System.Drawing.Point(0, 78);
             this.btnLateral3.Margin = new System.Windows.Forms.Padding(5, 2, 5, 2);
             this.btnLateral3.Name = "btnLateral3";
-            this.btnLateral3.Size = new System.Drawing.Size(107, 39);
+            this.btnLateral3.Size = new System.Drawing.Size(105, 39);
             this.btnLateral3.TabIndex = 40;
             this.btnLateral3.Text = "Reporte 3";
             this.btnLateral3.UseVisualStyleBackColor = false;
@@ -1157,13 +1146,14 @@ namespace AdministraciónEstudiantil
             // btnLateral1
             // 
             this.btnLateral1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnLateral1.FlatAppearance.BorderSize = 0;
             this.btnLateral1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLateral1.Font = new System.Drawing.Font("Sitka Small", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLateral1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btnLateral1.Location = new System.Drawing.Point(0, 0);
             this.btnLateral1.Margin = new System.Windows.Forms.Padding(5, 2, 5, 2);
             this.btnLateral1.Name = "btnLateral1";
-            this.btnLateral1.Size = new System.Drawing.Size(107, 39);
+            this.btnLateral1.Size = new System.Drawing.Size(105, 39);
             this.btnLateral1.TabIndex = 41;
             this.btnLateral1.Text = "Reporte 1";
             this.btnLateral1.UseVisualStyleBackColor = false;
@@ -1172,13 +1162,14 @@ namespace AdministraciónEstudiantil
             // btnLateral2
             // 
             this.btnLateral2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnLateral2.FlatAppearance.BorderSize = 0;
             this.btnLateral2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLateral2.Font = new System.Drawing.Font("Sitka Small", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLateral2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btnLateral2.Location = new System.Drawing.Point(0, 39);
             this.btnLateral2.Margin = new System.Windows.Forms.Padding(5, 2, 5, 2);
             this.btnLateral2.Name = "btnLateral2";
-            this.btnLateral2.Size = new System.Drawing.Size(107, 39);
+            this.btnLateral2.Size = new System.Drawing.Size(105, 39);
             this.btnLateral2.TabIndex = 42;
             this.btnLateral2.Text = "Reporte 2";
             this.btnLateral2.UseVisualStyleBackColor = false;
@@ -1187,13 +1178,14 @@ namespace AdministraciónEstudiantil
             // btnLateral6
             // 
             this.btnLateral6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnLateral6.FlatAppearance.BorderSize = 0;
             this.btnLateral6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLateral6.Font = new System.Drawing.Font("Sitka Small", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLateral6.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btnLateral6.Location = new System.Drawing.Point(0, 195);
             this.btnLateral6.Margin = new System.Windows.Forms.Padding(5, 2, 5, 2);
             this.btnLateral6.Name = "btnLateral6";
-            this.btnLateral6.Size = new System.Drawing.Size(107, 39);
+            this.btnLateral6.Size = new System.Drawing.Size(105, 39);
             this.btnLateral6.TabIndex = 43;
             this.btnLateral6.Text = "Reporte 6";
             this.btnLateral6.UseVisualStyleBackColor = false;
@@ -1201,13 +1193,14 @@ namespace AdministraciónEstudiantil
             // btnLateral5
             // 
             this.btnLateral5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnLateral5.FlatAppearance.BorderSize = 0;
             this.btnLateral5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLateral5.Font = new System.Drawing.Font("Sitka Small", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLateral5.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btnLateral5.Location = new System.Drawing.Point(0, 156);
             this.btnLateral5.Margin = new System.Windows.Forms.Padding(5, 2, 5, 2);
             this.btnLateral5.Name = "btnLateral5";
-            this.btnLateral5.Size = new System.Drawing.Size(107, 39);
+            this.btnLateral5.Size = new System.Drawing.Size(105, 39);
             this.btnLateral5.TabIndex = 44;
             this.btnLateral5.Text = "Reporte 5";
             this.btnLateral5.UseVisualStyleBackColor = false;
@@ -1215,13 +1208,14 @@ namespace AdministraciónEstudiantil
             // btnLateral7
             // 
             this.btnLateral7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnLateral7.FlatAppearance.BorderSize = 0;
             this.btnLateral7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLateral7.Font = new System.Drawing.Font("Sitka Small", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLateral7.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btnLateral7.Location = new System.Drawing.Point(0, 234);
             this.btnLateral7.Margin = new System.Windows.Forms.Padding(5, 2, 5, 2);
             this.btnLateral7.Name = "btnLateral7";
-            this.btnLateral7.Size = new System.Drawing.Size(107, 39);
+            this.btnLateral7.Size = new System.Drawing.Size(105, 39);
             this.btnLateral7.TabIndex = 45;
             this.btnLateral7.Text = "Reporte 7";
             this.btnLateral7.UseVisualStyleBackColor = false;
@@ -1229,13 +1223,14 @@ namespace AdministraciónEstudiantil
             // btnLateral8
             // 
             this.btnLateral8.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnLateral8.FlatAppearance.BorderSize = 0;
             this.btnLateral8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLateral8.Font = new System.Drawing.Font("Sitka Small", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLateral8.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btnLateral8.Location = new System.Drawing.Point(0, 273);
             this.btnLateral8.Margin = new System.Windows.Forms.Padding(5, 2, 5, 2);
             this.btnLateral8.Name = "btnLateral8";
-            this.btnLateral8.Size = new System.Drawing.Size(107, 39);
+            this.btnLateral8.Size = new System.Drawing.Size(105, 39);
             this.btnLateral8.TabIndex = 47;
             this.btnLateral8.Text = "Reporte 8";
             this.btnLateral8.UseVisualStyleBackColor = false;
@@ -1243,6 +1238,7 @@ namespace AdministraciónEstudiantil
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.Azure;
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel4.Controls.Add(this.btnLateral8);
             this.panel4.Controls.Add(this.btnLateral7);
             this.panel4.Controls.Add(this.btnLateral6);
@@ -1257,23 +1253,34 @@ namespace AdministraciónEstudiantil
             this.panel4.Size = new System.Drawing.Size(107, 517);
             this.panel4.TabIndex = 24;
             // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.Azure;
+            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel5.Controls.Add(this.tabPrincipal);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel5.Location = new System.Drawing.Point(107, 0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(935, 517);
+            this.panel5.TabIndex = 25;
+            // 
             // Administracion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(10)))), ((int)(((byte)(36)))));
-            this.ClientSize = new System.Drawing.Size(1022, 517);
-            this.Controls.Add(this.tabPrincipal);
+            this.BackColor = System.Drawing.Color.Azure;
+            this.ClientSize = new System.Drawing.Size(1042, 517);
+            this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
             this.Font = new System.Drawing.Font("Sitka Small", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "Administracion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Departamentos";
+            this.Text = "A D M I N I S T R A C I O N";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GestionDEP_FormClosing);
+            this.Load += new System.EventHandler(this.Administracion_Load);
             this.tabEstudiantes.ResumeLayout(false);
             this.tabEstudiantes.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -1292,6 +1299,7 @@ namespace AdministraciónEstudiantil
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDepartamentos)).EndInit();
             this.panel4.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1358,9 +1366,6 @@ namespace AdministraciónEstudiantil
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridView dgvDepartamentos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CODIGO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NOMBRE;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DESCRIPCION;
         private System.Windows.Forms.Button btnAgregarDEP;
         private System.Windows.Forms.Button btnCancelarDEP;
         private System.Windows.Forms.Button btnModificarDEP;
@@ -1376,11 +1381,14 @@ namespace AdministraciónEstudiantil
         private System.Windows.Forms.Button btnLateral1;
         private System.Windows.Forms.Button btnLateral3;
         private System.Windows.Forms.Button btnLateral8;
-        private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.DataGridViewTextBoxColumn CODIGOMAT;
         private System.Windows.Forms.DataGridViewTextBoxColumn NOMBREMAT;
         private System.Windows.Forms.DataGridViewTextBoxColumn DESCRIPCIONMAT;
         private System.Windows.Forms.DataGridViewTextBoxColumn DEPARTAMENTOMAT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CODIGO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NOMBRE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DESCRIPCION;
+        private System.Windows.Forms.Panel panel5;
     }
 }

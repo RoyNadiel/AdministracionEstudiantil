@@ -85,6 +85,18 @@
       <DependentUpon>Administracion.cs</DependentUpon>
     </Compile>
     <Compile Include="Listas.cs" />
+    <Compile Include="Reportes\CuartoReporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\CuartoReporte.Designer.cs">
+      <DependentUpon>CuartoReporte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\MiniSR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\MiniSR.Designer.cs">
+      <DependentUpon>MiniSR.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\PrimerReporte.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +119,12 @@
     </Compile>
     <EmbeddedResource Include="Administracion.resx">
       <DependentUpon>Administracion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\CuartoReporte.resx">
+      <DependentUpon>CuartoReporte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\MiniSR.resx">
+      <DependentUpon>MiniSR.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\PrimerReporte.resx">
       <DependentUpon>PrimerReporte.cs</DependentUpon>

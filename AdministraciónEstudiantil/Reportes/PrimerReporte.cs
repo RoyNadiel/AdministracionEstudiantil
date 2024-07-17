@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AdministraciónEstudiantil
@@ -13,7 +7,6 @@ namespace AdministraciónEstudiantil
     public partial class PrimerReporte : Form
     {
         DataGridView dgvMateria = new DataGridView();
-        DataGridView dgvEstudiantes = new DataGridView();
         public PrimerReporte(DataGridView dgvEstudiantes, DataGridView dgvMaterias)
         {
             InitializeComponent();
@@ -126,4 +119,4 @@ namespace AdministraciónEstudiantil
         }
     }
 }
-    
+

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data;
 using System.Windows.Forms;
 
 namespace AdministraciónEstudiantil
@@ -35,14 +29,14 @@ namespace AdministraciónEstudiantil
         }
         public Departamento ObtenerDepartamento(string nombre)
         {
-            Departamento temp = inicio;
-            while (temp != null)
+            Departamento departamento = inicio;
+            while (departamento != null)
             {
-                if (temp.Nombre == nombre)
+                if (departamento.Nombre == nombre)
                 {
-                    return temp;
+                    return departamento;
                 }
-                temp = temp.Next;
+                departamento = departamento.Next;
             }
             return null;
         }
@@ -58,9 +52,9 @@ namespace AdministraciónEstudiantil
                         departamento.Nombre = datos.Nombre;
                         departamento.Codigo = datos.Codigo;
                         departamento.Descripcion = datos.Descripcion;
-                        return;                        
+                        return;
                     }
-                    departamento = departamento.Next;                    
+                    departamento = departamento.Next;
                 }
             }
         }
@@ -68,11 +62,11 @@ namespace AdministraciónEstudiantil
         {
             comboBox.Items.Clear();
 
-            Departamento currentDepartamento = inicio;
-            while (currentDepartamento != null)
+            Departamento departamento = inicio;
+            while (departamento != null)
             {
-                comboBox.Items.Add(currentDepartamento.Nombre);
-                currentDepartamento = currentDepartamento.Next;
+                comboBox.Items.Add(departamento.Nombre);
+                departamento = departamento.Next;
             }
         }
         public void AsignarCodigo(ComboBox cbx, TextBox txt)
@@ -107,7 +101,7 @@ namespace AdministraciónEstudiantil
                 }
                 departamentoAnterior = departamentoActual;
                 departamentoActual = departamentoActual.Next;
-            }            
+            }
         }
         public DataTable ConvertirADatatable()
         {
@@ -162,7 +156,7 @@ namespace AdministraciónEstudiantil
             else
             {
                 MessageBox.Show("No se encontro el departamento");
-            }            
+            }
         }
         public void MostrarCreditos()
         {
@@ -209,13 +203,13 @@ namespace AdministraciónEstudiantil
         {
             dataGridView.Rows.Clear();
             Departamento departamento = inicio;
-            
+
             while (departamento != null)
             {
                 MateriaNode Materia = departamento.Materias;
                 while (Materia != null)
                 {
-                   dataGridView.Rows.Add(Materia.Codigo, Materia.Nombre, Materia.Descripcion, Materia.Departamento);
+                    dataGridView.Rows.Add(Materia.Codigo, Materia.Nombre, Materia.Descripcion, Materia.Departamento);
                     Materia = Materia.Next;
                 }
                 departamento = departamento.Next;
@@ -456,15 +450,18 @@ namespace AdministraciónEstudiantil
         public string Descripcion { get; set; }
         public string Departamento { get; set; }
         public int Creditos { get; set; }
+        public int Semestre { get; set; }
         public EstudianteNode Estudiantes { get; set; }
         public MateriaNode Next { get; set; }
-        
         public MateriaNode() { }
         public MateriaNode(MateriaNode Datos)
         {
             Codigo = Datos.Codigo;
             Nombre = Datos.Nombre;
             Descripcion = Datos.Nombre;
+            Departamento = Datos.Departamento;
+            Creditos = Datos.Creditos;
+            Semestre = Datos.Semestre;
         }
     }
     public class EstudianteNode
@@ -487,6 +484,8 @@ namespace AdministraciónEstudiantil
             Seccion = Datos.Seccion;
             Periodo = Datos.Periodo;
             Nota = Datos.Nota;
+            Materia = Datos.Materia;
+            Departamento = Datos.Departamento;
         }
     }
 }

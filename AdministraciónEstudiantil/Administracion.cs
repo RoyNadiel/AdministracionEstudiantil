@@ -1,13 +1,7 @@
 ﻿using AdministraciónEstudiantil.Reportes;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AdministraciónEstudiantil
@@ -19,21 +13,58 @@ namespace AdministraciónEstudiantil
         {
             InitializeComponent();
             Lista = new Listas();
+            //Lista.AgregarDepartamento(PrecargasDepartamentos1());
+            //Lista.AgregarDepartamento(PrecargasDepartamentos2());
+            //Lista.AgregarDepartamento(PrecargasDepartamentos3());
+            //Lista.MostrarDepartamentosEnComboBox(cbxDepartamentosMAT);
+            //Lista.AgregarMateria("Informatica", PrecargasMaterias1());
+            //Lista.AgregarMateria("Cursos Basicos", PrecargasMaterias2());
+            //Lista.AgregarMateria("Estadistica", PrecargasMaterias3());
+            //Lista.AgregarMateriasADataGridView(dgvMaterias);
+            //Lista.AgregarEstudiante("Informatica", "Datos II", PrecargasEstudiantes1());
+            //Lista.AgregarEstudiante("Informatica", "Datos II", PrecargasEstudiantes2());
+            //Lista.AgregarEstudiante("Estadistica", "Computacion I", PrecargasEstudiantes3());
+            //Lista.AgregarEstudiante("Estadistica", "Computacion I", PrecargasEstudiantes4());
+            //Lista.AgregarEstudiantesADataGridView(dgvEstudiantes);
+            //Lista.AgregarDepartamentosADataGridView(dgvDepartamentos);
+            //Lista.MostrarDepartamentosEnComboBox(cbxDepartamentosEST);
+        }
+        private void Administracion_Load(object sender, EventArgs e)
+        {
             Lista.AgregarDepartamento(PrecargasDepartamentos1());
             Lista.AgregarDepartamento(PrecargasDepartamentos2());
             Lista.AgregarDepartamento(PrecargasDepartamentos3());
+            Lista.AgregarDepartamentosADataGridView(dgvDepartamentos);
             Lista.MostrarDepartamentosEnComboBox(cbxDepartamentosMAT);
+            Lista.MostrarDepartamentosEnComboBox(cbxDepartamentosEST);
+
             Lista.AgregarMateria("Informatica", PrecargasMaterias1());
-            Lista.AgregarMateria("Cursos Basicos", PrecargasMaterias2());
-            Lista.AgregarMateria("Estadistica", PrecargasMaterias3());
+            Lista.AgregarMateria("Informatica", PrecargasMaterias2());
+            Lista.AgregarMateria("Informatica", PrecargasMaterias3());
+            Lista.AgregarMateria("Cursos Basicos", PrecargasMaterias4());
+            Lista.AgregarMateria("Cursos Basicos", PrecargasMaterias5());
+            Lista.AgregarMateria("Cursos Basicos", PrecargasMaterias6());
+            Lista.AgregarMateria("Estadistica", PrecargasMaterias7());
+            Lista.AgregarMateria("Estadistica", PrecargasMaterias8());
+            Lista.AgregarMateria("Estadistica", PrecargasMaterias9());
             Lista.AgregarMateriasADataGridView(dgvMaterias);
+
             Lista.AgregarEstudiante("Informatica", "Datos II", PrecargasEstudiantes1());
             Lista.AgregarEstudiante("Informatica", "Datos II", PrecargasEstudiantes2());
-            Lista.AgregarEstudiante("Estadistica", "Computacion I", PrecargasEstudiantes3());
-            Lista.AgregarEstudiante("Estadistica", "Computacion I", PrecargasEstudiantes4());
+            Lista.AgregarEstudiante("Informatica", "Datos II", PrecargasEstudiantes3());
+            Lista.AgregarEstudiante("Informatica", "Datos II", PrecargasEstudiantes4());
+            Lista.AgregarEstudiante("Estadistica", "Computacion I", PrecargasEstudiantes5());
+            Lista.AgregarEstudiante("Estadistica", "Computacion I", PrecargasEstudiantes6());
+            Lista.AgregarEstudiante("Estadistica", "Computacion I", PrecargasEstudiantes7());
+            Lista.AgregarEstudiante("Estadistica", "Computacion I", PrecargasEstudiantes8());
+            Lista.AgregarEstudiante("Estadistica", "Matematicas III", PrecargasEstudiantes9());
+            Lista.AgregarEstudiante("Estadistica", "Matematicas III", PrecargasEstudiantes10());
+            Lista.AgregarEstudiante("Estadistica", "Matematicas III", PrecargasEstudiantes11());
+            Lista.AgregarEstudiante("Informatica", "Fundamentos de Electricidad", PrecargasEstudiantes12());
+            Lista.AgregarEstudiante("Informatica", "Fundamentos de Electricidad", PrecargasEstudiantes13());
+            Lista.AgregarEstudiante("Informatica", "Fundamentos de Electricidad", PrecargasEstudiantes14());
+            Lista.AgregarEstudiante("Informatica", "Fundamentos de Electricidad", PrecargasEstudiantes15());
             Lista.AgregarEstudiantesADataGridView(dgvEstudiantes);
-            Lista.AgregarDepartamentosADataGridView(dgvDepartamentos);            
-            Lista.MostrarDepartamentosEnComboBox(cbxDepartamentosEST);
         }
         private void GestionDEP_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -53,7 +84,7 @@ namespace AdministraciónEstudiantil
             Departamento datos = new Departamento();
             datos.Codigo = "230";
             datos.Nombre = "Informatica";
-            datos.Descripcion = "Departamento de EICA";            
+            datos.Descripcion = "Departamento de EICA";
             return datos;
         }
         private Departamento PrecargasDepartamentos2()
@@ -84,16 +115,37 @@ namespace AdministraciónEstudiantil
         {
             if (ValidarRepeticionDEP() == true)
             {
-                Lista.AgregarDepartamento(ObtenerDatosDepartamentos());
-                Lista.AgregarDepartamentosADataGridView(dgvDepartamentos);
-                Lista.MostrarDepartamentosEnComboBox(cbxDepartamentosMAT);
-                Lista.MostrarDepartamentosEnComboBox(cbxDepartamentosEST);                
+                if (txtCodigoDEP.Text != "")
+                {
+                    if (txtNombreDEP.Text != "")
+                    {
+                        if (txtDescripcionDEP.Text != "")
+                        {
+                            Lista.AgregarDepartamento(ObtenerDatosDepartamentos());
+                            Lista.AgregarDepartamentosADataGridView(dgvDepartamentos);
+                            Lista.MostrarDepartamentosEnComboBox(cbxDepartamentosMAT);
+                            Lista.MostrarDepartamentosEnComboBox(cbxDepartamentosEST);
+                            LimpiarDepartamentos();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Debe ingresar una descricion.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Debe ingresar un nombre.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Debe ingresar un codigo.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
             else
             {
                 MessageBox.Show("El codigo del departamento ya existe.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            LimpiarDepartamentos();
         }
         private bool ValidarRepeticionDEP()
         {
@@ -106,10 +158,10 @@ namespace AdministraciónEstudiantil
                 if (nuevoDato == valorFilaActual)
                 {
                     return false;
-                }                
+                }
             }
             return true;
-        }        
+        }
         string[] DepartamentoSeleccionado = new string[1];
         DataGridViewRow rowDEP;
         private void dgvDepartamentos_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -120,9 +172,12 @@ namespace AdministraciónEstudiantil
                 rowDEP = dgvDepartamentos.Rows[e.RowIndex];
                 DepartamentoSeleccionado[0] = rowDEP.Cells[1].Value.ToString();
             }
-            for (int x = 0; x < rowDEP.Cells.Count; x++)
+            if (rowDEP != null)
             {
-                rowSelected[x] = rowDEP.Cells[x].Value.ToString();
+                for (int x = 0; x < rowDEP.Cells.Count; x++)
+                {
+                    rowSelected[x] = rowDEP.Cells[x].Value.ToString();
+                }
             }
             txtCodigoDEP.Text = rowSelected[0];
             txtNombreDEP.Text = rowSelected[1];
@@ -135,16 +190,38 @@ namespace AdministraciónEstudiantil
         {
             if (dgvDepartamentos.RowCount > 0)
             {
-                Lista.ModificarDepartamentos(DepartamentoSeleccionado[0], DatosAModificar());
-                Lista.AgregarDepartamentosADataGridView(dgvDepartamentos);
-                Lista.MostrarDepartamentosEnComboBox(cbxDepartamentosMAT);
-                Lista.MostrarDepartamentosEnComboBox(cbxDepartamentosEST);
-                Lista.AgregarMateriasADataGridView(dgvMaterias);
-                Lista.AgregarEstudiantesADataGridView(dgvEstudiantes);
-                LimpiarDepartamentos();
-                btnAgregarDEP.Enabled = true;
-                btnModificarDEP.Enabled = false;
-                btnEliminarDEP.Enabled = false;
+                if (txtCodigoDEP.Text != "")
+                {
+                    if (txtNombreDEP.Text != "")
+                    {
+                        if (txtDescripcionDEP.Text != "")
+                        {
+                            Lista.ModificarDepartamentos(DepartamentoSeleccionado[0], DatosAModificar());
+                            Lista.AgregarDepartamentosADataGridView(dgvDepartamentos);
+                            Lista.MostrarDepartamentosEnComboBox(cbxDepartamentosMAT);
+                            Lista.MostrarDepartamentosEnComboBox(cbxDepartamentosEST);
+                            Lista.AgregarMateriasADataGridView(dgvMaterias);
+                            Lista.AgregarEstudiantesADataGridView(dgvEstudiantes);
+                            LimpiarDepartamentos();
+                            btnAgregarDEP.Enabled = true;
+                            btnModificarDEP.Enabled = false;
+                            btnEliminarDEP.Enabled = false;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Debe ingresar una descricion.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Debe ingresar un nombre.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Debe ingresar un codigo.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+
             }
             else
             {
@@ -155,7 +232,7 @@ namespace AdministraciónEstudiantil
         {
             if (dgvDepartamentos.RowCount > 0)
             {
-                Lista.EliminarDepartamento(DepartamentoSeleccionado[0]);                
+                Lista.EliminarDepartamento(DepartamentoSeleccionado[0]);
                 Lista.AgregarDepartamentosADataGridView(dgvDepartamentos);
                 Lista.MostrarDepartamentosEnComboBox(cbxDepartamentosMAT);
                 Lista.MostrarDepartamentosEnComboBox(cbxDepartamentosEST);
@@ -169,7 +246,7 @@ namespace AdministraciónEstudiantil
             else
             {
                 MessageBox.Show("Seleccione el Departamento a ELIMINAR", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }            
+            }
         }
         private void Cancelar(object sender, EventArgs e)
         {
@@ -183,7 +260,7 @@ namespace AdministraciónEstudiantil
             txtCodigoDEP.Clear();
             txtNombreDEP.Clear();
             txtDescripcionDEP.Clear();
-        }        
+        }
         private void cbxDepartamentos_SelectedIndexChanged(object sender, EventArgs e)
         {
             btnEliminarDEP.Enabled = true;
@@ -198,6 +275,7 @@ namespace AdministraciónEstudiantil
             datos.Descripcion = txtDescripcionMAT.Text;
             datos.Departamento = cbxDepartamentosMAT.Text;
             datos.Creditos = int.Parse(txtCodigoMAT.Text.Last().ToString());
+            datos.Semestre = txtCodigoMAT.Text[txtCodigoMAT.Text.Length - 2];
             return datos;
         }
         private MateriaNode PrecargasMaterias1()
@@ -205,12 +283,35 @@ namespace AdministraciónEstudiantil
             MateriaNode datos = new MateriaNode();
             datos.Codigo = "2301324";
             datos.Nombre = "Datos II";
-            datos.Descripcion = "Estructuras de datos";
+            datos.Descripcion = "Estructuras de Datos";
             datos.Departamento = "Informatica";
             datos.Creditos = 4;
+            datos.Semestre = 2;
             return datos;
         }
         private MateriaNode PrecargasMaterias2()
+        {
+            MateriaNode datos = new MateriaNode();
+            datos.Codigo = "2301723";
+            datos.Nombre = "Org & Sistemas";
+            datos.Descripcion = "Cuestiones de Empresas";
+            datos.Departamento = "Informatica";
+            datos.Creditos = 3;
+            datos.Semestre = 2;
+            return datos;
+        }
+        private MateriaNode PrecargasMaterias3()
+        {
+            MateriaNode datos = new MateriaNode();
+            datos.Codigo = "2302534";
+            datos.Nombre = "Fundamentos de Electricidad";
+            datos.Descripcion = "Física";
+            datos.Departamento = "Informatica";
+            datos.Creditos = 4;
+            datos.Semestre = 3;
+            return datos;
+        }
+        private MateriaNode PrecargasMaterias4()
         {
             MateriaNode datos = new MateriaNode();
             datos.Codigo = "0081214";
@@ -218,9 +319,32 @@ namespace AdministraciónEstudiantil
             datos.Descripcion = "Calculo Basico";
             datos.Departamento = "Cursos Basicos";
             datos.Creditos = 4;
+            datos.Semestre = 1;
             return datos;
         }
-        private MateriaNode PrecargasMaterias3()
+        private MateriaNode PrecargasMaterias5()
+        {
+            MateriaNode datos = new MateriaNode();
+            datos.Codigo = "0082413";
+            datos.Nombre = "Linguistica";
+            datos.Descripcion = "Elementos de Castellano";
+            datos.Departamento = "Cursos Basicos";
+            datos.Creditos = 3;
+            datos.Semestre = 1;
+            return datos;
+        }
+        private MateriaNode PrecargasMaterias6()
+        {
+            MateriaNode datos = new MateriaNode();
+            datos.Codigo = "0083314";
+            datos.Nombre = "Deporte";
+            datos.Descripcion = "Actividad Deportiva ";
+            datos.Departamento = "Cursos Basicos";
+            datos.Creditos = 4;
+            datos.Semestre = 1;
+            return datos;
+        }
+        private MateriaNode PrecargasMaterias7()
         {
             MateriaNode datos = new MateriaNode();
             datos.Codigo = "2201213";
@@ -228,15 +352,73 @@ namespace AdministraciónEstudiantil
             datos.Descripcion = "Principios de computación";
             datos.Departamento = "Estadistica";
             datos.Creditos = 3;
+            datos.Semestre = 1;
+            return datos;
+        }
+        private MateriaNode PrecargasMaterias8()
+        {
+            MateriaNode datos = new MateriaNode();
+            datos.Codigo = "2202134";
+            datos.Nombre = "Matematicas III";
+            datos.Descripcion = "Calculo Multivariable";
+            datos.Departamento = "Estadistica";
+            datos.Creditos = 4;
+            datos.Semestre = 3;
+            return datos;
+        }
+        private MateriaNode PrecargasMaterias9()
+        {
+            MateriaNode datos = new MateriaNode();
+            datos.Codigo = "2203463";
+            datos.Nombre = "Muestreo II";
+            datos.Descripcion = "Técnicas de recolección";
+            datos.Departamento = "Estadistica";
+            datos.Creditos = 3;
+            datos.Semestre = 6;
             return datos;
         }
         private void AgregarMateria(object sender, EventArgs e)
         {
             if (ValidarRepeticionMAT() == true)
             {
-                Lista.AgregarMateria(cbxDepartamentosMAT.Text, ObtenerDatosMaterias());
-                Lista.AgregarMateriasADataGridView(dgvMaterias);
-                LimpiarMaterias();                
+                if (cbxDepartamentosMAT.Text != "")
+                {
+                    if (txtCodigoMAT.Text != "")
+                    {
+                        if (txtNombreMAT.Text != "")
+                        {
+                            if (txtDescripcionMAT.Text != "")
+                            {
+                                if (txtCodigoMAT.Text.Length == 7)
+                                {
+                                    Lista.AgregarMateria(cbxDepartamentosMAT.Text, ObtenerDatosMaterias());
+                                    Lista.AgregarMateriasADataGridView(dgvMaterias);
+                                    LimpiarMaterias();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Debe ingresar al menos 7 caracteres para el codigo de la Materia.", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Debe ingresar una descricion.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Debe ingresar un nombre.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Debe ingresar un codigo.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Debe seleccionar un departamento.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
         }
         private void cbxDepartamentosMAT_TextChanged(object sender, EventArgs e)
@@ -248,7 +430,6 @@ namespace AdministraciónEstudiantil
             string nuevoCodigo = txtCodigoMAT.Text;
             string nuevoNombre = txtNombreMAT.Text;
 
-            // Verificar si el nuevo dato ya existe en la columna deseada
             foreach (DataGridViewRow row in dgvMaterias.Rows)
             {
                 string codigoExistente = row.Cells[CODIGOMAT.Index].Value?.ToString();
@@ -260,15 +441,16 @@ namespace AdministraciónEstudiantil
                     {
                         MessageBox.Show("La materia que intenta ingresar ya existe", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         return false;
-                    }                    
+                    }
                 }
                 if (nuevoCodigo == codigoExistente && nuevoNombre == nombreExistente)
                 {
                     txtDescripcionMAT.Text = row.Cells[DESCRIPCIONMAT.Index].Value.ToString();
-                }                
+                }
             }
             return true;
         }
+
         string[] MateriaSeleccionada = new string[2];
         DataGridViewRow rowMAT;
         private void SeleccionarFila(object sender, DataGridViewCellMouseEventArgs e)
@@ -280,9 +462,12 @@ namespace AdministraciónEstudiantil
                 MateriaSeleccionada[0] = rowMAT.Cells[1].Value.ToString();
                 MateriaSeleccionada[1] = rowMAT.Cells[3].Value.ToString();
             }
-            for (int x = 0; x < rowMAT.Cells.Count; x++)
+            if (rowMAT != null)
             {
-                selectedRow[x] = rowMAT.Cells[x].Value.ToString();
+                for (int x = 0; x < rowMAT.Cells.Count; x++)
+                {
+                    selectedRow[x] = rowMAT.Cells[x].Value.ToString();
+                }
             }
             txtCodigoMAT.Text = selectedRow[0];
             txtNombreMAT.Text = selectedRow[1];
@@ -293,16 +478,40 @@ namespace AdministraciónEstudiantil
         }
         private void ModificarMateria(object sender, EventArgs e)
         {
-            Lista.ModificarMateria(cbxDepartamentosMAT.Text, MateriaSeleccionada[0], ObtenerDatosMaterias());
-            Lista.AgregarMateriasADataGridView(dgvMaterias);
-            btnAgregarMAT.Enabled = true;
-            btnModificarMAT.Enabled = false;
-            btnEliminarMAT.Enabled = false;
+            if (txtCodigoMAT.Text != "")
+            {
+                if (txtNombreMAT.Text != "")
+                {
+                    if (txtDescripcionMAT.Text != "")
+                    {
+                        Lista.ModificarMateria(MateriaSeleccionada[1], MateriaSeleccionada[0], ObtenerDatosMaterias());
+                        Lista.AgregarMateriasADataGridView(dgvMaterias);
+                        Lista.AgregarEstudiantesADataGridView(dgvEstudiantes);
+                        LimpiarMaterias();
+                        btnAgregarMAT.Enabled = true;
+                        btnModificarMAT.Enabled = false;
+                        btnEliminarMAT.Enabled = false;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Debe ingresar una descricion.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Debe ingresar un nombre.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Debe ingresar un codigo.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
         private void EliminarMateria(object sender, EventArgs e)
         {
             Lista.EliminarMateria(MateriaSeleccionada[1], MateriaSeleccionada[0]);
             Lista.AgregarMateriasADataGridView(dgvMaterias);
+            Lista.AgregarEstudiantesADataGridView(dgvEstudiantes);
             btnAgregarMAT.Enabled = true;
             btnModificarMAT.Enabled = false;
             btnEliminarMAT.Enabled = false;
@@ -330,7 +539,7 @@ namespace AdministraciónEstudiantil
             datos.Nombre = txtNombreEST.Text;
             datos.Apellido = txtApellidoEST.Text;
             datos.Seccion = txtSeccionEST.Text;
-            datos.Periodo = txtPeriodoEST.Text.ToUpper();     
+            datos.Periodo = txtPeriodoEST.Text.ToUpper();
             datos.Materia = cbxMateriasEST.Text;
             datos.Departamento = cbxDepartamentosEST.Text;
             datos.Nota = float.Parse(txtNotaEST.Text);
@@ -365,6 +574,32 @@ namespace AdministraciónEstudiantil
         private EstudianteNode PrecargasEstudiantes3()
         {
             EstudianteNode datos = new EstudianteNode();
+            datos.Cedula = "16043166";
+            datos.Nombre = "Eric";
+            datos.Apellido = "Rondon";
+            datos.Seccion = "0621";
+            datos.Periodo = "II-2022";
+            datos.Materia = "Datos II";
+            datos.Departamento = "Informatica";
+            datos.Nota = 0;
+            return datos;
+        }
+        private EstudianteNode PrecargasEstudiantes4()
+        {
+            EstudianteNode datos = new EstudianteNode();
+            datos.Cedula = "16081090";
+            datos.Nombre = "Jesus";
+            datos.Apellido = "Salazar";
+            datos.Seccion = "0621";
+            datos.Periodo = "II-2022";
+            datos.Materia = "Datos II";
+            datos.Departamento = "Informatica";
+            datos.Nota = 0;
+            return datos;
+        }
+        private EstudianteNode PrecargasEstudiantes5()
+        {
+            EstudianteNode datos = new EstudianteNode();
             datos.Cedula = "1616662";
             datos.Nombre = "Cristhian";
             datos.Apellido = "Gonzales";
@@ -375,7 +610,7 @@ namespace AdministraciónEstudiantil
             datos.Nota = 0;
             return datos;
         }
-        private EstudianteNode PrecargasEstudiantes4()
+        private EstudianteNode PrecargasEstudiantes6()
         {
             EstudianteNode datos = new EstudianteNode();
             datos.Cedula = "14202614";
@@ -388,8 +623,125 @@ namespace AdministraciónEstudiantil
             datos.Nota = 0;
             return datos;
         }
+        private EstudianteNode PrecargasEstudiantes7()
+        {
+            EstudianteNode datos = new EstudianteNode();
+            datos.Cedula = "14202614";
+            datos.Nombre = "Valeria";
+            datos.Apellido = "Gonzales";
+            datos.Seccion = "0821";
+            datos.Periodo = "II-2022";
+            datos.Materia = "Computacion I";
+            datos.Departamento = "Estadistica";
+            datos.Nota = 0;
+            return datos;
+        }
+        private EstudianteNode PrecargasEstudiantes8()
+        {
+            EstudianteNode datos = new EstudianteNode();
+            datos.Cedula = "14218088";
+            datos.Nombre = "Jesus";
+            datos.Apellido = "Lopez";
+            datos.Seccion = "0821";
+            datos.Periodo = "II-2022";
+            datos.Materia = "Computacion I";
+            datos.Departamento = "Estadistica";
+            datos.Nota = 0;
+            return datos;
+        }
+        private EstudianteNode PrecargasEstudiantes9()
+        {
+            EstudianteNode datos = new EstudianteNode();
+            datos.Cedula = "14820148";
+            datos.Nombre = "Prieto";
+            datos.Apellido = "Diego";
+            datos.Seccion = "0520";
+            datos.Periodo = "II-2023";
+            datos.Materia = "Matematicas III";
+            datos.Departamento = "Estadistica";
+            datos.Nota = 0;
+            return datos;
+        }
+        private EstudianteNode PrecargasEstudiantes10()
+        {
+            EstudianteNode datos = new EstudianteNode();
+            datos.Cedula = "14688162";
+            datos.Nombre = "Quijada";
+            datos.Apellido = "Jorge";
+            datos.Seccion = "0520";
+            datos.Periodo = "II-2023";
+            datos.Materia = "Matematicas III";
+            datos.Departamento = "Estadistica";
+            datos.Nota = 0;
+            return datos;
+        }
+        private EstudianteNode PrecargasEstudiantes11()
+        {
+            EstudianteNode datos = new EstudianteNode();
+            datos.Cedula = "14688649";
+            datos.Nombre = "Suarez";
+            datos.Apellido = "Karlismar";
+            datos.Seccion = "0521";
+            datos.Periodo = "II-2022";
+            datos.Materia = "Matematicas III";
+            datos.Departamento = "Estadistica";
+            datos.Nota = 0;
+            return datos;
+        }
+        private EstudianteNode PrecargasEstudiantes12()
+        {
+            EstudianteNode datos = new EstudianteNode();
+            datos.Cedula = "14168103";
+            datos.Nombre = "Joscar";
+            datos.Apellido = "Gomez";
+            datos.Seccion = "0520";
+            datos.Periodo = "II-2023";
+            datos.Materia = "Fundamentos de Electricidad";
+            datos.Departamento = "Informatica";
+            datos.Nota = 0;
+            return datos;
+        }
+        private EstudianteNode PrecargasEstudiantes13()
+        {
+            EstudianteNode datos = new EstudianteNode();
+            datos.Cedula = "18169493";
+            datos.Nombre = "Yudeimis";
+            datos.Apellido = "Guerra";
+            datos.Seccion = "0520";
+            datos.Periodo = "II-2023";
+            datos.Materia = "Fundamentos de Electricidad";
+            datos.Departamento = "Informatica";
+            datos.Nota = 0;
+            return datos;
+        }
+        private EstudianteNode PrecargasEstudiantes14()
+        {
+            EstudianteNode datos = new EstudianteNode();
+            datos.Cedula = "16820222";
+            datos.Nombre = "Jade";
+            datos.Apellido = "Hajjar";
+            datos.Seccion = "0521";
+            datos.Periodo = "II-2022";
+            datos.Materia = "Fundamentos de Electricidad";
+            datos.Departamento = "Informatica";
+            datos.Nota = 0;
+            return datos;
+        }
+        private EstudianteNode PrecargasEstudiantes15()
+        {
+            EstudianteNode datos = new EstudianteNode();
+            datos.Cedula = "16248093";
+            datos.Nombre = "Maria";
+            datos.Apellido = "Henriquez";
+            datos.Seccion = "0521";
+            datos.Periodo = "II-2022";
+            datos.Materia = "Fundamentos de Electricidad";
+            datos.Departamento = "Informatica";
+            datos.Nota = 0;
+            return datos;
+        }
 
-        private bool ValidarRepeticionEST()
+        private bool ValidarEstudianteRepetido()
         {
             string nuevoDato = txtCedulaEST.Text;
 
@@ -404,35 +756,70 @@ namespace AdministraciónEstudiantil
                 }
             }
             return true;
+
+            //if (ValidarRepeticionEST() == true)
+            //{
+
+
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Este estudiante ya existe en el Sistema", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //}
         }
         private void AgregarEstudiante(object sender, EventArgs e)
         {
-            if (cbxDepartamentosEST.Text != "")
+            if (txtCedulaEST.Text != "")
             {
-                if (cbxMateriasEST.Text != "")
+                if (txtNombreEST.Text != "")
                 {
-                    if (ValidarPeriodoSemestral(txtPeriodoEST.Text) == true)
+                    if (txtApellidoEST.Text != "")
                     {
-                        if (ValidarRepeticionEST() == true)
+                        if (txtSeccionEST.Text != "")
                         {
-                            Lista.AgregarEstudiante(cbxDepartamentosEST.Text, cbxMateriasEST.Text, ObtenerDatosEstudiantes());
-                            Lista.AgregarEstudiantesADataGridView(dgvEstudiantes);
-                            LimpiarEstudiantes();                            
+                            if (ValidarPeriodoSemestral(txtPeriodoEST.Text) == true)
+                            {
+                                if (cbxDepartamentosEST.Text != "")
+                                {
+                                    if (cbxMateriasEST.Text != "")
+                                    {
+                                        Lista.AgregarEstudiante(cbxDepartamentosEST.Text, cbxMateriasEST.Text, ObtenerDatosEstudiantes());
+                                        Lista.AgregarEstudiantesADataGridView(dgvEstudiantes);
+                                        LimpiarEstudiantes();
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Debe seleccionar una materia", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                    }
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Seleccione un departamento", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Debe ingresar el periodo semestral de  manera correcta", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            }
                         }
                         else
                         {
-                            MessageBox.Show("Este estudiante ya existe en el Sistema", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("Debe ingresar una seccion.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Debe ingresar el periodo semestral de  manera correcta", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Debe ingresar un apellido.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
+                }
+                else
+                {
+                    MessageBox.Show("Debe ingresar un nombre.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             else
             {
-                MessageBox.Show("Seleccione un departamento", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Debe ingresar una cedula.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
         private void cbxDepartamentosEST_SelectedIndexChanged(object sender, EventArgs e)
@@ -451,9 +838,12 @@ namespace AdministraciónEstudiantil
                 EstudianteSeleccionado[1] = rowEST.Cells[5].Value.ToString(); //MATEIRA
                 EstudianteSeleccionado[2] = rowEST.Cells[6].Value.ToString(); //DEPARTAMENTO               
             }
-            for (int x = 0; x < rowEST.Cells.Count; x++)
+            if (rowEST != null)
             {
-                rowSelected[x] = rowEST.Cells[x].Value.ToString();
+                for (int x = 0; x < rowEST.Cells.Count; x++)
+                {
+                    rowSelected[x] = rowEST.Cells[x].Value.ToString();
+                }
             }
             txtCedulaEST.Text = rowSelected[0];
             txtNombreEST.Text = rowSelected[1];
@@ -509,8 +899,8 @@ namespace AdministraciónEstudiantil
                 return true;
             }
             else
-            {                
-                return false;             
+            {
+                return false;
             }
         }
         private void txtCodigoDEP_KeyPress(object sender, KeyPressEventArgs e)
@@ -541,11 +931,7 @@ namespace AdministraciónEstudiantil
                 e.Handled = true;
             }
         }
-        #endregion      
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
+        #endregion
         public DataGridView CopiarDataGridViewEstudiantes()
         {
             DataGridView dgvNuevo = new DataGridView();
@@ -587,20 +973,25 @@ namespace AdministraciónEstudiantil
             return dgvNuevo;
         }
         private void btnLateral1_Click_1(object sender, EventArgs e)
-        {            
+        {
             PrimerReporte ventana = new PrimerReporte(CopiarDataGridViewEstudiantes(), CopiarDataGridViewMaterias());
             ventana.ShowDialog();
-        }               
-               
+        }
+
         private void btnLateral2_Click(object sender, EventArgs e)
         {
             SegundoReporte ventana = new SegundoReporte(CopiarDataGridViewEstudiantes(), CopiarDataGridViewMaterias());
             ventana.ShowDialog();
-        }  
+        }
 
         private void btnLateral3_Click(object sender, EventArgs e)
         {
             Lista.MostrarCreditos();
+        }
+
+        private void btnLateral4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

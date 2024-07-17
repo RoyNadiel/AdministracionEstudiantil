@@ -69,119 +69,89 @@ namespace AdministraciónEstudiantil.Reportes
                     }
                 }
             }
-        }        
-        private void CalcularMateriaConMasEstudiantes()
-        {
-            int materia1 = 0;
-            int materia2 = 0;
-            int materia3 = 0;
-            string periodo = cbxPeriodos.Text.ToUpper();            
-            string[] Materias = new string[3];
+        }         
 
-            for (int x = 0; x < dgvMateria.RowCount; x++)
+        private void btnCalcular_Click(object sender, EventArgs e)
+        {
+            List<string> listaDevuelta = ObtenerMateriasMasRepetidas(dgvNuevo);
+
+            if (listaDevuelta != null)
             {
-                if (dgvMateria.Rows[x].Cells[1].Value != null)
+                string[] materias = new string[listaDevuelta.Count];
+                int contador = 0;
+                foreach (string materia in listaDevuelta)
                 {
-                    Materias[x] = dgvMateria.Rows[x].Cells[1].Value.ToString();
+                    if (materia != null)
+                    {
+                        materias[contador] = materia;
+                        contador++;
+                    }
                 }
+                MiniSR ventana = new MiniSR(materias);
+                ventana.ShowDialog();
             }
-            foreach (DataGridViewRow row in dgvNuevo.Rows)
+        }
+
+        public List<string> ObtenerMateriasMasRepetidas(DataGridView dataGridView)
+        {
+            string periodo = "";
+            Dictionary<string, int> conteoMaterias = new Dictionary<string, int>();
+
+            // Calcular conteo de materias por período  
+            foreach (DataGridViewRow row in dataGridView.Rows)
             {
-                if (periodo != "")
+                if (cbxPeriodos.Text != null)
                 {
+                    periodo = cbxPeriodos.Text.ToUpper();
                     if (row.Cells[4].Value != null && row.Cells[4].Value.ToString() == periodo)
                     {
-                        if (row.Cells[5].Value != null)
+                        string nombreMateria = row.Cells[5].Value.ToString();
+
+                        if (conteoMaterias.ContainsKey(nombreMateria))
                         {
-                            if (row.Cells[5].Value.ToString() == Materias[0])
-                            {
-                                materia1++;
-                            }
-                            if (row.Cells[5].Value.ToString() == Materias[1])
-                            {
-                                materia2++;
-                            }
-                            if (row.Cells[5].Value.ToString() == Materias[2])
-                            {
-                                materia3++;
-                            }
+                            conteoMaterias[nombreMateria]++;
+                        }
+                        else
+                        {
+                            conteoMaterias.Add(nombreMateria, 1);
                         }
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Seleccione el periodo de busqueda.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return;                    
+                    MessageBox.Show("Seleccione el periodo en cuestion.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return null;
                 }
-            }            
+            }
+            // Obtener la cantidad máxima de repeticiones
+            int maxRepeticiones = conteoMaterias.Max(x => x.Value);
 
-            if (materia1 > 0 && materia2 > 0)
+            // Obtener la materia más repetida  
+            string materiaMasRepetida = conteoMaterias.FirstOrDefault(x => x.Value == maxRepeticiones).Key;
+
+            if (conteoMaterias.Select(x => x.Value).Distinct().Count() == 1)
             {
-                if (materia1 == materia2)
-                {
-                    MessageBox.Show($"Existe la misma cantidad estudiantes ({materia1}) en las materias del periodo {periodo}", "Resultados", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    if (materia1 > materia2)
-                    {
-                        MessageBox.Show($"La materia {Materias[0]} en el periodo {periodo} es la materia con mas estudiantes", "Resultados", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    else
-                    {
-                        MessageBox.Show($"La materia {Materias[1]} en el periodo {periodo} es la materia con mas estudiantes", "Resultados", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                }
+                // Mostrar mensaje en el ComboBox  
+                MessageBox.Show($"Existe la misma cantidad de estudiantes en las materias del periodo {periodo}", "Resultados", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return null;
             }
-            else if (materia1 > 0 && materia3 > 0)
+            // Comprobar si hay una materia que se repite más que las demás
+            else if (conteoMaterias.Count(x => x.Value == maxRepeticiones) > 1)
             {
-                if (materia1 == materia3)
-                {
-                    MessageBox.Show($"Existe la misma cantidad estudiantes ({materia1}) en las materias del periodo {periodo}", "Resultados", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    if (materia1 > materia3)
-                    {
-                        MessageBox.Show($"La materia {Materias[0]} en el periodo {periodo} es la materia con mas estudiantes", "Resultados", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    else
-                    {
-                        MessageBox.Show($"La materia {Materias[2]} en el periodo {periodo} es la materia con mas estudiantes", "Resultados", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                }
-            }
-            else if (materia2 > 0 && materia3 > 0)
-            {
-                if (materia2 == materia3)
-                {
-                    MessageBox.Show($"Existe la misma cantidad estudiantes ({materia2}) en las materias del periodo {periodo}", "Resultados", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    if (materia2 > materia3)
-                    {
-                        MessageBox.Show($"La materia {Materias[1]} en el periodo {periodo} es la materia con mas estudiantes", "Resultados", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    else
-                    {
-                        MessageBox.Show($"La materia {Materias[3]} en el periodo {periodo} es la materia con mas estudiantes", "Resultados", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                }
+                // Si hay materias con la misma cantidad máxima de repeticiones, devolverlas  
+                List<string> materiasMasRepetidas = conteoMaterias.Where(x => x.Value == maxRepeticiones)
+                                                                   .Select(x => x.Key)
+                                                                   .ToList();
+                return materiasMasRepetidas;
             }
             else
             {
-                MessageBox.Show($"Solo existe una materia en este periodo", "Resultados", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-        }        
-        private void btnCalcular_Click(object sender, EventArgs e)
-        {
-            CalcularMateriaConMasEstudiantes();
-        }
+                // Si hay una materia que se repite más que las demás, devolverla  
+                List<string> materiasMasRepetidas = new List<string>();
+                materiasMasRepetidas.Add(materiaMasRepetida);
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show(dgvMateria.Rows[1].Cells[1].Value.ToString());                
+                return materiasMasRepetidas;
+            }           
         }
     }
 }

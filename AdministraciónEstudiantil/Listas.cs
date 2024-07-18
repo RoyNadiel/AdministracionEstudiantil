@@ -159,7 +159,7 @@ namespace AdministraciónEstudiantil
                 MessageBox.Show("No se encontro el departamento");
             }
         }
-        public Dictionary<string, int> MostrarCreditos1()
+        public Dictionary<string, int> MostrarCreditos()
         {
             Departamento departamento = inicio;
             Dictionary<string, int> Creditos = new Dictionary<string, int>();
@@ -175,48 +175,7 @@ namespace AdministraciónEstudiantil
                 departamento = departamento.Next;
             }
             return Creditos;
-        }
-        public void MostrarCreditos()
-        {
-            Departamento departamento = inicio;
-            string[] materias = new string[10];
-            int[] creditos = new int[10];
-            int contador = 0;
-
-            while (departamento != null)
-            {
-                MateriaNode materia = departamento.Materias;
-                while (materia != null)
-                {
-                    creditos[contador] = materia.Creditos;
-                    materias[contador] = materia.Nombre;
-                    materia = materia.Next;
-                    contador++;
-                }
-                departamento = departamento.Next;
-            }
-            MessageBox.Show(
-                $"La materia {materias[0]} tiene {creditos[0]} creditos\n\n" +
-                $"La materia {materias[1]} tiene {creditos[1]} creditos\n\n" +
-                $"La materia {materias[2]} tiene {creditos[2]} creditos\n\n",
-                "Resultados", MessageBoxButtons.OK, MessageBoxIcon.Information
-                );
-        }
-        public void MostrarCreditosReal()
-        {
-            Departamento departamento = inicio;
-
-            while (departamento != null)
-            {
-                MateriaNode materia = departamento.Materias;
-                while (materia != null)
-                {
-                    MessageBox.Show($"La materia {materia.Nombre} cuenta con {materia.Creditos} Creditos", "Resultados", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    materia = materia.Next;
-                }
-                departamento = departamento.Next;
-            }
-        }
+        }        
         public void AgregarMateriasADataGridView(DataGridView dataGridView)
         {
             dataGridView.Rows.Clear();
@@ -233,6 +192,7 @@ namespace AdministraciónEstudiantil
                 departamento = departamento.Next;
             }
         }
+
         public void ModificarMateria(string nombreDepartamento, string nombreMateria, MateriaNode Datos)
         {
             Departamento Departamento = inicio;
@@ -441,6 +401,58 @@ namespace AdministraciónEstudiantil
             }
 
             MessageBox.Show("Estudiante no encontrado en la lista.");
+        }
+
+        public void MostrarEstudiantesEnCBX(ComboBox comboBox)
+        {
+            comboBox.Items.Clear();
+
+            Departamento departamento = inicio;
+
+            while (departamento != null)
+            {
+                MateriaNode materia = departamento.Materias;
+                while (materia != null)
+                {
+                    EstudianteNode estudiante = materia.Estudiantes;
+                    while (estudiante != null)
+                    {
+                        comboBox.Items.Add(estudiante.Cedula);
+                        estudiante = estudiante.Next;
+                    }
+                    materia = materia.Next;                       
+                }
+                departamento = departamento.Next;
+            }
+        }
+        public string[] IndexChanged(string cedula)
+        {
+            string[] datosEstudiante = new string[3];
+
+            Departamento departamento = inicio;
+
+            while (departamento != null)
+            {
+                MateriaNode materia = departamento.Materias;
+                while (materia != null)
+                {
+                    EstudianteNode estudiante = materia.Estudiantes;
+                    while (estudiante != null)
+                    {
+                        if (estudiante.Cedula == cedula)
+                        {
+                            datosEstudiante[0] = estudiante.Cedula;
+                            datosEstudiante[1] = estudiante.Nombre;
+                            datosEstudiante[2] = estudiante.Apellido;
+                            return datosEstudiante;
+                        }
+                        estudiante = estudiante.Next;                 
+                    }
+                    materia = materia.Next;
+                }
+                departamento = departamento.Next;
+            }
+            return null;
         }
     }
 

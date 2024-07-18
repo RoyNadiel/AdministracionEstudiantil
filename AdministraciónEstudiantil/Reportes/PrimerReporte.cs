@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Windows.Forms;
 
 namespace AdministraciónEstudiantil
@@ -77,45 +78,34 @@ namespace AdministraciónEstudiantil
                     }
                 }
             }
-        }
-        private void btnFiltrar_Click(object sender, EventArgs e)
+        }              
+        private void cbxMaterias_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Filtrar();
+            FiltrarDataGridView();            
         }
-        private void Filtrar()
+        private void FiltrarDataGridView()
         {
-            string periodo = cbxPeriodos.Text.ToUpper();
-            string materia = cbxMaterias.Text;
-
-            if (periodo != "" && materia != "")
+            if (cbxPeriodos.Text != "" && cbxMaterias.Text != "")
             {
+                string periodo = cbxPeriodos.SelectedItem.ToString();
+                string materia = cbxMaterias.SelectedItem.ToString();
                 foreach (DataGridViewRow fila in dgvNuevo.Rows)
                 {
-                    if (fila.Cells[4].Value != null && fila.Cells[5].Value != null)
+                    if (fila.Cells[4].Value != null && fila.Cells[5].Value != null && fila.Cells[4].Value.ToString() == periodo && fila.Cells[5].Value.ToString() == materia)
                     {
-                        if (fila.Cells[4].Value.ToString() != periodo || fila.Cells[5].Value.ToString() != materia)
-                        {
-                            fila.Visible = false;
-                        }
+                        fila.Visible = true;
+                    }
+                    else
+                    {
+                        fila.Visible = false;
                     }
                 }
             }
-            else
-            {
-                MessageBox.Show("Seleccione ambos criterios de busqueda.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+        }
 
-        }
-        private void MostrarTodasLasFilas()
+        private void cbxPeriodos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow fila in dgvNuevo.Rows)
-            {
-                fila.Visible = true;
-            }
-        }
-        private void btnMostrar_Click(object sender, EventArgs e)
-        {
-            MostrarTodasLasFilas();
+            FiltrarDataGridView();
         }
     }
 }

@@ -36,7 +36,7 @@ namespace AdministraciónEstudiantil
             Lista.AgregarDepartamento(PrecargasDepartamentos3());
             Lista.AgregarDepartamentosADataGridView(dgvDepartamentos);
             Lista.MostrarDepartamentosEnComboBox(cbxDepartamentosMAT);
-            Lista.MostrarDepartamentosEnComboBox(cbxDepartamentosEST);
+            Lista.MostrarDepartamentosEnComboBox(cbxDepartamentosEST);            
 
             Lista.AgregarMateria("Informatica", PrecargasMaterias1());
             Lista.AgregarMateria("Informatica", PrecargasMaterias2());
@@ -65,6 +65,7 @@ namespace AdministraciónEstudiantil
             Lista.AgregarEstudiante("Informatica", "Fundamentos de Electricidad", PrecargasEstudiantes14());
             Lista.AgregarEstudiante("Informatica", "Fundamentos de Electricidad", PrecargasEstudiantes15());
             Lista.AgregarEstudiantesADataGridView(dgvEstudiantes);
+            Lista.MostrarEstudiantesEnCBX(cbxEstudiantes);
         }
         private void GestionDEP_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -125,6 +126,7 @@ namespace AdministraciónEstudiantil
                             Lista.AgregarDepartamentosADataGridView(dgvDepartamentos);
                             Lista.MostrarDepartamentosEnComboBox(cbxDepartamentosMAT);
                             Lista.MostrarDepartamentosEnComboBox(cbxDepartamentosEST);
+                            Lista.MostrarEstudiantesEnCBX(cbxEstudiantes);
                             LimpiarDepartamentos();
                         }
                         else
@@ -785,6 +787,7 @@ namespace AdministraciónEstudiantil
                                     {
                                         Lista.AgregarEstudiante(cbxDepartamentosEST.Text, cbxMateriasEST.Text, ObtenerDatosEstudiantes());
                                         Lista.AgregarEstudiantesADataGridView(dgvEstudiantes);
+                                        Lista.MostrarEstudiantesEnCBX(cbxEstudiantes);
                                         LimpiarEstudiantes();
                                     }
                                     else
@@ -983,16 +986,24 @@ namespace AdministraciónEstudiantil
             SegundoReporte ventana = new SegundoReporte(CopiarDataGridViewEstudiantes(), CopiarDataGridViewMaterias());
             ventana.ShowDialog();
         }
-
         private void btnLateral3_Click(object sender, EventArgs e)
         {
-            TercerReporte ventana = new TercerReporte(Lista.MostrarCreditos1());
+            TercerReporte ventana = new TercerReporte(Lista.MostrarCreditos());
             ventana.ShowDialog();
         }
 
         private void btnLateral4_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void cbxEstudiantes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string[] datosEstudiantes = Lista.IndexChanged(cbxEstudiantes.Text);
+
+            txtCedulaEST.Text = datosEstudiantes[0];
+            txtNombreEST.Text = datosEstudiantes[1];
+            txtApellidoEST.Text = datosEstudiantes[2];
         }
     }
 }

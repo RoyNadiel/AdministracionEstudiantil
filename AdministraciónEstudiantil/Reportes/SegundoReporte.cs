@@ -87,15 +87,15 @@ namespace AdministraciónEstudiantil.Reportes
                         contador++;
                     }
                 }
-                MiniSR ventana = new MiniSR(materias);
+                MiniSR ventana = new MiniSR(materias, conteoMaterias);
                 ventana.ShowDialog();
             }
         }
-
+        Dictionary<string, int> conteoMaterias = new Dictionary<string, int>();
         public List<string> ObtenerMateriasMasRepetidas(DataGridView dataGridView)
         {
             string periodo = "";
-            Dictionary<string, int> conteoMaterias = new Dictionary<string, int>();
+            conteoMaterias.Clear();
 
             // Calcular conteo de materias por período  
             foreach (DataGridViewRow row in dataGridView.Rows)
@@ -151,7 +151,15 @@ namespace AdministraciónEstudiantil.Reportes
                 materiasMasRepetidas.Add(materiaMasRepetida);
 
                 return materiasMasRepetidas;
-            }           
+            }
+        }
+
+        private void cbxPeriodos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbxPeriodos.SelectedItem != null)
+            {
+                btnCalcular.Enabled = true;
+            }
         }
     }
 }

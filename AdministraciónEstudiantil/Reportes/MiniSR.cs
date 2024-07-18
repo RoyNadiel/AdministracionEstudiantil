@@ -26,14 +26,8 @@ namespace AdministraciónEstudiantil.Reportes
         {
             int vertical = 40;
             int crecimiento = 0;
-            //if (materias.Length > 1)
-            //{
-            //    lbl1.Text = "MATERIAS CON LA MISMA CANTIDAD DE ESTUDIANTES";
-            //}
-            //else
-            //{
-            //    lbl1.Text = "METERIA CON MAS ESTUDIANTES:";
-            //}
+            
+            
             for (int x = 0; x < materias.Length; x++)
             {
                 Label label = new Label();
@@ -44,6 +38,17 @@ namespace AdministraciónEstudiantil.Reportes
                 vertical += 20;
                 crecimiento += 20;
                 this.Size = new Size (316, 105 + crecimiento);
+            }
+            if (materias.Length > 1)
+            {
+                lbl1.Text = "MATERIAS CON MISMA CANTIDAD DE ESTUDIANTES:";
+                lbl1.Location = new Point(25, 9);
+                this.Size = new Size(450, 105 + crecimiento);
+            }
+            else
+            {
+                lbl1.Text = "MATERIA CON MAS ESTUDIANTES:";
+                lbl1.Location = new Point(25, 9);
             }
         }
     }

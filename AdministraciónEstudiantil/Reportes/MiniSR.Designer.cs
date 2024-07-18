@@ -35,11 +35,11 @@ namespace AdministraciónEstudiantil.Reportes
             // lbl1
             // 
             this.lbl1.AutoSize = true;
-            this.lbl1.Font = new System.Drawing.Font("Sitka Small", 12F);
-            this.lbl1.Location = new System.Drawing.Point(88, 7);
+            this.lbl1.Font = new System.Drawing.Font("Sitka Small", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl1.Location = new System.Drawing.Point(88, 9);
             this.lbl1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl1.Name = "lbl1";
-            this.lbl1.Size = new System.Drawing.Size(125, 24);
+            this.lbl1.Size = new System.Drawing.Size(105, 19);
             this.lbl1.TabIndex = 0;
             this.lbl1.Text = "RESULTADOS:";
             // 

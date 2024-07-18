@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System.Collections.Generic;
+using System.Data;
 using System.Windows.Forms;
 
 namespace AdministraciónEstudiantil
@@ -157,6 +158,23 @@ namespace AdministraciónEstudiantil
             {
                 MessageBox.Show("No se encontro el departamento");
             }
+        }
+        public Dictionary<string, int> MostrarCreditos1()
+        {
+            Departamento departamento = inicio;
+            Dictionary<string, int> Creditos = new Dictionary<string, int>();
+
+            while (departamento != null)
+            {
+                MateriaNode materia = departamento.Materias;
+                while (materia != null)
+                {
+                    Creditos.Add(materia.Nombre, materia.Creditos);
+                    materia = materia.Next;           
+                }
+                departamento = departamento.Next;
+            }
+            return Creditos;
         }
         public void MostrarCreditos()
         {

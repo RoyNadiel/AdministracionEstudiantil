@@ -986,7 +986,8 @@ namespace AdministraciónEstudiantil
 
         private void btnLateral3_Click(object sender, EventArgs e)
         {
-            Lista.MostrarCreditos();
+            TercerReporte ventana = new TercerReporte(Lista.MostrarCreditos1());
+            ventana.ShowDialog();
         }
 
         private void btnLateral4_Click(object sender, EventArgs e)

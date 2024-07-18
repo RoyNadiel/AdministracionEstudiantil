@@ -286,7 +286,28 @@ namespace AdministraciónEstudiantil
                 Departamento = Departamento.Next;
             }
         }
-        public void AgregarEstudiantesADataGridView(DataGridView dataGridView)
+        public void AgregarEstudiantesADGV(DataGridView dataGridView)
+        {
+            dataGridView.Rows.Clear();
+
+            Departamento departamento = inicio;
+            while (departamento != null)
+            {
+                MateriaNode materia = departamento.Materias;
+                while (materia != null)
+                {
+                    EstudianteNode Estudiante = materia.Estudiantes;
+                    while (Estudiante != null)
+                    {
+                        dataGridView.Rows.Add(Estudiante.Cedula, Estudiante.Nombre, Estudiante.Apellido, Estudiante.Seccion, Estudiante.Periodo, Estudiante.Materia, Estudiante.Departamento);
+                        Estudiante = Estudiante.Next;
+                    }
+                    materia = materia.Next;
+                }
+                departamento = departamento.Next;
+            }
+        }
+        public void AgregarEstudiantesAGestion(DataGridView dataGridView)
         {
             dataGridView.Rows.Clear();
 
@@ -307,6 +328,7 @@ namespace AdministraciónEstudiantil
                 departamento = departamento.Next;
             }
         }
+
         public void MostrarMateriasAComboBox(string nombreDepartamento, ComboBox comboBoxMaterias, ComboBox comboBoxDepartamentos)
         {
             comboBoxMaterias.Items.Clear();
@@ -421,6 +443,26 @@ namespace AdministraciónEstudiantil
                         estudiante = estudiante.Next;
                     }
                     materia = materia.Next;                       
+                }
+                departamento = departamento.Next;
+            }
+        }
+        public void MostrarEstudiantesEnCBX(TextBox textBox)
+        {            
+            Departamento departamento = inicio;
+
+            while (departamento != null)
+            {
+                MateriaNode materia = departamento.Materias;
+                while (materia != null)
+                {
+                    EstudianteNode estudiante = materia.Estudiantes;
+                    while (estudiante != null)
+                    {
+                        
+                        estudiante = estudiante.Next;
+                    }
+                    materia = materia.Next;
                 }
                 departamento = departamento.Next;
             }

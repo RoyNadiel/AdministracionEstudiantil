@@ -64,7 +64,8 @@ namespace AdministraciónEstudiantil
             Lista.AgregarEstudiante("Informatica", "Fundamentos de Electricidad", PrecargasEstudiantes13());
             Lista.AgregarEstudiante("Informatica", "Fundamentos de Electricidad", PrecargasEstudiantes14());
             Lista.AgregarEstudiante("Informatica", "Fundamentos de Electricidad", PrecargasEstudiantes15());
-            Lista.AgregarEstudiantesADataGridView(dgvEstudiantes);
+            Lista.AgregarEstudiantesADGV(dgvEstudiantes);
+            Lista.AgregarEstudiantesAGestion(dgvGestion);
             Lista.MostrarEstudiantesEnCBX(cbxEstudiantes);
         }
         private void GestionDEP_FormClosing(object sender, FormClosingEventArgs e)
@@ -203,7 +204,8 @@ namespace AdministraciónEstudiantil
                             Lista.MostrarDepartamentosEnComboBox(cbxDepartamentosMAT);
                             Lista.MostrarDepartamentosEnComboBox(cbxDepartamentosEST);
                             Lista.AgregarMateriasADataGridView(dgvMaterias);
-                            Lista.AgregarEstudiantesADataGridView(dgvEstudiantes);
+                            Lista.AgregarEstudiantesADGV(dgvEstudiantes);
+                            Lista.AgregarEstudiantesAGestion(dgvGestion);
                             LimpiarDepartamentos();
                             btnAgregarDEP.Enabled = true;
                             btnModificarDEP.Enabled = false;
@@ -239,7 +241,8 @@ namespace AdministraciónEstudiantil
                 Lista.MostrarDepartamentosEnComboBox(cbxDepartamentosMAT);
                 Lista.MostrarDepartamentosEnComboBox(cbxDepartamentosEST);
                 Lista.AgregarMateriasADataGridView(dgvMaterias);
-                Lista.AgregarEstudiantesADataGridView(dgvEstudiantes);
+                Lista.AgregarEstudiantesADGV(dgvEstudiantes);
+                Lista.AgregarEstudiantesAGestion(dgvGestion);
                 LimpiarDepartamentos();
                 btnAgregarDEP.Enabled = true;
                 btnModificarDEP.Enabled = false;
@@ -488,7 +491,8 @@ namespace AdministraciónEstudiantil
                     {
                         Lista.ModificarMateria(MateriaSeleccionada[1], MateriaSeleccionada[0], ObtenerDatosMaterias());
                         Lista.AgregarMateriasADataGridView(dgvMaterias);
-                        Lista.AgregarEstudiantesADataGridView(dgvEstudiantes);
+                        Lista.AgregarEstudiantesADGV(dgvEstudiantes);
+                        Lista.AgregarEstudiantesAGestion(dgvGestion);
                         LimpiarMaterias();
                         btnAgregarMAT.Enabled = true;
                         btnModificarMAT.Enabled = false;
@@ -513,7 +517,8 @@ namespace AdministraciónEstudiantil
         {
             Lista.EliminarMateria(MateriaSeleccionada[1], MateriaSeleccionada[0]);
             Lista.AgregarMateriasADataGridView(dgvMaterias);
-            Lista.AgregarEstudiantesADataGridView(dgvEstudiantes);
+            Lista.AgregarEstudiantesADGV(dgvEstudiantes);
+            Lista.AgregarEstudiantesAGestion(dgvGestion);
             btnAgregarMAT.Enabled = true;
             btnModificarMAT.Enabled = false;
             btnEliminarMAT.Enabled = false;
@@ -655,8 +660,8 @@ namespace AdministraciónEstudiantil
         {
             EstudianteNode datos = new EstudianteNode();
             datos.Cedula = "14820148";
-            datos.Nombre = "Prieto";
-            datos.Apellido = "Diego";
+            datos.Nombre = "Diego";
+            datos.Apellido = "Prieto";
             datos.Seccion = "0520";
             datos.Periodo = "II-2023";
             datos.Materia = "Matematicas III";
@@ -668,8 +673,8 @@ namespace AdministraciónEstudiantil
         {
             EstudianteNode datos = new EstudianteNode();
             datos.Cedula = "14688162";
-            datos.Nombre = "Quijada";
-            datos.Apellido = "Jorge";
+            datos.Nombre = "Jorge";
+            datos.Apellido = "Quijada";
             datos.Seccion = "0520";
             datos.Periodo = "II-2023";
             datos.Materia = "Matematicas III";
@@ -681,8 +686,8 @@ namespace AdministraciónEstudiantil
         {
             EstudianteNode datos = new EstudianteNode();
             datos.Cedula = "14688649";
-            datos.Nombre = "Suarez";
-            datos.Apellido = "Karlismar";
+            datos.Nombre = "Karlismar";
+            datos.Apellido = "Suarez";
             datos.Seccion = "0521";
             datos.Periodo = "II-2022";
             datos.Materia = "Matematicas III";
@@ -786,7 +791,8 @@ namespace AdministraciónEstudiantil
                                     if (cbxMateriasEST.Text != "")
                                     {
                                         Lista.AgregarEstudiante(cbxDepartamentosEST.Text, cbxMateriasEST.Text, ObtenerDatosEstudiantes());
-                                        Lista.AgregarEstudiantesADataGridView(dgvEstudiantes);
+                                        Lista.AgregarEstudiantesADGV(dgvEstudiantes);
+                                        Lista.AgregarEstudiantesAGestion(dgvGestion);
                                         Lista.MostrarEstudiantesEnCBX(cbxEstudiantes);
                                         LimpiarEstudiantes();
                                     }
@@ -853,32 +859,24 @@ namespace AdministraciónEstudiantil
             txtApellidoEST.Text = rowSelected[2];
             txtSeccionEST.Text = rowSelected[3];
             txtPeriodoEST.Text = rowSelected[4];
-            txtNotaEST.Text = rowSelected[7];
             btnAgregarEST.Enabled = false;
-            btnModificarEST.Enabled = true;
+            btnModifcarGES.Enabled = true;
             btnEliminarEST.Enabled = true;
         }
-        private void btnModificarEST_Click(object sender, EventArgs e)
-        {
-            Lista.ModificarNotaEstudiante(EstudianteSeleccionado[0], EstudianteSeleccionado[1], EstudianteSeleccionado[2], float.Parse(txtNotaEST.Text));
-            Lista.AgregarEstudiantesADataGridView(dgvEstudiantes);
-            LimpiarEstudiantes();
-            btnAgregarEST.Enabled = true;
-            btnModificarEST.Enabled = false;
-            btnEliminarEST.Enabled = false;
-        }
+
         private void btnEliminarEST_Click(object sender, EventArgs e)
         {
             Lista.EliminarEstudiante(EstudianteSeleccionado[0], EstudianteSeleccionado[2], EstudianteSeleccionado[1]);
-            Lista.AgregarEstudiantesADataGridView(dgvEstudiantes);
+            Lista.AgregarEstudiantesADGV(dgvEstudiantes);
+            Lista.AgregarEstudiantesAGestion(dgvGestion);            
             btnAgregarEST.Enabled = true;
-            btnModificarEST.Enabled = false;
+            btnModifcarGES.Enabled = false;
             btnEliminarEST.Enabled = false;
         }
         private void btnCancelarEST_Click(object sender, EventArgs e)
         {
             btnAgregarEST.Enabled = true;
-            btnModificarEST.Enabled = false;
+            btnModifcarGES.Enabled = false;
             btnEliminarEST.Enabled = false;
             LimpiarEstudiantes();
         }
@@ -934,6 +932,16 @@ namespace AdministraciónEstudiantil
                 e.Handled = true;
             }
         }
+        private void cbxEstudiantes_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            string[] datosEstudiantes = Lista.IndexChanged(cbxEstudiantes.Text);
+            if (datosEstudiantes != null)
+            {
+                txtCedulaEST.Text = datosEstudiantes[0];
+                txtNombreEST.Text = datosEstudiantes[1];
+                txtApellidoEST.Text = datosEstudiantes[2];
+            }
+        }
         #endregion
         public DataGridView CopiarDataGridViewEstudiantes()
         {
@@ -980,16 +988,19 @@ namespace AdministraciónEstudiantil
             PrimerReporte ventana = new PrimerReporte(CopiarDataGridViewEstudiantes(), CopiarDataGridViewMaterias());
             ventana.ShowDialog();
         }
-
+        
         private void btnLateral2_Click(object sender, EventArgs e)
         {
             SegundoReporte ventana = new SegundoReporte(CopiarDataGridViewEstudiantes(), CopiarDataGridViewMaterias());
             ventana.ShowDialog();
         }
         private void btnLateral3_Click(object sender, EventArgs e)
-        {
+        {            
             TercerReporte ventana = new TercerReporte(Lista.MostrarCreditos());
-            ventana.ShowDialog();
+            if (Lista.MostrarCreditos() != null)
+            {
+                ventana.ShowDialog();
+            }
         }
 
         private void btnLateral4_Click(object sender, EventArgs e)
@@ -997,13 +1008,57 @@ namespace AdministraciónEstudiantil
 
         }
 
-        private void cbxEstudiantes_SelectedIndexChanged(object sender, EventArgs e)
+        string[] GestionSeleccionado = new string[4];
+        DataGridViewRow rowGESTION;
+        private void dgvGestion_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            string[] datosEstudiantes = Lista.IndexChanged(cbxEstudiantes.Text);
+            string[] rowSelected = new string[8];
+            if (e.RowIndex >= 0)
+            {
+                rowGESTION = dgvGestion.Rows[e.RowIndex];
+                GestionSeleccionado[0] = rowGESTION.Cells[1].Value.ToString(); //NOMBRE
+                GestionSeleccionado[1] = rowGESTION.Cells[5].Value.ToString(); //MATEIRA
+                GestionSeleccionado[2] = rowGESTION.Cells[6].Value.ToString(); //DEPARTAMENTO               
+            }
+            if (rowGESTION != null)
+            {
+                for (int x = 0; x < rowGESTION.Cells.Count; x++)
+                {
+                    rowSelected[x] = rowGESTION.Cells[x].Value.ToString();
+                }
+            }            
+            notaGestion.Text = rowSelected[7];
+        }
 
-            txtCedulaEST.Text = datosEstudiantes[0];
-            txtNombreEST.Text = datosEstudiantes[1];
-            txtApellidoEST.Text = datosEstudiantes[2];
+        private void btnModifcarGES_Click(object sender, EventArgs e)
+        {
+            Lista.ModificarNotaEstudiante(GestionSeleccionado[0], GestionSeleccionado[1], GestionSeleccionado[2], float.Parse(notaGestion.Text));
+            Lista.AgregarEstudiantesADGV(dgvEstudiantes);
+            Lista.AgregarEstudiantesAGestion(dgvGestion);
+            LimpiarEstudiantes();           
+        }
+
+        private void txtEstudianteGES_TextChanged(object sender, EventArgs e)
+        {
+            FiltrarDGVGestion();
+        }
+        private void FiltrarDGVGestion()
+        {
+            string textoFiltro = txtEstudianteGES.Text.Trim().ToLower(); // Obtener el texto del TextBox y convertirlo a minúsculas  
+
+            int indice = 1; // Índice de la columna por la que se va a filtrar  
+
+            foreach (DataGridViewRow fila in dgvGestion.Rows)
+            {
+                if (fila.Cells[indice].Value != null && fila.Cells[indice].Value.ToString().ToLower().Contains(textoFiltro))
+                {
+                    fila.Visible = true;
+                }
+                else
+                {
+                    fila.Visible = false;
+                }
+            }
         }
     }
 }

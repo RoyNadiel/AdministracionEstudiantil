@@ -88,7 +88,7 @@ namespace AdministraciónEstudiantil.Reportes
                     }
                 }
                 MiniSR ventana = new MiniSR(materias, conteoMaterias);
-                ventana.ShowDialog();
+                ventana.Show();
             }
         }
         Dictionary<string, int> conteoMaterias = new Dictionary<string, int>();
@@ -115,7 +115,7 @@ namespace AdministraciónEstudiantil.Reportes
                         {
                             conteoMaterias.Add(nombreMateria, 1);
                         }
-                    }
+                    } 
                 }
                 else
                 {

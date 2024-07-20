@@ -105,6 +105,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reportes\QuintoReporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\QuintoReporte.Designer.cs">
+      <DependentUpon>QuintoReporte.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\SegundoReporte.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,6 +145,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Reportes\QuintoReporte.resx">
+      <DependentUpon>QuintoReporte.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\SegundoReporte.resx">
       <DependentUpon>SegundoReporte.cs</DependentUpon>
     </EmbeddedResource>

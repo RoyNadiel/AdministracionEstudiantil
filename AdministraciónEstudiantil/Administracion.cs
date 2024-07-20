@@ -36,7 +36,7 @@ namespace AdministraciónEstudiantil
             Lista.AgregarDepartamento(PrecargasDepartamentos3());
             Lista.AgregarDepartamentosADataGridView(dgvDepartamentos);
             Lista.MostrarDepartamentosEnComboBox(cbxDepartamentosMAT);
-            Lista.MostrarDepartamentosEnComboBox(cbxDepartamentosEST);            
+            Lista.MostrarDepartamentosEnComboBox(cbxDepartamentosEST);
 
             Lista.AgregarMateria("Informatica", PrecargasMaterias1());
             Lista.AgregarMateria("Informatica", PrecargasMaterias2());
@@ -128,6 +128,7 @@ namespace AdministraciónEstudiantil
                             Lista.MostrarDepartamentosEnComboBox(cbxDepartamentosMAT);
                             Lista.MostrarDepartamentosEnComboBox(cbxDepartamentosEST);
                             Lista.MostrarEstudiantesEnCBX(cbxEstudiantes);
+                            Lista.AgregarMateriasADataGridView(dgvMaterias);
                             LimpiarDepartamentos();
                         }
                         else
@@ -549,7 +550,7 @@ namespace AdministraciónEstudiantil
             datos.Periodo = txtPeriodoEST.Text.ToUpper();
             datos.Materia = cbxMateriasEST.Text;
             datos.Departamento = cbxDepartamentosEST.Text;
-            datos.Nota = float.Parse(txtNotaEST.Text);
+            datos.Nota = Convert.ToDouble(txtNotaEST.Text);
             return datos;
         }
         private EstudianteNode PrecargasEstudiantes1()
@@ -868,7 +869,7 @@ namespace AdministraciónEstudiantil
         {
             Lista.EliminarEstudiante(EstudianteSeleccionado[0], EstudianteSeleccionado[2], EstudianteSeleccionado[1]);
             Lista.AgregarEstudiantesADGV(dgvEstudiantes);
-            Lista.AgregarEstudiantesAGestion(dgvGestion);            
+            Lista.AgregarEstudiantesAGestion(dgvGestion);
             btnAgregarEST.Enabled = true;
             btnModifcarGES.Enabled = false;
             btnEliminarEST.Enabled = false;
@@ -943,6 +944,60 @@ namespace AdministraciónEstudiantil
             }
         }
         #endregion
+        #region Notas
+        string[] GestionSeleccionado = new string[4];
+        DataGridViewRow rowGESTION;
+        private void dgvGestion_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            string[] rowSelected = new string[8];
+            if (e.RowIndex >= 0)
+            {
+                rowGESTION = dgvGestion.Rows[e.RowIndex];
+                GestionSeleccionado[0] = rowGESTION.Cells[1].Value.ToString(); //NOMBRE
+                GestionSeleccionado[1] = rowGESTION.Cells[5].Value.ToString(); //MATEIRA
+                GestionSeleccionado[2] = rowGESTION.Cells[6].Value.ToString(); //DEPARTAMENTO               
+            }
+            if (rowGESTION != null)
+            {
+                for (int x = 0; x < rowGESTION.Cells.Count; x++)
+                {
+                    rowSelected[x] = rowGESTION.Cells[x].Value.ToString();
+                }
+            }
+            notaGestion.Text = rowSelected[7];
+        }
+
+        private void btnModifcarGES_Click(object sender, EventArgs e)
+        {
+            Lista.ModificarNotaEstudiante(GestionSeleccionado[0], GestionSeleccionado[1], GestionSeleccionado[2], float.Parse(notaGestion.Text));
+            Lista.AgregarEstudiantesADGV(dgvEstudiantes);
+            Lista.AgregarEstudiantesAGestion(dgvGestion);
+            notaGestion.Value = 0;
+        }
+
+        private void txtEstudianteGES_TextChanged(object sender, EventArgs e)
+        {
+            FiltrarDGVGestion();
+        }
+        private void FiltrarDGVGestion()
+        {
+            string textoFiltro = txtEstudianteGES.Text.Trim().ToLower(); // Obtener el texto del TextBox y convertirlo a minúsculas  
+
+            int indice = 1; // Índice de la columna por la que se va a filtrar  
+
+            foreach (DataGridViewRow fila in dgvGestion.Rows)
+            {
+                if (fila.Cells[indice].Value != null && fila.Cells[indice].Value.ToString().ToLower().Contains(textoFiltro))
+                {
+                    fila.Visible = true;
+                }
+                else
+                {
+                    fila.Visible = false;
+                }
+            }
+        }
+        #endregion
         public DataGridView CopiarDataGridViewEstudiantes()
         {
             DataGridView dgvNuevo = new DataGridView();
@@ -988,14 +1043,14 @@ namespace AdministraciónEstudiantil
             PrimerReporte ventana = new PrimerReporte(CopiarDataGridViewEstudiantes(), CopiarDataGridViewMaterias());
             ventana.ShowDialog();
         }
-        
+
         private void btnLateral2_Click(object sender, EventArgs e)
         {
             SegundoReporte ventana = new SegundoReporte(CopiarDataGridViewEstudiantes(), CopiarDataGridViewMaterias());
             ventana.ShowDialog();
         }
         private void btnLateral3_Click(object sender, EventArgs e)
-        {            
+        {
             TercerReporte ventana = new TercerReporte(Lista.MostrarCreditos());
             if (Lista.MostrarCreditos() != null)
             {
@@ -1005,60 +1060,15 @@ namespace AdministraciónEstudiantil
 
         private void btnLateral4_Click(object sender, EventArgs e)
         {
-
+            CuartoReporte ventana = new CuartoReporte(CopiarDataGridViewMaterias());
+            ventana.ShowDialog();
         }
 
-        string[] GestionSeleccionado = new string[4];
-        DataGridViewRow rowGESTION;
-        private void dgvGestion_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        private void btnLateral5_Click(object sender, EventArgs e)
         {
-            string[] rowSelected = new string[8];
-            if (e.RowIndex >= 0)
-            {
-                rowGESTION = dgvGestion.Rows[e.RowIndex];
-                GestionSeleccionado[0] = rowGESTION.Cells[1].Value.ToString(); //NOMBRE
-                GestionSeleccionado[1] = rowGESTION.Cells[5].Value.ToString(); //MATEIRA
-                GestionSeleccionado[2] = rowGESTION.Cells[6].Value.ToString(); //DEPARTAMENTO               
-            }
-            if (rowGESTION != null)
-            {
-                for (int x = 0; x < rowGESTION.Cells.Count; x++)
-                {
-                    rowSelected[x] = rowGESTION.Cells[x].Value.ToString();
-                }
-            }            
-            notaGestion.Text = rowSelected[7];
-        }
-
-        private void btnModifcarGES_Click(object sender, EventArgs e)
-        {
-            Lista.ModificarNotaEstudiante(GestionSeleccionado[0], GestionSeleccionado[1], GestionSeleccionado[2], float.Parse(notaGestion.Text));
-            Lista.AgregarEstudiantesADGV(dgvEstudiantes);
-            Lista.AgregarEstudiantesAGestion(dgvGestion);
-            LimpiarEstudiantes();           
-        }
-
-        private void txtEstudianteGES_TextChanged(object sender, EventArgs e)
-        {
-            FiltrarDGVGestion();
-        }
-        private void FiltrarDGVGestion()
-        {
-            string textoFiltro = txtEstudianteGES.Text.Trim().ToLower(); // Obtener el texto del TextBox y convertirlo a minúsculas  
-
-            int indice = 1; // Índice de la columna por la que se va a filtrar  
-
-            foreach (DataGridViewRow fila in dgvGestion.Rows)
-            {
-                if (fila.Cells[indice].Value != null && fila.Cells[indice].Value.ToString().ToLower().Contains(textoFiltro))
-                {
-                    fila.Visible = true;
-                }
-                else
-                {
-                    fila.Visible = false;
-                }
-            }
+            DataGridView dgv = new DataGridView();
+            QuintoReporte ventana = new QuintoReporte(Lista.AgregarMateriasPromedioNotas());
+            ventana.ShowDialog();
         }
     }
 }

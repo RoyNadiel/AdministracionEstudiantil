@@ -29,23 +29,24 @@ namespace AdministraciónEstudiantil.Reportes
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label3 = new System.Windows.Forms.Label();
             this.btnCalcular = new System.Windows.Forms.Button();
             this.dgvNuevo = new System.Windows.Forms.DataGridView();
             this.cbxPeriodos = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNuevo)).BeginInit();
             this.SuspendLayout();
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Sitka Small", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(108, 9);
+            this.label3.Font = new System.Drawing.Font("Sitka Small", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(32, 9);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(709, 24);
+            this.label3.Size = new System.Drawing.Size(831, 28);
             this.label3.TabIndex = 16;
             this.label3.Text = "BUSCAR MATERIA CON MAS ESTUDIANTES INSCRITOS EN UN PERIODO ESPECIFICO";
             // 
@@ -72,14 +73,14 @@ namespace AdministraciónEstudiantil.Reportes
             this.dgvNuevo.BackgroundColor = System.Drawing.Color.Azure;
             this.dgvNuevo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvNuevo.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Azure;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Sitka Small", 9F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Azure;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvNuevo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.Azure;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Sitka Small", 9F);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.Azure;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvNuevo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvNuevo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvNuevo.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvNuevo.EnableHeadersVisualStyles = false;
@@ -89,11 +90,11 @@ namespace AdministraciónEstudiantil.Reportes
             this.dgvNuevo.ReadOnly = true;
             this.dgvNuevo.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvNuevo.RowHeadersVisible = false;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Azure;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Sitka Small", 9F);
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.dgvNuevo.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.Azure;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Sitka Small", 9F);
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dgvNuevo.RowsDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvNuevo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvNuevo.Size = new System.Drawing.Size(891, 236);
             this.dgvNuevo.TabIndex = 9;
@@ -113,9 +114,19 @@ namespace AdministraciónEstudiantil.Reportes
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(15, 44);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 18);
+            this.label1.Size = new System.Drawing.Size(69, 18);
             this.label1.TabIndex = 12;
-            this.label1.Text = "Periodo:";
+            this.label1.Text = "PERIODO:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Sitka Small", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(352, 82);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(180, 20);
+            this.label4.TabIndex = 24;
+            this.label4.Text = "LISTA DE ESTUDIANTES";
             // 
             // SegundoReporte
             // 
@@ -123,6 +134,7 @@ namespace AdministraciónEstudiantil.Reportes
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Azure;
             this.ClientSize = new System.Drawing.Size(891, 338);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnCalcular);
             this.Controls.Add(this.label1);
@@ -149,5 +161,6 @@ namespace AdministraciónEstudiantil.Reportes
         private System.Windows.Forms.DataGridView dgvNuevo;
         private System.Windows.Forms.ComboBox cbxPeriodos;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label4;
     }
 }

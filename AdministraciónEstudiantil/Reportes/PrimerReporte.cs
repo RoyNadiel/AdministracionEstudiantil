@@ -78,7 +78,7 @@ namespace AdministraciónEstudiantil
                     }
                 }
             }
-        }              
+        }             
         private void cbxMaterias_SelectedIndexChanged(object sender, EventArgs e)
         {
             FiltrarDataGridView();            

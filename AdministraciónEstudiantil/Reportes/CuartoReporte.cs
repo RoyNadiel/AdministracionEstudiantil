@@ -1,16 +1,19 @@
-﻿using System.Windows.Forms;
+﻿using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace AdministraciónEstudiantil.Reportes
 {
     public partial class CuartoReporte : Form
     {
-        DataGridView dgvMateria = new DataGridView();
-        public CuartoReporte(DataGridView dgvEstudiantes, DataGridView dgvMaterias)
+        DataGridView dgvDepartamentos = new DataGridView();
+        public CuartoReporte(DataGridView dgvMaterias)
         {
             InitializeComponent();
-
-        }
-        private void RecibirEstudiantes(DataGridView dataGridView)
+            RecibirMaterias(dgvMaterias);
+            MostrarDepartamentosCBX(dgvNuevo, 3, cbxDepartamentos);
+            MostrarSemestresCBX(dgvNuevo, 0, cbxSemestre);
+        }        
+        private void RecibirMaterias(DataGridView dataGridView)
         {
             foreach (DataGridViewColumn col in dataGridView.Columns)
             {
@@ -26,21 +29,74 @@ namespace AdministraciónEstudiantil.Reportes
                 dgvNuevo.Rows.Add(newRow);
             }
         }
-        private void RecibirMaterias(DataGridView dataGridView)
+
+        private void MostrarDepartamentosCBX(DataGridView dataGridView, int columnIndex, ComboBox comboBox)
         {
-            foreach (DataGridViewColumn col in dataGridView.Columns)
-            {
-                dgvMateria.Columns.Add(col.Clone() as DataGridViewColumn);
-            }
+            comboBox.Items.Clear();
+            HashSet<string> itemsSet = new HashSet<string>();
+
             foreach (DataGridViewRow row in dataGridView.Rows)
             {
-                DataGridViewRow newRow = (DataGridViewRow)row.Clone();
-                for (int i = 0; i < row.Cells.Count; i++)
+                if (!row.IsNewRow && row.Cells[columnIndex].Value != null)
                 {
-                    newRow.Cells[i].Value = row.Cells[i].Value;
+                    string item = row.Cells[columnIndex].Value.ToString();
+                    
+                    if (!itemsSet.Contains(item))
+                    {
+                        comboBox.Items.Add(item);
+                        itemsSet.Add(item);
+                    }
                 }
-                dgvMateria.Rows.Add(newRow);
             }
         }
+        private void MostrarSemestresCBX(DataGridView dataGridView, int columnIndex, ComboBox comboBox)
+        {
+            comboBox.Items.Clear();
+            HashSet<string> itemsSet = new HashSet<string>();
+
+            foreach (DataGridViewRow row in dataGridView.Rows)
+            {
+                if (!row.IsNewRow && row.Cells[columnIndex].Value != null)
+                {
+                    string item = row.Cells[columnIndex].Value.ToString();
+                    string itemReal = item[item.Length - 2].ToString();
+                    if (!itemsSet.Contains(itemReal))
+                    {
+                        comboBox.Items.Add(itemReal);
+                        itemsSet.Add(itemReal);
+                    }
+                }
+            }
+        }
+        private void FiltrarDataGridView()
+        {
+            if (cbxDepartamentos.Text != "" && cbxSemestre.Text != "")
+            {
+                string departamento = cbxDepartamentos.SelectedItem.ToString();
+                string semestre = cbxSemestre.SelectedItem.ToString();
+                foreach (DataGridViewRow fila in dgvNuevo.Rows)
+                {
+                    if (fila.Cells[3].Value != null && fila.Cells[0].Value != null && fila.Cells[3].Value.ToString() == departamento && fila.Cells[0].Value.ToString().Substring(fila.Cells[0].Value.ToString().Length - 2, 1) == semestre)
+                    {
+                        fila.Visible = true;
+                    }
+                    else
+                    {
+                        fila.Visible = false;
+                    }
+                }
+            }
+        }
+
+        private void cbxDepartamentos_SelectedIndexChanged(object sender, System.EventArgs e)
+        {
+            FiltrarDataGridView();
+        }
+
+        private void cbxSemestre_SelectedIndexChanged(object sender, System.EventArgs e)
+        {
+            FiltrarDataGridView();
+        }
     }
+
 }

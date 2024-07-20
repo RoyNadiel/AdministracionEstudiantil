@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
 
@@ -43,15 +44,15 @@ namespace AdministraciónEstudiantil
         }
         public void ModificarDepartamentos(string nombreDepartamento, Departamento datos)
         {
-            Departamento departamento = ObtenerDepartamento(nombreDepartamento);
+            Departamento departamento = inicio;
             if (departamento != null)
             {
                 while (departamento != null)
                 {
                     if (departamento.Nombre == nombreDepartamento)
                     {
-                        departamento.Nombre = datos.Nombre;
                         departamento.Codigo = datos.Codigo;
+                        departamento.Nombre = datos.Nombre;                        
                         departamento.Descripcion = datos.Descripcion;
                         return;
                     }
@@ -139,19 +140,19 @@ namespace AdministraciónEstudiantil
             Departamento departamento = ObtenerDepartamento(nombreDepartamento);
             if (departamento != null)
             {
-                MateriaNode nuevaMateria = Datos;
+                MateriaNode Materia = Datos;
                 if (departamento.Materias == null)
                 {
-                    departamento.Materias = nuevaMateria;
+                    departamento.Materias = Materia;
                 }
                 else
                 {
-                    MateriaNode temp = departamento.Materias;
-                    while (temp.Next != null)
+                    MateriaNode nuevaMateria = departamento.Materias;
+                    while (nuevaMateria.Next != null)
                     {
-                        temp = temp.Next;
+                        nuevaMateria = nuevaMateria.Next;
                     }
-                    temp.Next = nuevaMateria;
+                    nuevaMateria.Next = Materia;
                 }
             }
             else
@@ -326,6 +327,61 @@ namespace AdministraciónEstudiantil
                     materia = materia.Next;
                 }
                 departamento = departamento.Next;
+            }
+        }
+        public DataGridView AgregarMateriasPromedioNotas()
+        {
+            DataGridView dataGridView = new DataGridView();
+
+            dataGridView.Rows.Clear();
+            dataGridView.Columns.Clear();
+
+            dataGridView.ColumnCount = 5;
+            dataGridView.Columns[0].Name = "MATERIAS";
+            dataGridView.Columns[1].Name = "NOMBRE";
+            dataGridView.Columns[2].Name = "CEDULA";
+            dataGridView.Columns[3].Name = "PERIODO";
+            dataGridView.Columns[4].Name = "NOTA";
+            dataGridView.Columns[0].HeaderText = "MATERIAS";
+            dataGridView.Columns[1].HeaderText = "NOMBRE";
+            dataGridView.Columns[2].HeaderText = "CEDULA";
+            dataGridView.Columns[3].HeaderText = "PERIODO";
+            dataGridView.Columns[4].HeaderText = "NOTA";
+
+
+            Departamento departamento = inicio;
+            while (departamento != null)
+            {
+                MateriaNode materia = departamento.Materias;
+                while (materia != null)
+                {
+                    EstudianteNode Estudiante = materia.Estudiantes;
+                    while (Estudiante != null)
+                    {
+                        dataGridView.Rows.Add(Estudiante.Materia, Estudiante.Nombre, Estudiante.Cedula, Estudiante.Periodo, Estudiante.Nota);
+                        Estudiante = Estudiante.Next;
+                    }
+                    materia = materia.Next;
+                }
+                departamento = departamento.Next;
+            }
+            return dataGridView;
+        }
+
+        private void ObtenerNotas(DataGridView dgv, int Materia, int Nota)
+        {
+            HashSet<string> Materias = new HashSet<string>();
+
+            foreach (DataGridViewRow row in dgv.Rows)
+            {
+                if (!row.IsNewRow && row.Cells[Materia].Value != null && row.Cells[Nota].Value != null)
+                {
+                    string item = row.Cells[Materia].Value.ToString();
+                    if (!Materias.Contains(item))
+                    {
+                        Materias.Add(item);
+                    }
+                }
             }
         }
 
@@ -543,7 +599,7 @@ namespace AdministraciónEstudiantil
         public string Apellido { get; set; }
         public string Seccion { get; set; }
         public string Periodo { get; set; }
-        public float Nota { get; set; }
+        public double Nota { get; set; }
         public string Materia { get; set; }
         public string Departamento { get; set; }
         public EstudianteNode Next { get; set; }
@@ -558,6 +614,6 @@ namespace AdministraciónEstudiantil
             Nota = Datos.Nota;
             Materia = Datos.Materia;
             Departamento = Datos.Departamento;
-        }
+        }        
     }
 }

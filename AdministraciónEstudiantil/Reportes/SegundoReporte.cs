@@ -126,6 +126,7 @@ namespace AdministraciónEstudiantil.Reportes
             // Obtener la cantidad máxima de repeticiones
             int maxRepeticiones = conteoMaterias.Max(x => x.Value);
 
+
             // Obtener la materia más repetida  
             string materiaMasRepetida = conteoMaterias.FirstOrDefault(x => x.Value == maxRepeticiones).Key;
 

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace AdministraciónEstudiantil.Reportes
@@ -61,11 +62,17 @@ namespace AdministraciónEstudiantil.Reportes
                     string item = row.Cells[columnIndex].Value.ToString();
                     string itemReal = item[item.Length - 2].ToString();
                     if (!itemsSet.Contains(itemReal))
-                    {
-                        comboBox.Items.Add(itemReal);
+                    {                       
                         itemsSet.Add(itemReal);
                     }
                 }
+            }
+            List<string> Semestres = itemsSet.ToList();
+            Semestres.Sort();
+
+            foreach (var dato in Semestres)
+            {
+                comboBox.Items.Add(dato);
             }
         }
         private void FiltrarDataGridView()

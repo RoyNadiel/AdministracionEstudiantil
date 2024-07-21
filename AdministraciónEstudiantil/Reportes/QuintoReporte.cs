@@ -83,7 +83,7 @@ namespace AdministraciónEstudiantil.Reportes
                         }
                     }
                 }
-        }
+            }
 
             // Calcular el promedio y determinar la materia con el mayor promedio  
             string materiaConMayorPromedio = null;
@@ -106,15 +106,23 @@ namespace AdministraciónEstudiantil.Reportes
             {
                 MessageBox.Show($"La materia con el promedio más alto es: {materiaConMayorPromedio} con un promedio de {mayorPromedio:F2}");
             }
-            else
+            else if (mayorPromedio == 0)
             {
-                MessageBox.Show("No se encontraron materias.");
+                MessageBox.Show("Aun no se asignan notas.");
             }
         }
 
         private void btnCalcular_Click(object sender, EventArgs e)
         {
             CalcularPromedios(dgvNuevo);
+        }
+
+        private void cbxPeriodos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbxPeriodos.Text != null)
+            {
+                btnCalcular.Enabled = true;
+            }
         }
     }
 }

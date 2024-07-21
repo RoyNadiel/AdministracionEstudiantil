@@ -127,7 +127,7 @@ namespace AdministraciónEstudiantil
                             Lista.AgregarDepartamentosADataGridView(dgvDepartamentos);
                             Lista.MostrarDepartamentosEnComboBox(cbxDepartamentosMAT);
                             Lista.MostrarDepartamentosEnComboBox(cbxDepartamentosEST);
-                            Lista.MostrarEstudiantesEnCBX(cbxEstudiantes);
+                            //Lista.MostrarEstudiantesEnCBX(cbxEstudiantes);
                             Lista.AgregarMateriasADataGridView(dgvMaterias);
                             LimpiarDepartamentos();
                         }
@@ -748,33 +748,6 @@ namespace AdministraciónEstudiantil
             datos.Nota = 0;
             return datos;
         }
-
-        private bool ValidarEstudianteRepetido()
-        {
-            string nuevoDato = txtCedulaEST.Text;
-
-            // Verificar si el nuevo dato ya existe en la columna deseada
-            foreach (DataGridViewRow row in dgvEstudiantes.Rows)
-            {
-                string valorFilaActual = row.Cells[CEDULA.Index].Value?.ToString();
-
-                if (nuevoDato == valorFilaActual)
-                {
-                    return false;
-                }
-            }
-            return true;
-
-            //if (ValidarRepeticionEST() == true)
-            //{
-
-
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Este estudiante ya existe en el Sistema", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //}
-        }
         private void AgregarEstudiante(object sender, EventArgs e)
         {
             if (txtCedulaEST.Text != "")
@@ -785,17 +758,29 @@ namespace AdministraciónEstudiantil
                     {
                         if (txtSeccionEST.Text != "")
                         {
-                            if (ValidarPeriodoSemestral(txtPeriodoEST.Text) == true)
+                            if (ValidarPeriodoSemestral(txtPeriodoEST.Text))
                             {
                                 if (cbxDepartamentosEST.Text != "")
                                 {
                                     if (cbxMateriasEST.Text != "")
                                     {
-                                        Lista.AgregarEstudiante(cbxDepartamentosEST.Text, cbxMateriasEST.Text, ObtenerDatosEstudiantes());
-                                        Lista.AgregarEstudiantesADGV(dgvEstudiantes);
-                                        Lista.AgregarEstudiantesAGestion(dgvGestion);
-                                        Lista.MostrarEstudiantesEnCBX(cbxEstudiantes);
-                                        LimpiarEstudiantes();
+                                        if (Lista.ValidarEstudianteIngresado(txtCedulaEST.Text, txtNombreEST.Text, txtApellidoEST.Text))
+                                        {
+                                            Lista.AgregarEstudiante(cbxDepartamentosEST.Text, cbxMateriasEST.Text, ObtenerDatosEstudiantes());
+                                            Lista.AgregarEstudiantesADGV(dgvEstudiantes);
+                                            Lista.AgregarEstudiantesAGestion(dgvGestion);
+                                            Lista.MostrarEstudiantesEnCBX(cbxEstudiantes);
+                                            LimpiarEstudiantes();
+                                            return;
+                                        }
+                                        if (Lista.VerificarCedula(txtCedulaEST.Text))
+                                        {
+                                            Lista.AgregarEstudiante(cbxDepartamentosEST.Text, cbxMateriasEST.Text, ObtenerDatosEstudiantes());
+                                            Lista.AgregarEstudiantesADGV(dgvEstudiantes);
+                                            Lista.AgregarEstudiantesAGestion(dgvGestion);
+                                            Lista.MostrarEstudiantesEnCBX(cbxEstudiantes);
+                                            LimpiarEstudiantes();
+                                        }       
                                     }
                                     else
                                     {
@@ -867,17 +852,20 @@ namespace AdministraciónEstudiantil
 
         private void btnEliminarEST_Click(object sender, EventArgs e)
         {
-            Lista.EliminarEstudiante(EstudianteSeleccionado[0], EstudianteSeleccionado[2], EstudianteSeleccionado[1]);
-            Lista.AgregarEstudiantesADGV(dgvEstudiantes);
-            Lista.AgregarEstudiantesAGestion(dgvGestion);
-            btnAgregarEST.Enabled = true;
-            btnModifcarGES.Enabled = false;
-            btnEliminarEST.Enabled = false;
+            if (dgvEstudiantes.SelectedRows.Count > 0)
+            {
+                Lista.EliminarEstudiante(EstudianteSeleccionado[0], EstudianteSeleccionado[2], EstudianteSeleccionado[1]);
+                Lista.AgregarEstudiantesADGV(dgvEstudiantes);
+                Lista.AgregarEstudiantesAGestion(dgvGestion);
+                Lista.MostrarEstudiantesEnCBX(cbxEstudiantes);
+                btnAgregarEST.Enabled = true;
+                btnModifcarGES.Enabled = false;
+                btnEliminarEST.Enabled = false;
+            }
         }
         private void btnCancelarEST_Click(object sender, EventArgs e)
         {
             btnAgregarEST.Enabled = true;
-            btnModifcarGES.Enabled = false;
             btnEliminarEST.Enabled = false;
             LimpiarEstudiantes();
         }
@@ -969,10 +957,13 @@ namespace AdministraciónEstudiantil
 
         private void btnModifcarGES_Click(object sender, EventArgs e)
         {
-            Lista.ModificarNotaEstudiante(GestionSeleccionado[0], GestionSeleccionado[1], GestionSeleccionado[2], float.Parse(notaGestion.Text));
-            Lista.AgregarEstudiantesADGV(dgvEstudiantes);
-            Lista.AgregarEstudiantesAGestion(dgvGestion);
-            notaGestion.Value = 0;
+            if (dgvGestion.SelectedRows.Count > 0)
+            {
+                Lista.ModificarNotaEstudiante(GestionSeleccionado[0], GestionSeleccionado[1], GestionSeleccionado[2], float.Parse(notaGestion.Text));
+                Lista.AgregarEstudiantesADGV(dgvEstudiantes);
+                Lista.AgregarEstudiantesAGestion(dgvGestion);
+                notaGestion.Value = 0;
+            }
         }
 
         private void txtEstudianteGES_TextChanged(object sender, EventArgs e)
@@ -998,6 +989,26 @@ namespace AdministraciónEstudiantil
             }
         }
         #endregion
+        public DataGridView CopiarDataGridViewNotas()
+        {
+            DataGridView dgvNuevo = new DataGridView();
+
+            foreach (DataGridViewColumn col in dgvGestion.Columns)
+            {
+                dgvNuevo.Columns.Add(col.Clone() as DataGridViewColumn);
+            }
+
+            foreach (DataGridViewRow row in dgvGestion.Rows)
+            {
+                DataGridViewRow newRow = (DataGridViewRow)row.Clone();
+                for (int i = 0; i < row.Cells.Count; i++)
+                {
+                    newRow.Cells[i].Value = row.Cells[i].Value;
+                }
+                dgvNuevo.Rows.Add(newRow);
+            }
+            return dgvNuevo;
+        }
         public DataGridView CopiarDataGridViewEstudiantes()
         {
             DataGridView dgvNuevo = new DataGridView();
@@ -1066,8 +1077,19 @@ namespace AdministraciónEstudiantil
 
         private void btnLateral5_Click(object sender, EventArgs e)
         {
-            DataGridView dgv = new DataGridView();
             QuintoReporte ventana = new QuintoReporte(Lista.AgregarMateriasPromedioNotas());
+            ventana.ShowDialog();
+        }
+
+        private void btnLateral6_Click(object sender, EventArgs e)
+        {
+            SextoReporte ventana = new SextoReporte(CopiarDataGridViewNotas());
+            ventana.ShowDialog();
+        }
+
+        private void btnLateral7_Click(object sender, EventArgs e)
+        {
+            SeptimoReporte ventana = new SeptimoReporte(CopiarDataGridViewEstudiantes());
             ventana.ShowDialog();
         }
     }

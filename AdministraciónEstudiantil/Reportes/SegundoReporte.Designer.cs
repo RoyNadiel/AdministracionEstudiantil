@@ -29,8 +29,8 @@ namespace AdministraciónEstudiantil.Reportes
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label3 = new System.Windows.Forms.Label();
             this.btnCalcular = new System.Windows.Forms.Button();
             this.dgvNuevo = new System.Windows.Forms.DataGridView();
@@ -58,7 +58,7 @@ namespace AdministraciónEstudiantil.Reportes
             this.btnCalcular.Name = "btnCalcular";
             this.btnCalcular.Size = new System.Drawing.Size(75, 26);
             this.btnCalcular.TabIndex = 14;
-            this.btnCalcular.Text = "Calcular";
+            this.btnCalcular.Text = "BUSCAR";
             this.btnCalcular.UseVisualStyleBackColor = true;
             this.btnCalcular.Click += new System.EventHandler(this.btnCalcular_Click);
             // 
@@ -73,14 +73,14 @@ namespace AdministraciónEstudiantil.Reportes
             this.dgvNuevo.BackgroundColor = System.Drawing.Color.Azure;
             this.dgvNuevo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvNuevo.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.Azure;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Sitka Small", 9F);
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.Azure;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvNuevo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Azure;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Sitka Small", 9F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Azure;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvNuevo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvNuevo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvNuevo.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvNuevo.EnableHeadersVisualStyles = false;
@@ -90,11 +90,11 @@ namespace AdministraciónEstudiantil.Reportes
             this.dgvNuevo.ReadOnly = true;
             this.dgvNuevo.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvNuevo.RowHeadersVisible = false;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.Azure;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Sitka Small", 9F);
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.dgvNuevo.RowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Azure;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Sitka Small", 9F);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dgvNuevo.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvNuevo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvNuevo.Size = new System.Drawing.Size(891, 236);
             this.dgvNuevo.TabIndex = 9;

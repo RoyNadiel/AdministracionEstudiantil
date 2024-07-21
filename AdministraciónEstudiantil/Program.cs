@@ -11,9 +11,11 @@ namespace AdministraciónEstudiantil
         /// </summary>
         [STAThread]
         static void Main()
-        {
+        {            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            Presentacion ventana = new Presentacion();
+            ventana.ShowDialog();
             Application.Run(new Administracion());
         }
     }

@@ -105,23 +105,6 @@ namespace AdministraciónEstudiantil
                 departamentoActual = departamentoActual.Next;
             }
         }
-        public DataTable ConvertirADatatable()
-        {
-            DataTable dataTable = new DataTable();
-
-            dataTable.Columns.Add("CODIGO", typeof(string));
-            dataTable.Columns.Add("NOMBRE", typeof(string));
-            dataTable.Columns.Add("DESCRIPCION", typeof(string));
-
-            Departamento departamento = inicio;
-
-            while (departamento != null)
-            {
-                dataTable.Rows.Add(departamento.Codigo, departamento.Nombre, departamento.Descripcion);
-                departamento = departamento.Next;
-            }
-            return dataTable;
-        }
         public void AgregarDepartamentosADataGridView(DataGridView dataGridView)
         {
             dataGridView.Rows.Clear();
@@ -270,7 +253,7 @@ namespace AdministraciónEstudiantil
                                 Materia.Estudiantes = primerEstudiante;
                             }
                             else
-                            {
+                            {                                
                                 EstudianteNode nuevoEstudiante = Materia.Estudiantes;
                                 while (nuevoEstudiante.Next != null)
                                 {
@@ -299,7 +282,7 @@ namespace AdministraciónEstudiantil
                 {
                     EstudianteNode Estudiante = materia.Estudiantes;
                     while (Estudiante != null)
-                    {
+                    {                        
                         dataGridView.Rows.Add(Estudiante.Cedula, Estudiante.Nombre, Estudiante.Apellido, Estudiante.Seccion, Estudiante.Periodo, Estudiante.Materia, Estudiante.Departamento);
                         Estudiante = Estudiante.Next;
                     }
@@ -366,23 +349,6 @@ namespace AdministraciónEstudiantil
                 departamento = departamento.Next;
             }
             return dataGridView;
-        }
-
-        private void ObtenerNotas(DataGridView dgv, int Materia, int Nota)
-        {
-            HashSet<string> Materias = new HashSet<string>();
-
-            foreach (DataGridViewRow row in dgv.Rows)
-            {
-                if (!row.IsNewRow && row.Cells[Materia].Value != null && row.Cells[Nota].Value != null)
-                {
-                    string item = row.Cells[Materia].Value.ToString();
-                    if (!Materias.Contains(item))
-                    {
-                        Materias.Add(item);
-                    }
-                }
-            }
         }
 
         public void MostrarMateriasAComboBox(string nombreDepartamento, ComboBox comboBoxMaterias, ComboBox comboBoxDepartamentos)
@@ -502,27 +468,7 @@ namespace AdministraciónEstudiantil
                 }
                 departamento = departamento.Next;
             }
-        }
-        public void MostrarEstudiantesEnCBX(TextBox textBox)
-        {            
-            Departamento departamento = inicio;
-
-            while (departamento != null)
-            {
-                MateriaNode materia = departamento.Materias;
-                while (materia != null)
-                {
-                    EstudianteNode estudiante = materia.Estudiantes;
-                    while (estudiante != null)
-                    {
-                        
-                        estudiante = estudiante.Next;
-                    }
-                    materia = materia.Next;
-                }
-                departamento = departamento.Next;
-            }
-        }
+        }       
         public string[] IndexChanged(string cedula)
         {
             string[] datosEstudiante = new string[3];
@@ -551,6 +497,54 @@ namespace AdministraciónEstudiantil
                 departamento = departamento.Next;
             }
             return null;
+        }
+
+        public bool ValidarEstudianteIngresado(string nuevaCedula, string nuevoNombre, string nuevoApellido)
+        {
+            Departamento departamento = inicio;
+            while (departamento != null)
+            {
+                MateriaNode materia = departamento.Materias;
+                while (materia != null)
+                {
+                    EstudianteNode Estudiante = materia.Estudiantes;
+                    while (Estudiante != null)
+                    {
+                        if (Estudiante.Cedula == nuevaCedula && Estudiante.Nombre == nuevoNombre && Estudiante.Apellido == nuevoApellido)
+                        {
+                            return true;                          
+                        }                        
+                        Estudiante = Estudiante.Next;
+                    }
+                    materia = materia.Next;
+                }
+                departamento = departamento.Next;
+            }
+            return false;
+        }
+        public bool VerificarCedula(string cedula)
+        {
+            Departamento departamento = inicio;
+            while (departamento != null)
+            {
+                MateriaNode materia = departamento.Materias;
+                while (materia != null)
+                {
+                    EstudianteNode Estudiante = materia.Estudiantes;
+                    while (Estudiante != null)
+                    {
+                        if (Estudiante.Cedula == cedula)
+                        {
+                            MessageBox.Show($"La cedula {Estudiante.Cedula} le pertenece al estudiante {Estudiante.Nombre} {Estudiante.Apellido}.");
+                            return false;
+                        }
+                        Estudiante = Estudiante.Next;
+                    }
+                    materia = materia.Next;
+                }
+                departamento = departamento.Next;
+            }
+            return true;
         }
     }
 

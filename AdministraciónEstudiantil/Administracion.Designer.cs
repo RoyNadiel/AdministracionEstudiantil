@@ -138,14 +138,14 @@ namespace AdministraciónEstudiantil
             this.label31 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
             this.dgvGestion = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CEDULAGEST = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NOMBREGEST = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.APELLIDOGEST = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SECCIONGEST = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PERIODOGEST = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MATERIAGEST = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DEPARTAMENTOGEST = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NOTAGEST = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnLateral4 = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.btnLateral3 = new System.Windows.Forms.Button();
@@ -192,7 +192,7 @@ namespace AdministraciónEstudiantil
             this.tabEstudiantes.Location = new System.Drawing.Point(4, 27);
             this.tabEstudiantes.Name = "tabEstudiantes";
             this.tabEstudiantes.Padding = new System.Windows.Forms.Padding(3);
-            this.tabEstudiantes.Size = new System.Drawing.Size(925, 496);
+            this.tabEstudiantes.Size = new System.Drawing.Size(931, 496);
             this.tabEstudiantes.TabIndex = 2;
             this.tabEstudiantes.Text = "ESTUDIANTES";
             // 
@@ -490,7 +490,7 @@ namespace AdministraciónEstudiantil
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
             this.dgvEstudiantes.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvEstudiantes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvEstudiantes.Size = new System.Drawing.Size(919, 247);
+            this.dgvEstudiantes.Size = new System.Drawing.Size(925, 247);
             this.dgvEstudiantes.TabIndex = 32;
             this.dgvEstudiantes.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.SeleccionarEstudiante);
             // 
@@ -613,7 +613,7 @@ namespace AdministraciónEstudiantil
             this.tabMaterias.Location = new System.Drawing.Point(4, 27);
             this.tabMaterias.Name = "tabMaterias";
             this.tabMaterias.Padding = new System.Windows.Forms.Padding(3);
-            this.tabMaterias.Size = new System.Drawing.Size(925, 496);
+            this.tabMaterias.Size = new System.Drawing.Size(931, 496);
             this.tabMaterias.TabIndex = 1;
             this.tabMaterias.Text = "MATERIAS";
             // 
@@ -780,7 +780,7 @@ namespace AdministraciónEstudiantil
             dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
             this.dgvMaterias.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.dgvMaterias.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMaterias.Size = new System.Drawing.Size(919, 247);
+            this.dgvMaterias.Size = new System.Drawing.Size(925, 247);
             this.dgvMaterias.TabIndex = 24;
             this.dgvMaterias.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.SeleccionarFila);
             // 
@@ -894,7 +894,7 @@ namespace AdministraciónEstudiantil
             this.tabPrincipal.Name = "tabPrincipal";
             this.tabPrincipal.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.tabPrincipal.SelectedIndex = 0;
-            this.tabPrincipal.Size = new System.Drawing.Size(933, 527);
+            this.tabPrincipal.Size = new System.Drawing.Size(939, 527);
             this.tabPrincipal.TabIndex = 23;
             // 
             // tabDepartamentos
@@ -911,12 +911,13 @@ namespace AdministraciónEstudiantil
             this.tabDepartamentos.Location = new System.Drawing.Point(4, 27);
             this.tabDepartamentos.Name = "tabDepartamentos";
             this.tabDepartamentos.Padding = new System.Windows.Forms.Padding(3);
-            this.tabDepartamentos.Size = new System.Drawing.Size(925, 496);
+            this.tabDepartamentos.Size = new System.Drawing.Size(931, 496);
             this.tabDepartamentos.TabIndex = 0;
             this.tabDepartamentos.Text = "DEPARTAMENTOS";
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.Color.Azure;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.txtDescripcionDEP);
             this.panel2.Controls.Add(this.txtCodigoDEP);
@@ -1055,7 +1056,7 @@ namespace AdministraciónEstudiantil
             dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
             this.dgvDepartamentos.RowsDefaultCellStyle = dataGridViewCellStyle18;
             this.dgvDepartamentos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDepartamentos.Size = new System.Drawing.Size(919, 247);
+            this.dgvDepartamentos.Size = new System.Drawing.Size(925, 247);
             this.dgvDepartamentos.TabIndex = 8;
             this.dgvDepartamentos.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvDepartamentos_CellMouseClick);
             // 
@@ -1162,7 +1163,7 @@ namespace AdministraciónEstudiantil
             this.tabGestion.Location = new System.Drawing.Point(4, 27);
             this.tabGestion.Name = "tabGestion";
             this.tabGestion.Padding = new System.Windows.Forms.Padding(3);
-            this.tabGestion.Size = new System.Drawing.Size(925, 496);
+            this.tabGestion.Size = new System.Drawing.Size(931, 496);
             this.tabGestion.TabIndex = 3;
             this.tabGestion.Text = "NOTAS";
             // 
@@ -1268,14 +1269,14 @@ namespace AdministraciónEstudiantil
             this.dgvGestion.ColumnHeadersHeight = 25;
             this.dgvGestion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvGestion.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn8,
-            this.dataGridViewTextBoxColumn9,
-            this.dataGridViewTextBoxColumn10,
-            this.dataGridViewTextBoxColumn11});
+            this.CEDULAGEST,
+            this.NOMBREGEST,
+            this.APELLIDOGEST,
+            this.SECCIONGEST,
+            this.PERIODOGEST,
+            this.MATERIAGEST,
+            this.DEPARTAMENTOGEST,
+            this.NOTAGEST});
             dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(62)))));
             dataGridViewCellStyle23.Font = new System.Drawing.Font("Sitka Small", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1299,77 +1300,77 @@ namespace AdministraciónEstudiantil
             dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
             this.dgvGestion.RowsDefaultCellStyle = dataGridViewCellStyle24;
             this.dgvGestion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvGestion.Size = new System.Drawing.Size(919, 313);
+            this.dgvGestion.Size = new System.Drawing.Size(925, 313);
             this.dgvGestion.TabIndex = 33;
             this.dgvGestion.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvGestion_CellMouseClick);
             // 
-            // dataGridViewTextBoxColumn1
+            // CEDULAGEST
             // 
             dataGridViewCellStyle20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(62)))));
             dataGridViewCellStyle20.Font = new System.Drawing.Font("Cascadia Code", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(62)))));
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle20;
-            this.dataGridViewTextBoxColumn1.HeaderText = "CEDULA";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.CEDULAGEST.DefaultCellStyle = dataGridViewCellStyle20;
+            this.CEDULAGEST.HeaderText = "CEDULA";
+            this.CEDULAGEST.Name = "CEDULAGEST";
+            this.CEDULAGEST.ReadOnly = true;
+            this.CEDULAGEST.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
-            // dataGridViewTextBoxColumn2
+            // NOMBREGEST
             // 
             dataGridViewCellStyle21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(62)))));
             dataGridViewCellStyle21.Font = new System.Drawing.Font("Cascadia Code", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle21.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(62)))));
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle21;
-            this.dataGridViewTextBoxColumn2.HeaderText = "NOMBRE";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.NOMBREGEST.DefaultCellStyle = dataGridViewCellStyle21;
+            this.NOMBREGEST.HeaderText = "NOMBRE";
+            this.NOMBREGEST.Name = "NOMBREGEST";
+            this.NOMBREGEST.ReadOnly = true;
+            this.NOMBREGEST.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
-            // dataGridViewTextBoxColumn3
+            // APELLIDOGEST
             // 
             dataGridViewCellStyle22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(62)))));
             dataGridViewCellStyle22.Font = new System.Drawing.Font("Cascadia Code", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle22.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(62)))));
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle22;
-            this.dataGridViewTextBoxColumn3.HeaderText = "APELLIDO";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.APELLIDOGEST.DefaultCellStyle = dataGridViewCellStyle22;
+            this.APELLIDOGEST.HeaderText = "APELLIDO";
+            this.APELLIDOGEST.Name = "APELLIDOGEST";
+            this.APELLIDOGEST.ReadOnly = true;
+            this.APELLIDOGEST.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
-            // dataGridViewTextBoxColumn4
+            // SECCIONGEST
             // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "SECCION";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.SECCIONGEST.HeaderText = "SECCION";
+            this.SECCIONGEST.Name = "SECCIONGEST";
+            this.SECCIONGEST.ReadOnly = true;
+            this.SECCIONGEST.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
-            // dataGridViewTextBoxColumn8
+            // PERIODOGEST
             // 
-            this.dataGridViewTextBoxColumn8.HeaderText = "PERIODO";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.ReadOnly = true;
-            this.dataGridViewTextBoxColumn8.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.PERIODOGEST.HeaderText = "PERIODO";
+            this.PERIODOGEST.Name = "PERIODOGEST";
+            this.PERIODOGEST.ReadOnly = true;
+            this.PERIODOGEST.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
-            // dataGridViewTextBoxColumn9
+            // MATERIAGEST
             // 
-            this.dataGridViewTextBoxColumn9.HeaderText = "MATERIA";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.ReadOnly = true;
-            this.dataGridViewTextBoxColumn9.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.MATERIAGEST.HeaderText = "MATERIA";
+            this.MATERIAGEST.Name = "MATERIAGEST";
+            this.MATERIAGEST.ReadOnly = true;
+            this.MATERIAGEST.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
-            // dataGridViewTextBoxColumn10
+            // DEPARTAMENTOGEST
             // 
-            this.dataGridViewTextBoxColumn10.HeaderText = "DEPARTAMENTO";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.ReadOnly = true;
-            this.dataGridViewTextBoxColumn10.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.DEPARTAMENTOGEST.HeaderText = "DEPARTAMENTO";
+            this.DEPARTAMENTOGEST.Name = "DEPARTAMENTOGEST";
+            this.DEPARTAMENTOGEST.ReadOnly = true;
+            this.DEPARTAMENTOGEST.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
-            // dataGridViewTextBoxColumn11
+            // NOTAGEST
             // 
-            this.dataGridViewTextBoxColumn11.HeaderText = "NOTA";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.ReadOnly = true;
-            this.dataGridViewTextBoxColumn11.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.NOTAGEST.HeaderText = "NOTA";
+            this.NOTAGEST.Name = "NOTAGEST";
+            this.NOTAGEST.ReadOnly = true;
+            this.NOTAGEST.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // btnLateral4
             // 
@@ -1381,7 +1382,7 @@ namespace AdministraciónEstudiantil
             this.btnLateral4.Location = new System.Drawing.Point(0, 117);
             this.btnLateral4.Margin = new System.Windows.Forms.Padding(5, 2, 5, 2);
             this.btnLateral4.Name = "btnLateral4";
-            this.btnLateral4.Size = new System.Drawing.Size(105, 39);
+            this.btnLateral4.Size = new System.Drawing.Size(99, 39);
             this.btnLateral4.TabIndex = 39;
             this.btnLateral4.Text = "Reporte 4";
             this.btnLateral4.UseVisualStyleBackColor = false;
@@ -1407,7 +1408,7 @@ namespace AdministraciónEstudiantil
             this.btnLateral3.Location = new System.Drawing.Point(0, 78);
             this.btnLateral3.Margin = new System.Windows.Forms.Padding(5, 2, 5, 2);
             this.btnLateral3.Name = "btnLateral3";
-            this.btnLateral3.Size = new System.Drawing.Size(105, 39);
+            this.btnLateral3.Size = new System.Drawing.Size(99, 39);
             this.btnLateral3.TabIndex = 40;
             this.btnLateral3.Text = "Reporte 3";
             this.btnLateral3.UseVisualStyleBackColor = false;
@@ -1423,7 +1424,7 @@ namespace AdministraciónEstudiantil
             this.btnLateral1.Location = new System.Drawing.Point(0, 0);
             this.btnLateral1.Margin = new System.Windows.Forms.Padding(5, 2, 5, 2);
             this.btnLateral1.Name = "btnLateral1";
-            this.btnLateral1.Size = new System.Drawing.Size(105, 39);
+            this.btnLateral1.Size = new System.Drawing.Size(99, 39);
             this.btnLateral1.TabIndex = 41;
             this.btnLateral1.Text = "Reporte 1";
             this.btnLateral1.UseVisualStyleBackColor = false;
@@ -1439,7 +1440,7 @@ namespace AdministraciónEstudiantil
             this.btnLateral2.Location = new System.Drawing.Point(0, 39);
             this.btnLateral2.Margin = new System.Windows.Forms.Padding(5, 2, 5, 2);
             this.btnLateral2.Name = "btnLateral2";
-            this.btnLateral2.Size = new System.Drawing.Size(105, 39);
+            this.btnLateral2.Size = new System.Drawing.Size(99, 39);
             this.btnLateral2.TabIndex = 42;
             this.btnLateral2.Text = "Reporte 2";
             this.btnLateral2.UseVisualStyleBackColor = false;
@@ -1455,10 +1456,11 @@ namespace AdministraciónEstudiantil
             this.btnLateral6.Location = new System.Drawing.Point(0, 195);
             this.btnLateral6.Margin = new System.Windows.Forms.Padding(5, 2, 5, 2);
             this.btnLateral6.Name = "btnLateral6";
-            this.btnLateral6.Size = new System.Drawing.Size(105, 39);
+            this.btnLateral6.Size = new System.Drawing.Size(99, 39);
             this.btnLateral6.TabIndex = 43;
             this.btnLateral6.Text = "Reporte 6";
             this.btnLateral6.UseVisualStyleBackColor = false;
+            this.btnLateral6.Click += new System.EventHandler(this.btnLateral6_Click);
             // 
             // btnLateral5
             // 
@@ -1470,7 +1472,7 @@ namespace AdministraciónEstudiantil
             this.btnLateral5.Location = new System.Drawing.Point(0, 156);
             this.btnLateral5.Margin = new System.Windows.Forms.Padding(5, 2, 5, 2);
             this.btnLateral5.Name = "btnLateral5";
-            this.btnLateral5.Size = new System.Drawing.Size(105, 39);
+            this.btnLateral5.Size = new System.Drawing.Size(99, 39);
             this.btnLateral5.TabIndex = 44;
             this.btnLateral5.Text = "Reporte 5";
             this.btnLateral5.UseVisualStyleBackColor = false;
@@ -1486,10 +1488,11 @@ namespace AdministraciónEstudiantil
             this.btnLateral7.Location = new System.Drawing.Point(0, 234);
             this.btnLateral7.Margin = new System.Windows.Forms.Padding(5, 2, 5, 2);
             this.btnLateral7.Name = "btnLateral7";
-            this.btnLateral7.Size = new System.Drawing.Size(105, 39);
+            this.btnLateral7.Size = new System.Drawing.Size(99, 39);
             this.btnLateral7.TabIndex = 45;
             this.btnLateral7.Text = "Reporte 7";
             this.btnLateral7.UseVisualStyleBackColor = false;
+            this.btnLateral7.Click += new System.EventHandler(this.btnLateral7_Click);
             // 
             // panel4
             // 
@@ -1505,7 +1508,7 @@ namespace AdministraciónEstudiantil
             this.panel4.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(107, 529);
+            this.panel4.Size = new System.Drawing.Size(101, 529);
             this.panel4.TabIndex = 24;
             // 
             // panel5
@@ -1514,9 +1517,9 @@ namespace AdministraciónEstudiantil
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel5.Controls.Add(this.tabPrincipal);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(107, 0);
+            this.panel5.Location = new System.Drawing.Point(101, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(935, 529);
+            this.panel5.Size = new System.Drawing.Size(941, 529);
             this.panel5.TabIndex = 25;
             // 
             // Administracion
@@ -1647,14 +1650,6 @@ namespace AdministraciónEstudiantil
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.DataGridView dgvGestion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private System.Windows.Forms.NumericUpDown txtNotaEST;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label23;
@@ -1671,5 +1666,13 @@ namespace AdministraciónEstudiantil
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.TextBox txtEstudianteGES;
         private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CEDULAGEST;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NOMBREGEST;
+        private System.Windows.Forms.DataGridViewTextBoxColumn APELLIDOGEST;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SECCIONGEST;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PERIODOGEST;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MATERIAGEST;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DEPARTAMENTOGEST;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NOTAGEST;
     }
 }

@@ -85,6 +85,12 @@
       <DependentUpon>Administracion.cs</DependentUpon>
     </Compile>
     <Compile Include="Listas.cs" />
+    <Compile Include="Presentacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion.Designer.cs">
+      <DependentUpon>Presentacion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\CuartoReporte.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,6 +123,18 @@
     <Compile Include="Reportes\SegundoReporte.Designer.cs">
       <DependentUpon>SegundoReporte.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\SeptimoReporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\SeptimoReporte.Designer.cs">
+      <DependentUpon>SeptimoReporte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\SextoReporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\SextoReporte.Designer.cs">
+      <DependentUpon>SextoReporte.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\TercerReporte.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,6 +143,9 @@
     </Compile>
     <EmbeddedResource Include="Administracion.resx">
       <DependentUpon>Administracion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion.resx">
+      <DependentUpon>Presentacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\CuartoReporte.resx">
       <DependentUpon>CuartoReporte.cs</DependentUpon>
@@ -150,6 +171,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\SegundoReporte.resx">
       <DependentUpon>SegundoReporte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\SeptimoReporte.resx">
+      <DependentUpon>SeptimoReporte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\SextoReporte.resx">
+      <DependentUpon>SextoReporte.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\TercerReporte.resx">
       <DependentUpon>TercerReporte.cs</DependentUpon>

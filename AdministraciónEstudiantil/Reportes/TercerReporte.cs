@@ -45,7 +45,7 @@ namespace AdministraciónEstudiantil.Reportes
                 using (Pen pen = new Pen(Color.SteelBlue, 1)) // Color y grosor de la línea  
                 {
                     // Dibujar la línea horizontal  
-                    e.Graphics.DrawLine(pen, 0, vertical, this.ClientSize.Width, vertical); // Cambia 50 por la posición deseada en Y  
+                    e.Graphics.DrawLine(pen, 20, vertical, 350, vertical); // Cambia 50 por la posición deseada en Y  
                 }
                 vertical += 25;
             }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AdministraciónEstudiantil.Reportes;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
@@ -32,7 +33,7 @@ namespace AdministraciónEstudiantil
                 }
                 dgvNuevo.Rows.Add(newRow);
             }
-        }
+        }                
         private void RecibirMaterias(DataGridView dataGridView)
         {
             foreach (DataGridViewColumn col in dataGridView.Columns)
@@ -81,12 +82,16 @@ namespace AdministraciónEstudiantil
         }             
         private void cbxMaterias_SelectedIndexChanged(object sender, EventArgs e)
         {
-            FiltrarDataGridView();            
+            if (cbxMaterias.Text != "" && cbxPeriodos.Text != "")
+            {
+                FiltrarDataGridView();
+                ValidateButtonState();
+            }
         }
         private void FiltrarDataGridView()
         {
             if (cbxPeriodos.Text != "" && cbxMaterias.Text != "")
-            {
+            {                
                 string periodo = cbxPeriodos.SelectedItem.ToString();
                 string materia = cbxMaterias.SelectedItem.ToString();
                 foreach (DataGridViewRow fila in dgvNuevo.Rows)
@@ -102,10 +107,53 @@ namespace AdministraciónEstudiantil
                 }
             }
         }
-
         private void cbxPeriodos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            FiltrarDataGridView();
+            if (cbxMaterias.Text != "" && cbxPeriodos.Text != "")
+            {
+                FiltrarDataGridView();
+                ValidateButtonState();
+            }
+        }        
+        public DataTable EnviarDatosFiltrados2()
+        {
+            DataGridView dataGridView = Application.OpenForms["PrimerReporte"].Controls["dgvNuevo"] as DataGridView;
+
+            DataTable dataTable = new DataTable();
+
+            foreach (DataGridViewColumn column in dataGridView.Columns)
+            {
+                dataTable.Columns.Add(column.HeaderText);
+            }
+            foreach (DataGridViewRow row in dataGridView.Rows)
+            {
+                DataRow dataRow = dataTable.NewRow();
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+                    dataRow[cell.ColumnIndex] = cell.Value != null ? cell.Value.ToString() : "";
+                }
+                dataTable.Rows.Add(dataRow);
+            }
+            return dataTable;
+        }
+        private void ValidateButtonState()
+        {
+            bool allRowsInvisible = true;
+
+            foreach (DataGridViewRow row in dgvNuevo.Rows)
+            {
+                if (row.Visible)
+                {
+                    allRowsInvisible = false;
+                    break; 
+                }
+            }            
+            btnImprimir.Enabled = !allRowsInvisible;
+        }
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            MiniPR ventana = new MiniPR(EnviarDatosFiltrados2());
+            ventana.ShowDialog();
         }
     }
 }

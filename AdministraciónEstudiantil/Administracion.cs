@@ -60,10 +60,10 @@ namespace AdministraciónEstudiantil
             Lista.AgregarEstudiante("Estadistica", "Matematicas III", PrecargasEstudiantes9());
             Lista.AgregarEstudiante("Estadistica", "Matematicas III", PrecargasEstudiantes10());
             Lista.AgregarEstudiante("Estadistica", "Matematicas III", PrecargasEstudiantes11());
-            Lista.AgregarEstudiante("Informatica", "Fundamentos de Electricidad", PrecargasEstudiantes12());
-            Lista.AgregarEstudiante("Informatica", "Fundamentos de Electricidad", PrecargasEstudiantes13());
-            Lista.AgregarEstudiante("Informatica", "Fundamentos de Electricidad", PrecargasEstudiantes14());
-            Lista.AgregarEstudiante("Informatica", "Fundamentos de Electricidad", PrecargasEstudiantes15());
+            Lista.AgregarEstudiante("Informatica", "Fund. de Electricidad", PrecargasEstudiantes12());
+            Lista.AgregarEstudiante("Informatica", "Fund. de Electricidad", PrecargasEstudiantes13());
+            Lista.AgregarEstudiante("Informatica", "Fund. de Electricidad", PrecargasEstudiantes14());
+            Lista.AgregarEstudiante("Informatica", "Fund. de Electricidad", PrecargasEstudiantes15());
             Lista.AgregarEstudiantesADGV(dgvEstudiantes);
             Lista.AgregarEstudiantesAGestion(dgvGestion);
             Lista.MostrarEstudiantesEnCBX(cbxEstudiantes);
@@ -310,7 +310,7 @@ namespace AdministraciónEstudiantil
         {
             MateriaNode datos = new MateriaNode();
             datos.Codigo = "2302534";
-            datos.Nombre = "Fundamentos de Electricidad";
+            datos.Nombre = "Fund. de Electricidad";
             datos.Descripcion = "Física";
             datos.Departamento = "Informatica";
             datos.Creditos = 4;
@@ -704,7 +704,7 @@ namespace AdministraciónEstudiantil
             datos.Apellido = "Gomez";
             datos.Seccion = "0520";
             datos.Periodo = "II-2023";
-            datos.Materia = "Fundamentos de Electricidad";
+            datos.Materia = "Fund. de Electricidad";
             datos.Departamento = "Informatica";
             datos.Nota = 0;
             return datos;
@@ -717,7 +717,7 @@ namespace AdministraciónEstudiantil
             datos.Apellido = "Guerra";
             datos.Seccion = "0520";
             datos.Periodo = "II-2023";
-            datos.Materia = "Fundamentos de Electricidad";
+            datos.Materia = "Fund. de Electricidad";
             datos.Departamento = "Informatica";
             datos.Nota = 0;
             return datos;
@@ -730,7 +730,7 @@ namespace AdministraciónEstudiantil
             datos.Apellido = "Hajjar";
             datos.Seccion = "0521";
             datos.Periodo = "II-2022";
-            datos.Materia = "Fundamentos de Electricidad";
+            datos.Materia = "Fund. de Electricidad";
             datos.Departamento = "Informatica";
             datos.Nota = 0;
             return datos;
@@ -743,7 +743,7 @@ namespace AdministraciónEstudiantil
             datos.Apellido = "Henriquez";
             datos.Seccion = "0521";
             datos.Periodo = "II-2022";
-            datos.Materia = "Fundamentos de Electricidad";
+            datos.Materia = "Fund. de Electricidad";
             datos.Departamento = "Informatica";
             datos.Nota = 0;
             return datos;
@@ -965,7 +965,6 @@ namespace AdministraciónEstudiantil
                 notaGestion.Value = 0;
             }
         }
-
         private void txtEstudianteGES_TextChanged(object sender, EventArgs e)
         {
             FiltrarDGVGestion();

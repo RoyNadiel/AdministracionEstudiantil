@@ -557,6 +557,7 @@ namespace AdministraciónEstudiantil
             // 
             // btnAgregarEST
             // 
+            this.btnAgregarEST.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAgregarEST.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregarEST.Font = new System.Drawing.Font("Sitka Small", 9F, System.Drawing.FontStyle.Bold);
             this.btnAgregarEST.ImeMode = System.Windows.Forms.ImeMode.NoControl;
@@ -571,6 +572,7 @@ namespace AdministraciónEstudiantil
             // 
             // btnEliminarEST
             // 
+            this.btnEliminarEST.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEliminarEST.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminarEST.Font = new System.Drawing.Font("Sitka Small", 9F, System.Drawing.FontStyle.Bold);
             this.btnEliminarEST.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -586,6 +588,7 @@ namespace AdministraciónEstudiantil
             // 
             // btnCancelarEST
             // 
+            this.btnCancelarEST.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancelarEST.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelarEST.Font = new System.Drawing.Font("Sitka Small", 9F, System.Drawing.FontStyle.Bold);
             this.btnCancelarEST.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -825,6 +828,7 @@ namespace AdministraciónEstudiantil
             // 
             // btnAgregarMAT
             // 
+            this.btnAgregarMAT.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAgregarMAT.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregarMAT.Font = new System.Drawing.Font("Sitka Small", 9F, System.Drawing.FontStyle.Bold);
             this.btnAgregarMAT.ImeMode = System.Windows.Forms.ImeMode.NoControl;
@@ -839,6 +843,7 @@ namespace AdministraciónEstudiantil
             // 
             // btnModificarMAT
             // 
+            this.btnModificarMAT.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnModificarMAT.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModificarMAT.Font = new System.Drawing.Font("Sitka Small", 9F, System.Drawing.FontStyle.Bold);
             this.btnModificarMAT.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -854,6 +859,7 @@ namespace AdministraciónEstudiantil
             // 
             // btnEliminarMAT
             // 
+            this.btnEliminarMAT.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEliminarMAT.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminarMAT.Font = new System.Drawing.Font("Sitka Small", 9F, System.Drawing.FontStyle.Bold);
             this.btnEliminarMAT.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -869,6 +875,7 @@ namespace AdministraciónEstudiantil
             // 
             // btnCancelarMAT
             // 
+            this.btnCancelarMAT.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancelarMAT.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelarMAT.Font = new System.Drawing.Font("Sitka Small", 9F, System.Drawing.FontStyle.Bold);
             this.btnCancelarMAT.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -989,6 +996,7 @@ namespace AdministraciónEstudiantil
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label4.Font = new System.Drawing.Font("Sitka Small", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label4.Location = new System.Drawing.Point(353, 221);
@@ -1096,6 +1104,7 @@ namespace AdministraciónEstudiantil
             // 
             // btnAgregarDEP
             // 
+            this.btnAgregarDEP.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAgregarDEP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregarDEP.Font = new System.Drawing.Font("Sitka Small", 9F, System.Drawing.FontStyle.Bold);
             this.btnAgregarDEP.ImeMode = System.Windows.Forms.ImeMode.NoControl;
@@ -1110,6 +1119,7 @@ namespace AdministraciónEstudiantil
             // 
             // btnCancelarDEP
             // 
+            this.btnCancelarDEP.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancelarDEP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelarDEP.Font = new System.Drawing.Font("Sitka Small", 9F, System.Drawing.FontStyle.Bold);
             this.btnCancelarDEP.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -1125,6 +1135,7 @@ namespace AdministraciónEstudiantil
             // 
             // btnModificarDEP
             // 
+            this.btnModificarDEP.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnModificarDEP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModificarDEP.Font = new System.Drawing.Font("Sitka Small", 9F, System.Drawing.FontStyle.Bold);
             this.btnModificarDEP.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -1140,6 +1151,7 @@ namespace AdministraciónEstudiantil
             // 
             // btnEliminarDEP
             // 
+            this.btnEliminarDEP.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEliminarDEP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminarDEP.Font = new System.Drawing.Font("Sitka Small", 9F, System.Drawing.FontStyle.Bold);
             this.btnEliminarDEP.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -1169,6 +1181,7 @@ namespace AdministraciónEstudiantil
             // 
             // btnModifcarGES
             // 
+            this.btnModifcarGES.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnModifcarGES.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModifcarGES.Font = new System.Drawing.Font("Sitka Small", 9F, System.Drawing.FontStyle.Bold);
             this.btnModifcarGES.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -1189,6 +1202,7 @@ namespace AdministraciónEstudiantil
             this.panel6.Controls.Add(this.label24);
             this.panel6.Controls.Add(this.notaGestion);
             this.panel6.Controls.Add(this.label31);
+            this.panel6.Cursor = System.Windows.Forms.Cursors.Default;
             this.panel6.Location = new System.Drawing.Point(7, 29);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(405, 78);
@@ -1374,6 +1388,7 @@ namespace AdministraciónEstudiantil
             // 
             // btnLateral4
             // 
+            this.btnLateral4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLateral4.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnLateral4.FlatAppearance.BorderSize = 0;
             this.btnLateral4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1400,6 +1415,7 @@ namespace AdministraciónEstudiantil
             // 
             // btnLateral3
             // 
+            this.btnLateral3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLateral3.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnLateral3.FlatAppearance.BorderSize = 0;
             this.btnLateral3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1416,6 +1432,7 @@ namespace AdministraciónEstudiantil
             // 
             // btnLateral1
             // 
+            this.btnLateral1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLateral1.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnLateral1.FlatAppearance.BorderSize = 0;
             this.btnLateral1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1432,6 +1449,7 @@ namespace AdministraciónEstudiantil
             // 
             // btnLateral2
             // 
+            this.btnLateral2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLateral2.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnLateral2.FlatAppearance.BorderSize = 0;
             this.btnLateral2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1448,6 +1466,7 @@ namespace AdministraciónEstudiantil
             // 
             // btnLateral6
             // 
+            this.btnLateral6.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLateral6.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnLateral6.FlatAppearance.BorderSize = 0;
             this.btnLateral6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1464,6 +1483,7 @@ namespace AdministraciónEstudiantil
             // 
             // btnLateral5
             // 
+            this.btnLateral5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLateral5.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnLateral5.FlatAppearance.BorderSize = 0;
             this.btnLateral5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1480,6 +1500,7 @@ namespace AdministraciónEstudiantil
             // 
             // btnLateral7
             // 
+            this.btnLateral7.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLateral7.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnLateral7.FlatAppearance.BorderSize = 0;
             this.btnLateral7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;

@@ -52,6 +52,7 @@ namespace AdministraciónEstudiantil.Reportes
             // 
             // btnCalcular
             // 
+            this.btnCalcular.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCalcular.Enabled = false;
             this.btnCalcular.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCalcular.Location = new System.Drawing.Point(177, 65);

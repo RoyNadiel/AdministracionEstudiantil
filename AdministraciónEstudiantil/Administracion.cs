@@ -13,21 +13,6 @@ namespace AdministraciónEstudiantil
         {
             InitializeComponent();
             Lista = new Listas();
-            //Lista.AgregarDepartamento(PrecargasDepartamentos1());
-            //Lista.AgregarDepartamento(PrecargasDepartamentos2());
-            //Lista.AgregarDepartamento(PrecargasDepartamentos3());
-            //Lista.MostrarDepartamentosEnComboBox(cbxDepartamentosMAT);
-            //Lista.AgregarMateria("Informatica", PrecargasMaterias1());
-            //Lista.AgregarMateria("Cursos Basicos", PrecargasMaterias2());
-            //Lista.AgregarMateria("Estadistica", PrecargasMaterias3());
-            //Lista.AgregarMateriasADataGridView(dgvMaterias);
-            //Lista.AgregarEstudiante("Informatica", "Datos II", PrecargasEstudiantes1());
-            //Lista.AgregarEstudiante("Informatica", "Datos II", PrecargasEstudiantes2());
-            //Lista.AgregarEstudiante("Estadistica", "Computacion I", PrecargasEstudiantes3());
-            //Lista.AgregarEstudiante("Estadistica", "Computacion I", PrecargasEstudiantes4());
-            //Lista.AgregarEstudiantesADataGridView(dgvEstudiantes);
-            //Lista.AgregarDepartamentosADataGridView(dgvDepartamentos);
-            //Lista.MostrarDepartamentosEnComboBox(cbxDepartamentosEST);
         }
         private void Administracion_Load(object sender, EventArgs e)
         {
@@ -550,7 +535,7 @@ namespace AdministraciónEstudiantil
             datos.Periodo = txtPeriodoEST.Text.ToUpper();
             datos.Materia = cbxMateriasEST.Text;
             datos.Departamento = cbxDepartamentosEST.Text;
-            datos.Nota = Convert.ToDouble(txtNotaEST.Text);
+            datos.Nota = 0;
             return datos;
         }
         private EstudianteNode PrecargasEstudiantes1()
@@ -780,7 +765,7 @@ namespace AdministraciónEstudiantil
                                             Lista.AgregarEstudiantesAGestion(dgvGestion);
                                             Lista.MostrarEstudiantesEnCBX(cbxEstudiantes);
                                             LimpiarEstudiantes();
-                                        }       
+                                        }
                                     }
                                     else
                                     {
@@ -876,7 +861,6 @@ namespace AdministraciónEstudiantil
             txtApellidoEST.Clear();
             txtSeccionEST.Clear();
             txtPeriodoEST.Clear();
-            txtNotaEST.Text = "0";
             cbxMateriasEST.SelectedItem = null;
             cbxDepartamentosEST.SelectedItem = null;
         }

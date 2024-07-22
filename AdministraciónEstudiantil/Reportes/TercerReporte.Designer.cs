@@ -47,7 +47,7 @@ namespace AdministraciónEstudiantil.Reportes
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Azure;
-            this.ClientSize = new System.Drawing.Size(392, 82);
+            this.ClientSize = new System.Drawing.Size(392, 63);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Sitka Small", 9F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

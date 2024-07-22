@@ -60,7 +60,6 @@ namespace AdministraciónEstudiantil
             this.label23 = new System.Windows.Forms.Label();
             this.cbxEstudiantes = new System.Windows.Forms.ComboBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.txtNotaEST = new System.Windows.Forms.NumericUpDown();
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.cbxMateriasEST = new System.Windows.Forms.ComboBox();
@@ -75,7 +74,6 @@ namespace AdministraciónEstudiantil
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.dgvEstudiantes = new System.Windows.Forms.DataGridView();
@@ -159,7 +157,6 @@ namespace AdministraciónEstudiantil
             this.tabEstudiantes.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtNotaEST)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEstudiantes)).BeginInit();
             this.tabMaterias.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -239,7 +236,6 @@ namespace AdministraciónEstudiantil
             // panel3
             // 
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.txtNotaEST);
             this.panel3.Controls.Add(this.label19);
             this.panel3.Controls.Add(this.label20);
             this.panel3.Controls.Add(this.cbxMateriasEST);
@@ -254,25 +250,10 @@ namespace AdministraciónEstudiantil
             this.panel3.Controls.Add(this.label11);
             this.panel3.Controls.Add(this.label12);
             this.panel3.Controls.Add(this.label13);
-            this.panel3.Controls.Add(this.label21);
             this.panel3.Location = new System.Drawing.Point(7, 29);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(429, 188);
             this.panel3.TabIndex = 36;
-            // 
-            // txtNotaEST
-            // 
-            this.txtNotaEST.BackColor = System.Drawing.Color.Ivory;
-            this.txtNotaEST.DecimalPlaces = 1;
-            this.txtNotaEST.Location = new System.Drawing.Point(145, 139);
-            this.txtNotaEST.Maximum = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            this.txtNotaEST.Name = "txtNotaEST";
-            this.txtNotaEST.Size = new System.Drawing.Size(112, 22);
-            this.txtNotaEST.TabIndex = 43;
             // 
             // label19
             // 
@@ -407,15 +388,6 @@ namespace AdministraciónEstudiantil
             this.label13.TabIndex = 14;
             this.label13.Text = "NOMBRE:";
             // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(141, 117);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(47, 18);
-            this.label21.TabIndex = 40;
-            this.label21.Text = "NOTA:";
-            // 
             // label14
             // 
             this.label14.AutoSize = true;
@@ -475,7 +447,6 @@ namespace AdministraciónEstudiantil
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvEstudiantes.DefaultCellStyle = dataGridViewCellStyle5;
-            this.dgvEstudiantes.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvEstudiantes.EnableHeadersVisualStyles = false;
             this.dgvEstudiantes.GridColor = System.Drawing.Color.LightSlateGray;
             this.dgvEstudiantes.Location = new System.Drawing.Point(3, 246);
@@ -767,7 +738,6 @@ namespace AdministraciónEstudiantil
             dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvMaterias.DefaultCellStyle = dataGridViewCellStyle11;
-            this.dgvMaterias.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvMaterias.EnableHeadersVisualStyles = false;
             this.dgvMaterias.GridColor = System.Drawing.Color.LightSlateGray;
             this.dgvMaterias.Location = new System.Drawing.Point(3, 246);
@@ -1048,7 +1018,6 @@ namespace AdministraciónEstudiantil
             dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvDepartamentos.DefaultCellStyle = dataGridViewCellStyle17;
-            this.dgvDepartamentos.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvDepartamentos.EnableHeadersVisualStyles = false;
             this.dgvDepartamentos.GridColor = System.Drawing.Color.LightSlateGray;
             this.dgvDepartamentos.Location = new System.Drawing.Point(3, 246);
@@ -1566,7 +1535,6 @@ namespace AdministraciónEstudiantil
             this.panel7.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtNotaEST)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEstudiantes)).EndInit();
             this.tabMaterias.ResumeLayout(false);
             this.tabMaterias.PerformLayout();
@@ -1671,8 +1639,6 @@ namespace AdministraciónEstudiantil
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.DataGridView dgvGestion;
-        private System.Windows.Forms.NumericUpDown txtNotaEST;
-        private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.ComboBox cbxEstudiantes;
         private System.Windows.Forms.Button btnModifcarGES;

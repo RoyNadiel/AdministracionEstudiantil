@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Windows.Forms;
-using AdministraciónEstudiantil.Reportes;
 
 namespace AdministraciónEstudiantil
 {
@@ -11,11 +10,11 @@ namespace AdministraciónEstudiantil
         /// </summary>
         [STAThread]
         static void Main()
-        {            
+        {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Presentacion ventana = new Presentacion();
-            ventana.ShowDialog();
+            //Presentacion ventana = new Presentacion();
+            //ventana.ShowDialog();
             Application.Run(new Administracion());
         }
     }

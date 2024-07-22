@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AdministraciónEstudiantil.Reportes
@@ -22,7 +16,7 @@ namespace AdministraciónEstudiantil.Reportes
             MostrarMaterias(materias, Datos);
         }
 
-        private void MostrarMaterias(string[] materias, Dictionary<string,int> Datos)
+        private void MostrarMaterias(string[] materias, Dictionary<string, int> Datos)
         {
             int vertical = 40;
             int crecimiento = 0;
@@ -44,7 +38,7 @@ namespace AdministraciónEstudiantil.Reportes
                 this.Controls.Add(cant);
                 vertical += 20;
                 crecimiento += 20;
-                this.Size = new Size (316, 105 + crecimiento);
+                this.Size = new Size(316, 105 + crecimiento);
             }
             if (materias.Length > 1)
             {

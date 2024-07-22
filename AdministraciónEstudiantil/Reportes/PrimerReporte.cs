@@ -33,7 +33,7 @@ namespace AdministraciónEstudiantil
                 }
                 dgvNuevo.Rows.Add(newRow);
             }
-        }                
+        }
         private void RecibirMaterias(DataGridView dataGridView)
         {
             foreach (DataGridViewColumn col in dataGridView.Columns)
@@ -79,7 +79,7 @@ namespace AdministraciónEstudiantil
                     }
                 }
             }
-        }             
+        }
         private void cbxMaterias_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cbxMaterias.Text != "" && cbxPeriodos.Text != "")
@@ -91,7 +91,7 @@ namespace AdministraciónEstudiantil
         private void FiltrarDataGridView()
         {
             if (cbxPeriodos.Text != "" && cbxMaterias.Text != "")
-            {                
+            {
                 string periodo = cbxPeriodos.SelectedItem.ToString();
                 string materia = cbxMaterias.SelectedItem.ToString();
                 foreach (DataGridViewRow fila in dgvNuevo.Rows)
@@ -114,7 +114,7 @@ namespace AdministraciónEstudiantil
                 FiltrarDataGridView();
                 ValidateButtonState();
             }
-        }        
+        }
         public DataTable EnviarDatosFiltrados2()
         {
             DataGridView dataGridView = Application.OpenForms["PrimerReporte"].Controls["dgvNuevo"] as DataGridView;
@@ -145,9 +145,9 @@ namespace AdministraciónEstudiantil
                 if (row.Visible)
                 {
                     allRowsInvisible = false;
-                    break; 
+                    break;
                 }
-            }            
+            }
             btnImprimir.Enabled = !allRowsInvisible;
         }
         private void btnImprimir_Click(object sender, EventArgs e)

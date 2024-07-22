@@ -13,7 +13,7 @@ namespace AdministraciónEstudiantil.Reportes
             RecibirMaterias(dgvMaterias);
             MostrarDepartamentosCBX(dgvNuevo, 3, cbxDepartamentos);
             MostrarSemestresCBX(dgvNuevo, 0, cbxSemestre);
-        }        
+        }
         private void RecibirMaterias(DataGridView dataGridView)
         {
             foreach (DataGridViewColumn col in dataGridView.Columns)
@@ -41,7 +41,7 @@ namespace AdministraciónEstudiantil.Reportes
                 if (!row.IsNewRow && row.Cells[columnIndex].Value != null)
                 {
                     string item = row.Cells[columnIndex].Value.ToString();
-                    
+
                     if (!itemsSet.Contains(item))
                     {
                         comboBox.Items.Add(item);
@@ -62,7 +62,7 @@ namespace AdministraciónEstudiantil.Reportes
                     string item = row.Cells[columnIndex].Value.ToString();
                     string itemReal = item[item.Length - 2].ToString();
                     if (!itemsSet.Contains(itemReal))
-                    {                       
+                    {
                         itemsSet.Add(itemReal);
                     }
                 }

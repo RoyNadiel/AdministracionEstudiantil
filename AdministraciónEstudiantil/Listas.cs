@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace AdministraciónEstudiantil
@@ -52,7 +50,7 @@ namespace AdministraciónEstudiantil
                     if (departamento.Nombre == nombreDepartamento)
                     {
                         departamento.Codigo = datos.Codigo;
-                        departamento.Nombre = datos.Nombre;                        
+                        departamento.Nombre = datos.Nombre;
                         departamento.Descripcion = datos.Descripcion;
                         return;
                     }
@@ -154,12 +152,12 @@ namespace AdministraciónEstudiantil
                 while (materia != null)
                 {
                     Creditos.Add(materia.Nombre, materia.Creditos);
-                    materia = materia.Next;           
+                    materia = materia.Next;
                 }
                 departamento = departamento.Next;
             }
             return Creditos;
-        }        
+        }
         public void AgregarMateriasADataGridView(DataGridView dataGridView)
         {
             dataGridView.Rows.Clear();
@@ -253,7 +251,7 @@ namespace AdministraciónEstudiantil
                                 Materia.Estudiantes = primerEstudiante;
                             }
                             else
-                            {                                
+                            {
                                 EstudianteNode nuevoEstudiante = Materia.Estudiantes;
                                 while (nuevoEstudiante.Next != null)
                                 {
@@ -282,7 +280,7 @@ namespace AdministraciónEstudiantil
                 {
                     EstudianteNode Estudiante = materia.Estudiantes;
                     while (Estudiante != null)
-                    {                        
+                    {
                         dataGridView.Rows.Add(Estudiante.Cedula, Estudiante.Nombre, Estudiante.Apellido, Estudiante.Seccion, Estudiante.Periodo, Estudiante.Materia, Estudiante.Departamento);
                         Estudiante = Estudiante.Next;
                     }
@@ -464,11 +462,11 @@ namespace AdministraciónEstudiantil
                         comboBox.Items.Add(estudiante.Cedula);
                         estudiante = estudiante.Next;
                     }
-                    materia = materia.Next;                       
+                    materia = materia.Next;
                 }
                 departamento = departamento.Next;
             }
-        }       
+        }
         public string[] IndexChanged(string cedula)
         {
             string[] datosEstudiante = new string[3];
@@ -490,7 +488,7 @@ namespace AdministraciónEstudiantil
                             datosEstudiante[2] = estudiante.Apellido;
                             return datosEstudiante;
                         }
-                        estudiante = estudiante.Next;                 
+                        estudiante = estudiante.Next;
                     }
                     materia = materia.Next;
                 }
@@ -512,8 +510,8 @@ namespace AdministraciónEstudiantil
                     {
                         if (Estudiante.Cedula == nuevaCedula && Estudiante.Nombre == nuevoNombre && Estudiante.Apellido == nuevoApellido)
                         {
-                            return true;                          
-                        }                        
+                            return true;
+                        }
                         Estudiante = Estudiante.Next;
                     }
                     materia = materia.Next;
@@ -608,6 +606,6 @@ namespace AdministraciónEstudiantil
             Nota = Datos.Nota;
             Materia = Datos.Materia;
             Departamento = Datos.Departamento;
-        }        
+        }
     }
 }

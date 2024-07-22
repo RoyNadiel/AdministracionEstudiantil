@@ -127,12 +127,15 @@ namespace AdministraciónEstudiantil
             }
             foreach (DataGridViewRow row in dataGridView.Rows)
             {
-                DataRow dataRow = dataTable.NewRow();
-                foreach (DataGridViewCell cell in row.Cells)
+                if (row.Visible != false)
                 {
-                    dataRow[cell.ColumnIndex] = cell.Value != null ? cell.Value.ToString() : "";
-                }
-                dataTable.Rows.Add(dataRow);
+                    DataRow dataRow = dataTable.NewRow();
+                    foreach (DataGridViewCell cell in row.Cells)
+                    {
+                        dataRow[cell.ColumnIndex] = cell.Value != null ? cell.Value.ToString() : "";
+                    }
+                    dataTable.Rows.Add(dataRow);
+                }                
             }
             return dataTable;
         }

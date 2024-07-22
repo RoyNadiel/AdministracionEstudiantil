@@ -91,13 +91,31 @@ namespace AdministraciónEstudiantil.Reportes
             }
             MessageBox.Show($"El departamento con mas estudiantes es {mayorDep}", "Resultados", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-
+        private void FiltrarDataGridView()
+        {
+            if (cbxPeriodos.Text != "")
+            {
+                string periodo = cbxPeriodos.SelectedItem.ToString();
+                foreach (DataGridViewRow fila in dgvNuevo.Rows)
+                {
+                    if (fila.Cells[4].Value != null && fila.Cells[4].Value.ToString() == periodo)
+                    {
+                        fila.Visible = true;
+                    }
+                    else
+                    {
+                        fila.Visible = false;
+                    }
+                }
+            }
+        }
         private void cbxPeriodos_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cbxPeriodos.Text != null)
             {
                 btnCalcular.Enabled = true;
             }
+            FiltrarDataGridView();
         }
 
         private void btnCalcular_Click(object sender, EventArgs e)
